@@ -7,7 +7,7 @@ node {
          def toolbelt = tool 'sfdx'
 
 
-        def JWT_KEY_CRED_ID=env.JWT_KEY_CRED_ID_Acamsfull
+        def JWT_KEY_CRED_ID=env.JWT_KEY_CRED_ID_Acamfull
 def clientId = env.CLIENT_ID_Acamsfull
 def sf_username=env.sf_username_Acamsfull
         
