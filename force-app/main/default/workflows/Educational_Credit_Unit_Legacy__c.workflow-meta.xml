@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Customizable_Email_Push_ECU</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Customizable Email Push ECU</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>info@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/Asia_Singapore_Funding_Application_Submitted_by_ACAMS_after_1_Jan_2019</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>ECU_Status_Update</fullName>
+        <field>Status__c</field>
+        <literalValue>Dormant</literalValue>
+        <name>ECU Status Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Latest_Certification_Date_to_Contact</fullName>
+        <field>Latest_Certification_Date__c</field>
+        <formula>Contact__r.Latest_Certification_Date__c</formula>
+        <name>Set Latest Certification Date to Contact</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Customizable Email Push ECU</fullName>
+        <actions>
+            <name>Customizable_Email_Push_ECU</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <formula>AND($Profile.Name &lt;&gt; &apos;Data Migration&apos;, Communication_Push__c = True)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>ECU Status</fullName>
+        <actions>
+            <name>ECU_Status_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updates the status for expired (Dormant) educational credit units.</description>
+        <formula>IF( AND (Credit_End_Date__c &lt; today() , $Profile.Name != &apos;Data Migration&apos;), true, false)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>ECU_Status_Update</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Educational_Credit_Unit_Legacy__c.Credit_End_Date__c</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Set Initial Latest Certification Date</fullName>
+        <actions>
+            <name>Set_Latest_Certification_Date_to_Contact</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Contact.Latest_Certification_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

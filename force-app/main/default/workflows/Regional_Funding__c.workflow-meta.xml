@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>APAC_Singapore_AML_Regime_Exam_Application_Confirmation_Email</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>APAC Singapore AML Regime Exam Application Confirmation Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>apac@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>System_Email/Confirmation_Email_Singapore_AML_Regime_Exam_Web_Certification_Application</template>
+    </alerts>
+    <alerts>
+        <fullName>APAC_Singapore_Funding_Application_Cheque_Received_by_ACAMS</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>APAC Singapore Funding Application Cheque Received by ACAMS</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>apac@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/APAC_Singapore_Funding_Application_Cheque_Received_by_ACAMS</template>
+    </alerts>
+    <alerts>
+        <fullName>APAC_Singapore_Funding_Application_Rejected</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>APAC Singapore Funding Application Rejected</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>apac@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/Asia_Singapore_Funding_Application_Rejected</template>
+    </alerts>
+    <alerts>
+        <fullName>APAC_Singapore_Funding_Application_Submitted_by_ACAMS</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>APAC Singapore Funding Application Submitted by ACAMS</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>apac@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/Asia_Singapore_Funding_Application_Submitted_by_ACAMS_after_1_Jan_2019</template>
+    </alerts>
+    <alerts>
+        <fullName>APAC_Singapore_Funding_Application_Submitted_by_Candidate</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>APAC Singapore Funding Application Submitted by Candidate</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>apac@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/Asia_Singapore_Funding_Application_Submitted_by_Candidate</template>
+    </alerts>
+    <alerts>
+        <fullName>APAC_Singapore_IBF_Funding_Request_Reminder</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>APAC Singapore IBF Funding Request Reminder</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>apac@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/Asia_Singapore_IBF_Funding_Request_Reminder</template>
+    </alerts>
+    <alerts>
+        <fullName>Asia_Singapore_AML_Regime_Exam_Application_Confirmation_Email</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Asia Singapore AML Regime Exam Application Confirmation Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>System_Email/Confirmation_Email_Singapore_AML_Regime_Exam_Web_Certification_Application</template>
+    </alerts>
+    <rules>
+        <fullName>APAC Singapore AML Regime Exam Application Send Confirmation Email</fullName>
+        <actions>
+            <name>APAC_Singapore_AML_Regime_Exam_Application_Confirmation_Email</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Regional_Funding__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Exam App Submitted</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <description>Send Confirmation Email - Web Asia Singapore AML Regime Exam Application</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>APAC Singapore Funding Application Cheque Received by ACAMS</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Regional_Funding__c.Check_Received_by_ACAMS__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>APAC_Singapore_Funding_Application_Cheque_Received_by_ACAMS</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Regional_Funding__c.Check_Received_Date__c</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>APAC Singapore Funding Application Rejected</fullName>
+        <actions>
+            <name>APAC_Singapore_Funding_Application_Rejected</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Regional_Funding__c.Funding_Rejected_Reason__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>APAC Singapore Funding Application Submitted by ACAMS</fullName>
+        <actions>
+            <name>APAC_Singapore_Funding_Application_Submitted_by_ACAMS</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Regional_Funding__c.Funding_Application_Submitted_to_IBF_by__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>APAC Singapore Funding Application Submitted by Candidate</fullName>
+        <actions>
+            <name>APAC_Singapore_Funding_Application_Submitted_by_Candidate</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Regional_Funding__c.Funding_Application_Submitted_by_Candida__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>APAC Singapore IBF Funding Request Reminder</fullName>
+        <actions>
+            <name>APAC_Singapore_IBF_Funding_Request_Reminder</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Regional_Funding__c.Passed_AML_Regime_Exam_Date__c</field>
+            <operation>greaterThan</operation>
+            <value>1/1/2018</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Regional_Funding__c.Passed_CAMS_Exam_Date__c</field>
+            <operation>notEqual</operation>
+            <value>4/21/2017</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Regional_Funding__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Both Exam Passed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Asia Singapore AML Regime Exam Application Send Confirmation Email</fullName>
+        <actions>
+            <name>Asia_Singapore_AML_Regime_Exam_Application_Confirmation_Email</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Regional_Funding__c.Exam_application_submitted__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <description>Send Confirmation Email - Web Asia Singapore AML Regime Exam Application</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

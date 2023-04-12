@@ -1,0 +1,4 @@
+<aura:component implements="force:lightningQuickAction,flexipage:availableForAllPageTypes">
+    <aura:handler name='init' value='{!this}' action='{!c.doInit}' />
+    <lightning:spinner alternativeText="Wait" size="small" variant="base" />
+</aura:component>

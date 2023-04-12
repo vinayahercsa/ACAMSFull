@@ -1,0 +1,12 @@
+<apex:page StandardController="Account" showHeader="false" standardStylesheets="false" sidebar="false">
+
+    <body style="{!if(Account.Enterprise_Account__c = True, "background-color:red;", "backgorund-color:white;")}">
+        <apex:outputPanel rendered="{!Account.Enterprise_Account__c}">
+            <div align="center"><b>
+                Enterprise Account
+            </b>
+            </div>
+        </apex:outputPanel>
+    </body>
+          
+</apex:page>

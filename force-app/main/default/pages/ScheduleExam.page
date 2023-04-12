@@ -1,0 +1,32 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" Controller="ScheduleExamController">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <head> 
+            <title>Pearson VUE</title>
+            <apex:includeScript value="{!URLFOR($Resource.ACAMS_Certification_Application_Resources, 'vendor/jquery-1.12.4.min.js')}"/>
+  			<apex:includeScript value="{!URLFOR($Resource.ACAMS_Certification_Application_Resources, 'vendor/bootstrap/js/bootstrap.min.js')}"/>
+            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+            <meta http-equiv="Content-Language" content="en-us" />
+        </head>
+        <body onload="javascript:document.autoForm.submit();">
+            <form name="autoForm" action="{!$Label.SSO_Endpoint}" method="post"> 
+                <noscript>
+                <input type="submit" name="submit" value="Continue"/>
+                    </noscript> 
+                <input type="hidden" name="CLIENT_CODE" value="{!clientCode}" />
+                    <input type="hidden" name="CLIENT_CANDIDATE_ID" value="{!clientCandidateId}" />
+                            <input type="hidden" name="EXTERNAL_PAGE_TIMESTAMP" value="{!ts}" />
+                                <input type="hidden" name="EXTERNAL_ERROR_URL" value="{!errorURL}" />
+                                    <input type="hidden" name="EXTERNAL_LOGOUT_URL" value="{!logoutURL}" /> 
+                                        <input type="hidden" name="EXTERNAL_RETURN_URL" value="{!returnURL}" /> 
+                                            <input type="hidden" name="EXTERNAL_TIMEOUT_URL"  value="{!returnURL}" /> 
+                                                <input type="hidden" name="EXTERNAL_SESSION_TIMEOUT" value="{!timeout}" />
+                                                    <input type="hidden" name="EXAM_SERIES_CODE"  value="{!examseriescode}" />
+                                                        <input type="hidden" name="LOCALE_CODE"  value="{!locale}" />
+                                                            <input type="hidden" name="PRIVATE_ACCESS_CODE"  value="{!privateAccessCode}" /> 
+                                                            <input type="hidden" name="ACTION"  value="scheduleExam" /> 
+                                                    
+                                                        <input type="hidden" name="EXTERNAL_AUTH_HASH"  value="{!hmac}" />
+                                                            </form> 
+                                                        </body>
+                                                        </html> 
+</apex:page>

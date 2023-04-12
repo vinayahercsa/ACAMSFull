@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Closed_Case_Autoresponse_External</fullName>
+        <description>Closed Case Autoresponse (External)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Customer_Service/Customer_Case_Closed_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Closed_Case_Notification_Internal</fullName>
+        <description>Closed Case Notification (Internal)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Customer_Service/Closed_Case_Notification_Internal</template>
+    </alerts>
+    <alerts>
+        <fullName>Issues_and_Urgent_Cases_Internal_Notifications</fullName>
+        <ccEmails>EAraujo@acams.org</ccEmails>
+        <description>Issues and Urgent Cases Internal Notifications</description>
+        <protected>false</protected>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Customer_Service/TXT_Issues_and_Urgent_Cases_Internal_Notifications</template>
+    </alerts>
+    <alerts>
+        <fullName>New_Amendment_to_Case</fullName>
+        <ccEmails>info@acams.org</ccEmails>
+        <description>New Amendment to Case</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Customer_Service/TXT_New_Amendment_to_Case</template>
+    </alerts>
+    <alerts>
+        <fullName>New_Case_Autoresponse_External</fullName>
+        <description>New Case Autoresponse(External)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Customer_Service/New_Case_Autoresponse_External</template>
+    </alerts>
+    <alerts>
+        <fullName>New_Case_Autoresponse_Internal</fullName>
+        <description>New Case Autoresponse (Internal)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>info@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Customer_Service/New_Case_Autoresponse_Internal</template>
+    </alerts>
+    <alerts>
+        <fullName>New_Case_Email_Notification</fullName>
+        <description>New Case Email Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Customer_Service/Internal_Case_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>PearsonVUE_Exception</fullName>
+        <ccEmails>SGopathi@acams.org</ccEmails>
+        <description>PearsonVUE Exception</description>
+        <protected>false</protected>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Customer_Service/PearsonVUE_Exception</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Case_Notification_Count</fullName>
+        <field>Case_Notification_Count__c</field>
+        <formula>PRIORVALUE( Case_Notification_Count__c ) + 1</formula>
+        <name>Case Notification Count</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Closed_Spam_Update</fullName>
+        <description>Updates the Case Status to Closed-Spam</description>
+        <field>Status</field>
+        <literalValue>Closed-Spam</literalValue>
+        <name>Closed-Spam Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>In_Progress_Counter</fullName>
+        <field>In_Progress_Counter__c</field>
+        <formula>1</formula>
+        <name>In Progress Counter</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Live_Chat_Case_Origin</fullName>
+        <description>Update Case Origin to Live Chat</description>
+        <field>Origin</field>
+        <literalValue>Live Chat</literalValue>
+        <name>Live Chat Case Origin</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>New_Amendment_to_Contact_Us_Form_Case</fullName>
+        <field>Description</field>
+        <formula>&quot;(Customer added a new comment on &quot;&amp;
+TEXT(MONTH(DATEVALUE(LastModifiedDate)))&amp;&quot;/&quot;&amp;TEXT(DAY(DATEVALUE(LastModifiedDate)))&amp;&quot;/&quot;&amp;TEXT(YEAR(DATEVALUE(LastModifiedDate)))
+&amp; &quot;)&quot;
+
+&amp; BR() &amp;
+ Description 
+&amp; BR() &amp;
+&quot;------------------------&quot;
+&amp; BR() &amp;
+PRIORVALUE( Description )</formula>
+        <name>New Amendment to Contact Us Form Case</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Uncheck_case_notification</fullName>
+        <description>Uncheck case notification</description>
+        <field>New_Case_Notification__c</field>
+        <literalValue>0</literalValue>
+        <name>Uncheck case notification</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_case_type_to_Revenue_Impacting</fullName>
+        <description>Update internal payment case to revenue impacting</description>
+        <field>Type</field>
+        <literalValue>Revenue Impacting</literalValue>
+        <name>Update case type to Revenue Impacting</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Closed Case Autoresponse %28External%29</fullName>
+        <actions>
+            <name>Closed_Case_Autoresponse_External</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 and 5 and 6 and 7 and 8 and 9</booleanFilter>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Closed-Resolved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.CreatedById</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.SuppliedEmail</field>
+            <operation>notContain</operation>
+            <value>noreply,donotreply,support,acams.org,automation@,procurement,info@</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Secondary_Case_Type__c</field>
+            <operation>notEqual</operation>
+            <value>Sales Lead</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Secondary_Case_Type__c</field>
+            <operation>notEqual</operation>
+            <value>No Action Required from CS,Closed due to no response,Handled in another case,MLDC Newsletter Opt-in</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>notEqual</operation>
+            <value>Sales inquiry</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.SuppliedEmail</field>
+            <operation>notContain</operation>
+            <value>mailer-daemon@salesforce.com,events@regonline.com,alertglobal,notification@securemail,comerica.com,unoma.ndulue@accessbankplc.com,us.vst@procurement-support.hsbc.com,procurementsupport@anz.com,ingaccountspayable@mail.ing.nl,retaillinkteam@wal-mart.com</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.SuppliedEmail</field>
+            <operation>notContain</operation>
+            <value>wmgbs@wal-mart.com,invoices@exeter.ac.uk,ukinvoice-reject@accountspayable.hsbc.com,ariba-na@sap.com,supplier.invoices@natwest.com,facturen@devolksbank.nl</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Closed Case Autoresponse %28Internal%29</fullName>
+        <actions>
+            <name>Closed_Case_Notification_Internal</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( $Profile.Name &lt;&gt; &apos;Data Migration&apos;, ISPICKVAL(Status, &quot;Closed-Resolved&quot;), OR(CONTAINS( SuppliedEmail , &quot;@acams.org&quot;), CONTAINS( SuppliedEmail , &quot;@alertglobalmedia&quot;)),  SuppliedEmail &lt;&gt; &quot;info@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;enterprise@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;certification@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;certifications@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;groupexams@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;asia@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;europe@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;apac@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;emea@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;ops@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;prioritycases@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;sfolder@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;salessupport@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;onlineeventsupport@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;chapters@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;noreply@acams.org&quot; )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Closed-Spam Update</fullName>
+        <actions>
+            <name>Closed_Spam_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>9 and (1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 10 or 11) or (12 and (13 or 14))</booleanFilter>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>startsWith</operation>
+            <value>AUTO,Autoreply,Auto-Re,Auto Reply,Auto Response,Automatic reply,[Automatic Reply],Respuesta automática</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>auto-reply,Auto Reply,Out of the Office,Out-of-office reply,Automatisch antwoord,Automatische Antwort,Automatisk svar,Abwesenheitsnotiz,Resposta automática,Réponse automatique,Balas Otomatis,Di Luar Kantor,Samodejni odgovor,Mutual of Omaha Bank is now CIT</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Mailbox is Not Monitored,DELIVERY FAILURE,Message:  Undeliverable,[Postmaster] Email Delivery Failure,Email not delivered,Undelivered Mail Returned to Sender,Returned mail: see transcript for details,Delivery Status Notification (Failure)</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.SuppliedEmail</field>
+            <operation>startsWith</operation>
+            <value>mailer-daemon,ericjonesmyemail,eric.jones.z.mail</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.SuppliedEmail</field>
+            <operation>contains</operation>
+            <value>helpdesk@acams.org,cams@mindshift.com,ncbcapinfo@jncb.com,phil.scahill@scahillco.com.au,@dvi.onmicrosoft.com,emrankaiser1011@yahoo.com,eric.jones.z.mail@gmail.com</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Out of Office,Out-of-Office,out of office,on vacation,on leave</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>startsWith</operation>
+            <value>Mail Delivery Failed,Mail Delivery Failure,Undeliverable,配信不能,Sandbox:,NEW CASE NOTIFICATION -Sandbox:</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>startsWith</operation>
+            <value>NEW CASE NOTIFICATION -Auto reply,NEW CASE NOTIFICATION -Automatic reply,NEW CASE NOTIFICATION -Autoreply,Please Contact Henry Kupperman,Cayman National Bank Email Acknowledgement,ACAMS moneylaundering.com Password Reset</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>不在辦公室,目前不在回覆,离开回复,自動回覆,自动回复,郵件答錄機,自動応答,外出,未傳遞的主旨,未送达,延遲的傳遞,자동 회신,자리 비움 회신</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>equals</operation>
+            <value>[external] ACH Transaction Received Plus Addenda</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Origin</field>
+            <operation>equals</operation>
+            <value>Contact Us Form</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Description</field>
+            <operation>contains</operation>
+            <value>tinyurl.com,yandex.ru,bit.ly</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.SuppliedName</field>
+            <operation>contains</operation>
+            <value>Robertscode</value>
+        </criteriaItems>
+        <description>This will closed-spam all those emails that are true spam</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Deactivate notification checkbox for closed cases</fullName>
+        <actions>
+            <name>Uncheck_case_notification</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Closed-Spam,Closed-Resolved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <description>Deactivate notification checkbox for closed cases</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>In Progress Counter</fullName>
+        <actions>
+            <name>In_Progress_Counter</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND($Profile.Name &lt;&gt; &apos;Data Migration&apos; ,ISCHANGED( Status ) ,NOT(ISPICKVAL(Status , &quot;Closed-Resolved&quot;)),NOT(ISPICKVAL(Status , &quot;New&quot;)))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Issues and Urgent Cases Internal Notifications</fullName>
+        <actions>
+            <name>Issues_and_Urgent_Cases_Internal_Notifications</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Report issue,Urgent</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Origin</field>
+            <operation>notEqual</operation>
+            <value>Email - Asia,Email - Europe</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Live Chat Origin</fullName>
+        <actions>
+            <name>Live_Chat_Case_Origin</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>3 AND (1 OR 2)</booleanFilter>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>contains</operation>
+            <value>Live Chat,Live Agent</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Description</field>
+            <operation>contains</operation>
+            <value>Live Chat,Live Agent</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <description>Defaults the case origin to live chat when case created during live agent session</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>New Amendment to Case</fullName>
+        <actions>
+            <name>New_Amendment_to_Case</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND($Profile.Name &lt;&gt; &apos;Data Migration&apos; ,ISCHANGED(Description),  SuppliedEmail &lt;&gt; &quot;info@acams.org&quot;, NOT(ISPICKVAL( Origin , &quot;Email - Europe&quot;)), NOT(ISPICKVAL( Origin , &quot;Phone&quot;)), NOT(ISPICKVAL( Origin , &quot;Chat&quot;)), NOT(ISPICKVAL( Origin , &quot;Live Chat&quot;)),  LastModifiedBy.Alias &lt;&gt;  Owner:User.Alias  )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>New Amendment to Contact Us Form Case</fullName>
+        <actions>
+            <name>New_Amendment_to_Contact_Us_Form_Case</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND($Profile.Name &lt;&gt; &apos;Data Migration&apos; ,ISCHANGED(Description),  ISPICKVAL( Origin , &quot;Contact Us Form&quot;),  LastModifiedBy.Alias &lt;&gt;  Owner:User.Alias  )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>New Case Autoresponse Internal</fullName>
+        <actions>
+            <name>New_Case_Autoresponse_Internal</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(
+$Profile.Name &lt;&gt; &apos;Data Migration&apos;,
+OR(CONTAINS( SuppliedEmail , &quot;@acams.org&quot;), CONTAINS( SuppliedEmail , &quot;@alertglobalmedia&quot;)),
+SuppliedEmail &lt;&gt; &quot;info@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;enterprise@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;certification@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;certifications@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;groupexams@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;asia@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;europe@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;apac@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;emea@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;ops@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;prioritycases@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;sfolder@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;salessupport@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;onlineeventsupport@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;chapters@acams.org&quot;, SuppliedEmail &lt;&gt; &quot;noreply@acams.org&quot;,
+NOT(CONTAINS(Subject ,&quot;-Automatic reply&quot;)),
+NOT(CONTAINS(Subject ,&quot;Automatic reply&quot;)),
+NOT(CONTAINS(Subject ,&quot;out of office&quot;)),
+NOT(CONTAINS(Subject ,&quot;out of the office&quot;))
+)</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>New Case Autoresponse%28External%29</fullName>
+        <actions>
+            <name>New_Case_Autoresponse_External</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISPICKVAL(Status,&quot;New&quot;),
+NOT(CONTAINS(SuppliedEmail ,&quot;noreply&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;no_reply&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;no-reply&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;donotreply&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;autoreply&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;auto-reply&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;acams.org&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;accountspayable&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;accountsreceivable&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;ACHAlerts_Mail@comerica.com&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;ACHNotifications_Mail@comerica.com&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;alertglobal&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;automation@&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;ariba-na@sap.com&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;ericjonesmyemail@&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;eric.jones.z.mail@&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;emrankaiser1011@yahoo.com&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;events@regonline.com&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;ext.invoices@bnpparibas.com&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;facturen@devolksbank.nl&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;info@&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;invoices@exeter.ac.uk&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;ingaccountspayable@mail.ing.nl&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;mailer-daemon&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;notification&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;procurementsupport&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;procurement-support&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;prologueprocessing&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;retaillinkteam@wal-mart.com&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;supplier.invoices&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;support&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;unoma.ndulue@accessbankplc.com&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;wmgbs@wal-mart.com&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;wordpress@acamstoday.org&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;worldline.learning@conduentlearning.co.uk&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;Infonetsuite_WW@oracle.com&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;nsgbu-pr_ww@oracle.com&quot;)),
+NOT(CONTAINS(SuppliedEmail ,&quot;nkemakolam.ebubedike@accessbankplc.com&quot;)),
+NOT(CONTAINS(Subject ,&quot;Autoreply&quot;)),
+NOT(CONTAINS(Subject ,&quot;AutoReply&quot;)),
+NOT(CONTAINS(Subject ,&quot;Auto-reply&quot;)),
+NOT(CONTAINS(Subject ,&quot;Auto Reply&quot;)),
+NOT(CONTAINS(Subject ,&quot;Auto reply&quot;)),
+NOT(CONTAINS(Subject ,&quot;Auto Response&quot;)),
+NOT(CONTAINS(Subject ,&quot;Auto response&quot;)),
+NOT(CONTAINS(Subject ,&quot;Automatic Reply&quot;)),
+NOT(CONTAINS(Subject ,&quot;Automatic reply&quot;)),
+NOT(CONTAINS(Subject ,&quot;Automatic Response&quot;)),
+NOT(CONTAINS(Subject ,&quot;Automatic response&quot;)),
+NOT(CONTAINS(Subject ,&quot;Out Of Office&quot;)),
+NOT(CONTAINS(Subject ,&quot;Out of Office&quot;)),
+NOT(CONTAINS(Subject ,&quot;Out of office&quot;)),
+NOT(CONTAINS(Subject ,&quot;out of office&quot;)),
+NOT(CONTAINS(Subject ,&quot;OOO&quot;)),
+NOT(CONTAINS(Subject ,&quot;vacation&quot;)),
+NOT(CONTAINS(Subject ,&quot;Vacation&quot;)),
+NOT(CONTAINS(Subject ,&quot;目前不在辦公室&quot;)),
+NOT(CONTAINS(Subject ,&quot;目前不在办公室&quot;)),
+NOT(CONTAINS(Subject ,&quot;自動回覆&quot;)),
+NOT(CONTAINS(Subject ,&quot;自動答覆&quot;)),
+NOT(CONTAINS(Subject ,&quot;自动回复&quot;)),
+NOT(CONTAINS(Subject ,&quot;自动答复&quot;)),
+NOT(BEGINS(Subject ,&quot;NEW CASE NOTIFICATION&quot;)),
+NOT(BEGINS(Subject ,&quot;[EXTERNAL] You have submitted a new case&quot;)),
+NOT(BEGINS(Subject ,&quot;[EXTERNAL] RE: You have submitted a new case&quot;)),
+NOT(BEGINS(Subject ,&quot;[EXTERNAL] Automatic Confirmation of Delivery&quot;)),
+NOT(CONTAINS(Subject ,&quot;THANK YOU FOR CONTACTING&quot;)),
+NOT(CONTAINS(Subject ,&quot;Thank you for contacting&quot;)),
+NOT(CONTAINS( Description ,&quot;tinyurl.com&quot;)),
+$Profile.Name &lt;&gt; &apos;Data Migration&apos;
+)</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>New Case Email Notifications</fullName>
+        <actions>
+            <name>New_Case_Email_Notification</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>In Progress</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.New_Case_Notification__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Origin</field>
+            <operation>notEqual</operation>
+            <value>Email - Europe</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Populate Account Owner</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.Origin</field>
+            <operation>equals</operation>
+            <value>Chat,Contact Us Form,Email - Certification,Email - Enterprise,Email - Europe,Email - Info,Email - SFolder,Phone</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send PearsonVUE Exception</fullName>
+        <actions>
+            <name>PearsonVUE_Exception</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Financial Services IT</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Case Notification</fullName>
+        <actions>
+            <name>Case_Notification_Count</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.New_Case_Notification__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Case Type for Internal Payments</fullName>
+        <actions>
+            <name>Update_case_type_to_Revenue_Impacting</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>startsWith</operation>
+            <value>Payment has been processed by</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <description>Update Case type to Revenue Impacting when case has a subject of &quot;Payment has been processed by&quot;</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

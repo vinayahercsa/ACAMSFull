@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Confirmation_Email_Web_Recertification_Application</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Confirmation Email - Web Recertification Application</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>System_Email/Confirmation_Email_Web_Recertification_Application</template>
+    </alerts>
+    <alerts>
+        <fullName>Confirmation_Email_Web_Recertification_Application_Bahasa</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Confirmation Email - Web Recertification Application Bahasa</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>System_Email/Confirmation_Email_Web_Recertification_Application_Bahasa_Indonesia</template>
+    </alerts>
+    <alerts>
+        <fullName>Confirmation_Email_Web_Recertification_Application_French</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Confirmation Email - Web Recertification Application_French</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>System_Email/Confirmation_Email_Web_Recertification_Application_French</template>
+    </alerts>
+    <alerts>
+        <fullName>Confirmation_Email_Web_Recertification_Application_Generic</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Confirmation Email - Web Recertification Application (Generic)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/Confirmation_Email_Web_Recertification_Application_Generic</template>
+    </alerts>
+    <alerts>
+        <fullName>Confirmation_Email_Web_Recertification_Application_Japanese</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Confirmation Email - Web Recertification Application Japanese</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>System_Email/Confirmation_Email_Web_Recertification_Application_Japanese</template>
+    </alerts>
+    <alerts>
+        <fullName>Confirmation_Email_Web_Recertification_Application_Portuguese</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Confirmation Email - Web Recertification Application_Portuguese</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>System_Email/Confirmation_Email_Web_Recertification_Application_Portuguese</template>
+    </alerts>
+    <alerts>
+        <fullName>Confirmation_Email_Web_Recertification_Application_SC</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Confirmation Email - Web Recertification Application SC</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>System_Email/Confirmation_Email_Web_Recertification_Application_Simplified_Chinese</template>
+    </alerts>
+    <alerts>
+        <fullName>Confirmation_Email_Web_Recertification_Application_Spanish</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Confirmation Email - Web Recertification Application_Spanish</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>System_Email/Confirmation_Email_Web_Recertification_Application_Spanish</template>
+    </alerts>
+    <alerts>
+        <fullName>Confirmation_Email_Web_Recertification_Application_TC</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Confirmation Email - Web Recertification Application TC</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>System_Email/Confirmation_Email_Web_Recertification_Application_Traditional_Chinese</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Application_Approval_Date</fullName>
+        <field>Application_Approval_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Application Approval Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Asset_Pending_to_Process</fullName>
+        <field>Asset_Pending_to_Process__c</field>
+        <literalValue>1</literalValue>
+        <name>Asset Pending to Process</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Application_Hold</fullName>
+        <field>Application_on_Hold__c</field>
+        <literalValue>0</literalValue>
+        <name>Update Application Hold</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Asset Pending to Process</fullName>
+        <actions>
+            <name>Asset_Pending_to_Process</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND($Profile.Name &lt;&gt; &apos;Data Migration&apos; ,ISCHANGED(Status__c), OR(ISPICKVAL(Status__c,&quot;Under Review&quot;), ISPICKVAL(Status__c,&quot;Approved&quot;)))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Approval Date Recertification Application</fullName>
+        <actions>
+            <name>Application_Approval_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Application_Hold</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Recertification_Application__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

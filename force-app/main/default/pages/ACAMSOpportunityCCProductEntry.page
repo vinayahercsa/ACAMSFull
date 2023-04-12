@@ -1,0 +1,282 @@
+<apex:page standardController="ccrz__E_Cart__c"
+        extensions="ACAMSOpportunityCCProductEntryController"
+        lightningStylesheets="true"
+        applyHtmlTag="false" applyBodyTag="false" showHeader="false" docType="html-5.0">
+    <html>
+
+    <head>
+        <title>{!$Label.OpportunityCCProduct_PageTitle}</title>
+        <apex:slds />
+        <style>
+            .page-iformation {
+                margin-left: .6rem;
+                margin-right: .6rem;
+            }
+
+            .right-bar {
+                text-align: right;
+            }
+
+            .product-selection-table {
+                max-width: 700px;
+            }
+
+            .button-table td.left {
+                text-align: left;
+            }
+
+            .button-table td.center {
+                text-align: center;
+            }
+
+            .button-table td.right {
+                text-align: right;
+            }
+            .selection-col {
+                width: 3%;
+            }
+            .name-col {
+                width: 35%;
+            }
+            .short-information-col {
+                width: 15%;
+            }
+            .description-col {
+                width: 32%;
+            }
+            .information-col {
+                width: 10%;
+            }
+            .long-information-col {
+                width: 40%
+            }
+            .searchbox-input {
+                width: 50% !important;
+            }
+            .searchbox-button {
+                width: 50% !important;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="slds-scope">
+            <apex:pageBlock id="page-content">
+                <apex:pageMessages />
+                <apex:form >
+                    <apex:actionStatus id="spinnerStatus">
+                        <apex:facet name="start">
+                            <div class="demo-only" style="height:6rem">
+                                <div class="slds-spinner_container">
+                                    <div role="status" class="slds-spinner slds-spinner_large slds-spinner_brand">
+                                        <span class="slds-assistive-text">Loading</span>
+                                        <div class="slds-spinner__dot-a"></div>
+                                        <div class="slds-spinner__dot-b"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </apex:facet>
+                    </apex:actionStatus>
+                    <apex:sectionHeader title="{!pageTitle}" subtitle="{!pageSubtitle}" />
+                    <apex:outputPanel rendered="{!NOT(isError)}">
+                        <apex:pageBlockSection columns="1" collapsible="false" rendered="{!isProductSelectionView}" id="product-selection-view">
+                            <apex:pageBlockSectionItem labelStyleClass="searchbox-input" dataStyleClass="searchbox-button">
+                                <apex:input value="{!searchTerm}" label="Filter" html-placeholder="Product name or SKU" />
+                                <apex:commandButton value="Filter" action="{!applySearch}" status="spinnerStatus"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockTable width="3%,20%,20%,20%,37%" value="{!productSelectionPageItems}" var="currentPageItemWrapper" styleClass="product-selection-table">
+                                <apex:column styleClass="selection-col" headerClass="selection-col" >
+                                    <apex:inputCheckbox value="{!currentPageItemWrapper.selected}" onclick="handleCheckboxClick(this)" rendered="{!NOT(currentPageItemWrapper.isSubItem)}" />
+                                </apex:column>
+                                <apex:column styleClass="name-col" headerClass="name-col" headerValue="{!$ObjectType.ccrz__E_Product__c.fields.Name.Label}" >
+                                    <apex:outputPanel layout="none" rendered="{!NOT(currentPageItemWrapper.isSubItem)}">
+                                        <apex:outputField value="{!currentPageItemWrapper.product.Name}"/>
+                                    </apex:outputPanel>
+                                    <apex:outputPanel layout="none" rendered="{!currentPageItemWrapper.isSubItem}">
+                                        <ul class="slds-list_dotted">
+                                            <li>
+                                                <apex:outputField value="{!currentPageItemWrapper.product.Name}"/>
+                                            </li>
+                                        </ul>
+                                    </apex:outputPanel>
+                                </apex:column>
+                                <apex:column styleClass="short-information-col" headerClass="short-information-col"
+                                        value="{!currentPageItemWrapper.product.ccrz__SKU__c}"
+                                        headerValue="{!$ObjectType.ccrz__E_Product__c.fields.ccrz__SKU__c.Label}" />
+                                <apex:column styleClass="short-information-col" headerClass="short-information-col"
+                                        headerValue="{!$ObjectType.ccrz__E_Product__c.fields.ccrz__ProductType__c.Label}" >
+                                    <apex:outputField rendered="{!NOT(currentPageItemWrapper.isSubItem)}"
+                                            value="{!currentPageItemWrapper.product.ccrz__ProductType__c}" />
+                                </apex:column>
+                                <apex:column styleClass="information-col" headerClass="information-col"
+                                        headerValue="{!$ObjectType.ccrz__E_PriceListItem__c.fields.ccrz__Price__c.Label}" >
+                                    <apex:outputField value="{!currentPageItemWrapper.priceListItem.ccrz__Price__c}"
+                                            rendered="{!currentPageItemWrapper.renderPrice}"/>
+                                </apex:column>
+                                <apex:column styleClass="description-col" headerClass="description-col"
+                                        value="{!currentPageItemWrapper.product.ccrz__ShortDesc__c}"
+                                        headerValue="{!$ObjectType.ccrz__E_Product__c.fields.ccrz__ShortDesc__c.Label}" />
+                            </apex:pageBlockTable>
+                            <apex:outputPanel layout="block">
+                                <table class="button-table" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                    <tr>
+                                        <td class="left" width="20%">
+                                            <apex:commandButton action="{!returnToOpportunityPage}"
+                                                    title="{!$Label.OpportunityCCProduct_ReturnToOpportunity}"
+                                                    value="{!$Label.OpportunityCCProduct_ReturnToOpportunity}"
+                                                    reRender="page-content" />
+                                        </td>
+                                        <td class="center" width="60%">
+                                            <apex:commandButton action="{!previousPage}"
+                                                    title="{!$Label.OpportunityCCProduct_PreviousPage}"
+                                                    value="{!$Label.OpportunityCCProduct_PreviousPage}"
+                                                    disabled="{!NOT(availableProductList.hasPrevious)}"
+                                                    reRender="product-selection-view" />
+                                            <apex:outputText styleClass="page-iformation" value="{!$Label.OpportunityCCProduct_PageNumber}">
+                                                <apex:param value="{!availableProductList.pageNumber}" />
+                                                <apex:param value="{!CEILING(availableProductList.resultSize / availableProductList.pageSize)}" />
+                                            </apex:outputText>
+                                            <apex:commandButton action="{!nextPage}"
+                                                    title="{!$Label.OpportunityCCProduct_NextPage}"
+                                                    value="{!$Label.OpportunityCCProduct_NextPage}"
+                                                    disabled="{!NOT(availableProductList.hasNext)}"
+                                                    reRender="product-selection-view" />
+                                            <apex:outputText styleClass="page-iformation selected-information"
+                                                    value="{!$Label.OpportunityCCProduct_SelectedAmount}">
+                                                <apex:param value="{!selectedItemsAmount}" />
+                                            </apex:outputText>
+                                        </td>
+                                        <td class="right" width="20%">
+                                            <apex:commandButton styleClass="slds-button_brand button-proceed"
+                                                    action="{!proceedToPriceQuantityPage}"
+                                                    value="{!$Label.OpportunityCCProduct_Proceed}"
+                                                    title="{!$Label.OpportunityCCProduct_Proceed}"
+                                                    reRender="page-content" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </apex:outputPanel>
+                            <script>
+                                var handleCheckboxClick = (function () {
+                                    var selectedAmount = {!selectedItemsAmount};
+                                    var proceedButton = document.querySelector(".button-proceed");
+                                    if (proceedButton) {
+                                        proceedButton.disabled = (selectedAmount <= 0);
+                                    }
+                                    return function (input) {
+                                        var selectedAmountTextElement = document.querySelector("span.selected-information");
+                                        var selectedAmountText = selectedAmountTextElement.textContent;
+                                        var newSelectedAmount = selectedAmount;
+                                        if (input) {
+                                            if (input && input.checked) {
+                                                newSelectedAmount += 1;
+                                            } else {
+                                                newSelectedAmount -= 1;
+                                            }
+                                        }
+                                        if (selectedAmountTextElement) {
+                                            selectedAmountTextElement.textContent = selectedAmountText.replace(
+                                                selectedAmount.toString(),
+                                                newSelectedAmount.toString()
+                                            );
+                                        }
+                                        selectedAmount = newSelectedAmount;
+                                        if (proceedButton) {
+                                            proceedButton.disabled = (selectedAmount <= 0);
+                                        }
+                                    }
+                                }) ();
+                            </script>
+                        </apex:pageBlockSection>
+                        <apex:pageBlockSection columns="1" collapsible="false" rendered="{!isProductPriceQuantityView}" id="product-price-quantity-view">
+                            <apex:variable var="rowNum" value="{!0}"/>
+                            <apex:pageBlockTable value="{!productPriceQuantityPageItems}" var="line" styleClass="product-selection-table">
+                                <apex:column styleClass="name-col" headerClass="name-col" headerValue="{!$ObjectType.ccrz__E_Product__c.fields.Name.Label}" >
+                                    <apex:outputPanel layout="none" rendered="{!NOT(line.isSubItem)}">
+                                        <apex:outputField value="{!line.product.Name}"/>
+                                    </apex:outputPanel>
+                                    <apex:outputPanel layout="none" rendered="{!line.isSubItem}">
+                                        <ul class="slds-list_dotted">
+                                            <li>
+                                                <apex:outputField value="{!line.product.Name}"/>
+                                            </li>
+                                        </ul>
+                                    </apex:outputPanel>
+                                </apex:column>
+                                <apex:column styleClass="short-information-col" headerClass="short-information-col"
+                                        value="{!line.product.ccrz__SKU__c}"
+                                        headerValue="{!$ObjectType.ccrz__E_Product__c.fields.ccrz__SKU__c.Label}" />
+                                <apex:column styleClass="short-information-col" headerClass="short-information-col"
+                                        headerValue="{!$ObjectType.ccrz__E_CartItem__c.fields.ccrz__OriginalItemPrice__c.Label}" >
+                                    <apex:outputField value="{!line.priceListItem.ccrz__Price__c}" rendered="{!line.renderPrice}"/>
+                                </apex:column>
+                                <apex:column styleClass="information-col" headerClass="information-col"
+                                        headerValue="{!$ObjectType.ccrz__E_CartItem__c.fields.ccrz__Price__c.Label}" >
+                                    <apex:inputField html-step="0.1" style="width:100%"
+                                            value="{!line.cartItem.ccrz__Price__c}"
+                                            rendered="{!AND(line.renderPrice, NOT(line.isSubItem))}" />
+                                </apex:column>
+                                <apex:column styleClass="information-col" headerClass="information-col"
+                                        headerValue="{!$ObjectType.ccrz__E_CartItem__c.fields.ccrz__Quantity__c.Label}" >
+                                    <apex:inputField html-step="0.1" style="width:100%"
+                                            value="{!line.cartItem.ccrz__Quantity__c}"
+                                            rendered="{!NOT(line.isSubItem)}" />
+                                </apex:column>
+                                <apex:column styleClass="information-col" headerClass="name-col"
+                                             headerValue="{!$ObjectType.ccrz__E_CartItem__c.fields.Line_Description__c.Label}" >
+                                    <apex:inputField html-step="0.1" style="width:100%"
+                                                     value="{!line.cartItem.Line_Description__c}"
+                                                     rendered="{!NOT(line.isSubItem)}" />
+                                </apex:column>
+                                <apex:column styleClass="information-col" headerClass="information-col"
+                                             headerValue="{!$ObjectType.ccrz__E_CartItem__c.fields.ccrz__SubProdTerm__c.Label}" >
+                                    <apex:selectList value="{!line.cartItem.ccrz__SubProdTerm__c}" multiSelect="false"
+                                                     size="1" rendered="{!NOT(ISBLANK(line.subProdTermsOptions))}"
+                                                     onchange="getPrice({!rowNum})" required="true">
+                                        <apex:selectOptions value="{!line.subProdTermsOptions}"/>
+                                    </apex:selectList>
+                                    <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                                </apex:column>
+                                <!-- <apex:column
+                                        styleClass="long-information-col" headerClass="long-information-col"
+                                        headerValue="{!$ObjectType.OpportunityCCProduct__c.fields.Line_Description__c.Label}" >
+                                    <apex:inputField html-step="0.1" style="width:100%" value="{!line.cartItem.ccrz__ExtName__c}" />
+                                </apex:column> -->
+                            </apex:pageBlockTable>
+                            <apex:outputPanel layout="block">
+                                <table class="button-table" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                        <tr>
+                                            <td class="left" width="50%">
+                                                <apex:commandButton action="{!returnToOpportunityPage}"
+                                                        title="{!$Label.OpportunityCCProduct_ReturnToOpportunity}"
+                                                        value="{!$Label.OpportunityCCProduct_ReturnToOpportunity}"
+                                                        reRender="page-content" />
+                                                <apex:commandButton action="{!returnToSelection}"
+                                                        title="{!$Label.OpportunityCCProduct_ReturnToProductSelection}"
+                                                        value="{!$Label.OpportunityCCProduct_ReturnToProductSelection}"
+                                                        reRender="page-content" />
+                                            </td>
+                                            <td class="right" width="50%">
+                                                <apex:commandButton styleClass="slds-button_brand"
+                                                        action="{!saveOpportunityProducts}"
+                                                        title="{!$Label.OpportunityCCProduct_SaveProducts}"
+                                                        value="{!$Label.OpportunityCCProduct_SaveProducts}"
+                                                        onClick="this.disabled=true"
+                                                        reRender="page-content" />
+                                            </td>
+                                        </tr>
+                                </table>
+                            </apex:outputPanel>
+                        </apex:pageBlockSection>
+                        <apex:actionFunction name="getPrice" action="{!updateSubPrice}"
+                                             reRender="product-price-quantity-view">
+                            <apex:param name="line" assignTo="{!index}" value="" />
+                        </apex:actionFunction>
+                    </apex:outputPanel>
+                </apex:form>
+            </apex:pageBlock>
+        </div>
+    </body>
+
+    </html>
+</apex:page>

@@ -1,0 +1,368 @@
+<apex:page id="GeneratePDF" standardController="Opportunity" renderAs="pdf">
+
+    <div style="text-align: center;"  >
+        <apex:image width="2.75in" url="{!$Resource.ACAMSlogo}"/>
+    </div>
+    
+  
+        <apex:pageBlock title="Opportunity Plan">
+            <div>
+                
+           
+            <th><h3>Account Information</h3></th>
+           
+                <table>
+ 
+                 <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Account Name</td>
+                         <td width="30%" >{!opportunity.Account.name}</td>
+      
+                </tr>
+                     <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left">Opportunity Owner</td>
+                         <td width="30%" >{!opportunity.Account.Owner.name}</td>
+      
+                </tr>
+                      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Global Account Manager for Opportunity</td>
+                          <td width="30%" >{!opportunity.Account.Global_Account_Manager__r.name}</td>
+      
+                </tr>
+                  
+                      
+       
+            </table>
+             </div>
+             <div>
+                 
+            
+                 <th><h3>Deal Summary</h3></th>
+             
+ <table >
+                     <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Opportunity Name</td>
+                         <td width="30%" >{!opportunity.name}</td>
+      
+                </tr>
+       <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left">Amount</td>
+                          <td width="30%" >{!opportunity.Amount__c}</td>
+      
+                </tr>
+                      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Sales Stage</td>
+                          <td width="30%" >{!opportunity.StageName}</td>
+      
+                </tr>
+     <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left"> Close Date</td>
+         <td width="30%" ><apex:outputText value="{0, date, MMMM d','  yyyy}" styleClass="dataCell">
+    <apex:param value="{!opportunity.CloseDate}" /> 
+</apex:outputText></td>
+      
+                </tr>
+                  
+                      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left">Enterprise Type?</td>
+                          <td width="30%" >{!opportunity.Enterprise_Type__c}</td>
+      
+                </tr>
+      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left"> Multi year Contract?</td>
+                         <td width="30%" >{!opportunity.Multi_year_Contract__c}</td>
+      
+                </tr>
+     <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left"> Number of Years?</td>
+                         <td width="30%" >{!opportunity.Number_of_Years__c}</td>
+      
+                </tr>
+       <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left"> ACV</td>
+                         <td width="30%" >{!opportunity.ACV__c}</td>
+      
+                </tr>
+      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left">TCV</td>
+                         <td width="30%" >{!opportunity.TCV__c}</td>
+      
+                </tr>
+                      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Decision Date</td>
+                          <td width="30%" ><apex:outputText value="{0, date, MMMM d','  yyyy}" styleClass="dataCell">
+    <apex:param value="{!opportunity.Decision_Date__c}" /> 
+</apex:outputText></td>
+      
+                </tr>
+   
+                     
+    
+                      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left">RFP Release</td>
+                          <td width="30%" ><apex:outputText value="{0, date, MMMM d','  yyyy}" styleClass="dataCell">
+    <apex:param value="{!opportunity.RFP_Release__c}" /> 
+</apex:outputText></td>
+      
+                </tr>
+      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Discovery</td>
+                         <td width="30%" ><apex:outputText value="{0, date, MMMM d','  yyyy}" styleClass="dataCell">
+    <apex:param value="{!opportunity.Discovery__c}" /> 
+</apex:outputText></td>
+      
+                </tr>
+                      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left">Next Step</td>
+                          <td width="30%" >{!opportunity.NextStep}</td>
+      
+                </tr>
+            </table>
+                 
+     </div> 
+            
+   <div>
+                 
+            
+                
+    
+            <apex:outputPanel rendered="{!(opportunity.StageName =='Confirm solution')}">
+                 <th><h3>Customer Buying Milestones : Confirm Solution</h3></th>
+              <table>
+ 
+                 <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Solution is Confirmed</td>
+                         <td width="30%" ><apex:outputField value="{!opportunity.Solution_is_Confirmed__c}"/> </td>
+      
+                </tr>
+                      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left">We are the Preferred Partner</td>
+                          <td width="30%" ><apex:outputField value="{!opportunity.We_are_the_Preferred_Partner__c}"/></td>
+      
+                </tr>
+                   <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Contracts are Reviewed and Confirmed</td>
+                         <td width="30%" ><apex:outputField value="{!opportunity.Contracts_are_Reviewed_and_Confirmed__c}"/></td>
+      
+                </tr>
+          
+                   <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Customer Confirms Invoice is Received</td>
+                         <td width="30%" ><apex:outputField value="{!opportunity.Customer_Confirms_Invoice_is_Received__c}"/></td>
+      
+                </tr>
+       
+            </table>
+                </apex:outputPanel>
+        <apex:outputPanel rendered="{!(opportunity.StageName =='Develop Opportunity')}">
+                 <th><h3>Customer Buying Milestones: Develop Opportunity</h3></th>
+              <table>
+ 
+                 <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Customer gives greenlight for proposal</td>
+                         <td width="30%" ><apex:outputField value="{!opportunity.Customer_gives_greenlight_for_proposal__c}"/> </td>
+      
+                </tr>
+                      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left">Confirm the three Why’s with customer</td>
+                          <td width="30%" ><apex:outputField value="{!opportunity.Confirm_the_3_Why_s_w_customer__c}"/></td>
+      
+                </tr>
+                 
+       
+            </table>
+                </apex:outputPanel>
+       <apex:outputPanel rendered="{!(opportunity.StageName =='Generate Interest')}">
+                 <th><h3>Customer Buying Milestones: Generate Interest</h3></th>
+              <table>
+ 
+                 <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Customer pre-qualifies interest</td>
+                         <td width="30%" ><apex:outputField value="{!opportunity.Customer_pre_qualifies_interest__c}"/> </td>
+      
+                </tr>
+                      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left">Customer attends the meeting</td>
+                          <td width="30%" ><apex:outputField value="{!opportunity.Customer_attends_the_meeting__c}"/></td>
+      
+                </tr>
+                 
+       
+            </table>
+                </apex:outputPanel>
+        <apex:outputPanel rendered="{!(opportunity.StageName =='Present Solution')}">
+                 <th><h3>Customer Buying Milestones: Present Solution</h3></th>
+              <table>
+ 
+                 <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Proposal is Reviewed/Validated</td>
+                         <td width="30%" ><apex:outputField value="{!opportunity.Proposal_is_Reviewed_Validated__c}"/> </td>
+      
+                </tr>
+                      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left">Business Value Case is Validated</td>
+                          <td width="30%" ><apex:outputField value="{!opportunity.Business_Value_Case_is_Validated__c}"/></td>
+      
+                </tr>
+                 
+       
+            </table>
+                </apex:outputPanel>
+       <apex:outputPanel rendered="{!(opportunity.StageName =='Qualify Opportunity')}">
+                 <th><h3>Customer Buying Milestones: Qualify Opportunity</h3></th>
+              <table>
+ 
+                 <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Customer confirms initial ‘Why Change’</td>
+                         <td width="30%" ><apex:outputField value="{!opportunity.Customer_confirms_initial_Why_Change__c}"/> </td>
+      
+                </tr>
+                      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left">Customer confirms initial ‘Why Now’</td>
+                          <td width="30%" ><apex:outputField value="{!opportunity.Customer_confirms_initial_Why_Now__c}"/></td>
+      
+                </tr>
+                   <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Further Discovery and Stakeholder Access</td>
+                          <td width="30%" ><apex:outputField value="{!opportunity.Further_Discovery_and_Stakeholder_Access__c}"/></td>
+      
+                </tr>
+                 
+       
+            </table>
+                </apex:outputPanel>
+            </div>
+
+           
+               
+<apex:pageBlockSection id="RelationshipStrategy" title="Relationship Strategy" columns="1" >
+        <apex:dataTable value="{!Opportunity.OpportunityContactRoles}" var="oppconrole" cellPadding="4" border="1">
+            <apex:column style="background-color:#ABABAB;">
+                <apex:facet name="header">Contact Name</apex:facet>
+                        {!oppconrole.Contact.name}
+            </apex:column>
+            <apex:column style="background-color:#DDDDDD;">
+                <apex:facet name="header">Role</apex:facet>
+                        {!oppconrole.Role}
+            </apex:column>
+              <apex:column style="background-color:#ABABAB;">
+                <apex:facet name="header">Influence</apex:facet>
+                        {!oppconrole.Influence__c}
+            </apex:column>
+              <apex:column style="background-color:#DDDDDD;" >
+                <apex:facet name="header">Relationship</apex:facet>
+                        {!oppconrole.Relationship__c}
+            </apex:column>
+              <apex:column style="background-color:#ABABAB;">
+                <apex:facet name="header">Strategy</apex:facet>
+                        {!oppconrole.Strategy__c}
+            </apex:column>
+             <apex:column style="background-color:#DDDDDD;">
+                <apex:facet name="header">Support</apex:facet>
+                        {!oppconrole.Support__c}
+            </apex:column>
+
+        </apex:dataTable>
+            </apex:pageBlockSection>
+
+            
+            <apex:pageBlockSection id="BusinessValueSummary" title="Business Value Summary" columns="1">
+                
+                <table>
+ 
+                 <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Why Change?</td>
+                         <td width="30%" >{!opportunity.Why_Change__c}</td>
+      
+                </tr>
+                      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left">Why Now?</td>
+                          <td width="30%" >{!opportunity.Why_Now__c}</td>
+      
+                </tr>
+                    <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Why ACAMS?</td>
+                         <td width="30%" >{!opportunity.Why_ACAMS__c}</td>
+      
+                </tr>
+                      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left">What Value / Success Story?</td>
+                          <td width="30%" >{!opportunity.What_Value_Success_Story__c}</td>
+      
+                </tr>
+                </table>
+                
+              
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection id="CompetitiveStrategy" title="Competitive Strategy" columns="1" >
+                
+                 <table>
+ 
+                 <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Competitor Name 1</td>
+                         <td width="30%" >{!opportunity.Competitor_Name_1__c}</td>
+      
+                </tr>
+                      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left">Strategy/Actions/Odds of Sucess 1</td>
+                          <td width="30%" >{!opportunity.Strategy_Actions_Odds_of_Sucess_1__c}</td>
+      
+                </tr>
+                    <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Threat 1</td>
+                         <td width="30%" >{!opportunity.Threat_1__c}</td>
+      
+                </tr>
+                      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left">Competitor Name 2</td>
+                          <td width="30%" >{!opportunity.Competitor_Name_2__c}</td>
+      
+                </tr>
+                       <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Strategy/Actions/Odds of Sucess 2</td>
+                         <td width="30%" >{!opportunity.Strategy_Actions_Odds_of_Sucess_2__c}</td>
+      
+                </tr>
+                      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left">Threat 2</td>
+                          <td width="30%" >{!opportunity.Threat_2__c}</td>
+      
+                </tr>
+                </table>
+                
+                
+                
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection id="CloseStrategy" title="Close Strategy" columns="1" >
+                
+                 <table>
+ 
+                 <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Customer Decision Process/Requirements</td>
+                         <td width="30%" >{!opportunity.Customer_Decision_Process_Requirements__c}</td>
+      
+                </tr>
+                      <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#DDDDDD;">
+                    <td width="25%"  align="left">Solution and Evaluation Strategy</td>
+                          <td width="30%" >{!opportunity.Solution_and_Evaluation_Strategy__c}</td>
+      
+                </tr>
+                    <tr style="padding-bottom: 5px;padding-top: 5px;background-color:#ABABAB;">
+                    <td width="25%"  align="left">Pricing Strategy</td>
+                         <td width="30%" >{!opportunity.Pricing_Strategy__c}</td>
+      
+                </tr>
+                </table>
+                
+
+                
+                
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+ 
+    
+</apex:page>

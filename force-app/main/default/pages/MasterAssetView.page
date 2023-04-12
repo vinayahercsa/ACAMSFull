@@ -1,0 +1,50 @@
+<apex:page standardController="Account" extensions="MasterAssetsController">
+
+  <apex:form >
+ <apex:outputPanel layout="block" style="overflow:auto;width:100%;height:250px" >
+    <apex:pageBlock mode="view" id="List" >
+    
+
+        <apex:pageBlockTable value="{!Assets}" var="e">
+        <apex:repeat value="{!e.childassets}" var="obj2">
+            <apex:column headerValue="Name">
+                    <apex:facet name="header">Name</apex:facet>
+                    <apex:outputLink value="{!url + '/' + e.Id}" target="_blank">{!e.Name}</apex:outputLink>
+                </apex:column>
+            <apex:column headerValue="Name">
+                    <apex:facet name="header">Level 1</apex:facet>
+                
+                    <apex:outputField value="{!obj2.Product_level_1__c}" />
+                    
+                </apex:column>
+                
+            <apex:column headerValue="Name">
+                    <apex:facet name="header">Level 2</apex:facet>
+                    <apex:outputField value="{!obj2.Product_level_2__c}" />
+                    
+                </apex:column>               
+                
+           
+            <apex:column headerValue="Name">
+                <apex:facet name="header">Expiration</apex:facet>
+                  
+                   
+            <apex:outputField value="{!obj2.CurrentExpirationDate__c}"/>
+
+                </apex:column>
+            <!--  
+           <apex:column >
+               <apex:facet name="header">No of Child Assets</apex:facet>
+                    <apex:outputField value="{!e.[cnt]}" />
+            </apex:column>
+-->                
+                         </apex:repeat>
+      
+        </apex:pageBlockTable>
+        
+    </apex:pageBlock>
+        </apex:outputPanel>   
+
+  </apex:form>
+
+</apex:page>

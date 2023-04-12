@@ -1,0 +1,11 @@
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+   
+    <types>
+    		<members>ACAMS_Platform_Event_Setting__mdt</members>
+		<name>CustomMetadata</name>
+	</types>
+
+    <version>56.0</version>
+</Package>
+

@@ -1,0 +1,211 @@
+<apex:page standardController="ccrz__E_Order__c" extensions="ACAMSCCOrderCCInvoiceEntryController" lightningStylesheets="true"
+    applyHtmlTag="false" applyBodyTag="false" showHeader="false" docType="html-5.0">
+    <html>
+
+    <head>
+        <apex:slds />
+        <style>
+            .slds-scope .slds-modal__container {
+                width: 70%;
+                max-width: 70%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="slds-scope">
+            <apex:form >
+                <apex:outputPanel layout="block" id="page-content">
+                    <apex:pageBlock >
+                        <apex:pageMessages />
+                        <apex:repeat value="{!invoiceData}" var="invoiceRecord">
+                            <apex:pageBlockSection columns="2" collapsible="false" id="product-selection-view" showHeader="true" title="{!$Label.ACAMSCCOrderCCInvoicePage_InvoiceSectionTitle} {!invoiceRecord.index}">
+                                <apex:inputField value="{!invoiceRecord.invoice.ccrz__InvoiceId__c}" />
+                                <apex:inputField value="{!invoiceRecord.invoice.ccrz__Contact__c}" />
+                                <apex:inputField value="{!invoiceRecord.invoice.ccrz__Status__c}" />
+                                <apex:inputField value="{!invoiceRecord.invoice.ccrz__User__c}" />
+                                <apex:inputField value="{!invoiceRecord.invoice.ccrz__CurrencyCode__c}" />
+                                <apex:inputField value="{!invoiceRecord.invoice.ccrz__BillTo__c}" />
+                                <apex:inputField value="{!invoiceRecord.invoice.ccrz__DateIssued__c}" />
+                                <apex:inputField value="{!invoiceRecord.invoice.ccrz__DateDue__c}" />
+                                <apex:inputField value="{!invoiceRecord.invoice.ccrz__SoldTo__c}" />
+                                <apex:inputField value="{!invoiceRecord.invoice.ccrz__OriginalAmount__c}" />
+                                <apex:inputField value="{!invoiceRecord.invoice.ccrz__CCOrder__c}" />
+                                <apex:inputField value="{!invoiceRecord.invoice.ccrz__PaidAmount__c}" />
+                                <apex:inputField value="{!invoiceRecord.invoice.ccrz__Comments__c}" />
+                                <apex:inputField value="{!invoiceRecord.invoice.ccrz__RemainingAmount__c}" />
+                                <apex:inputField value="{!invoiceRecord.invoice.ccrz__Storefront__c}" />
+                                <apex:inputField value="{!invoiceRecord.invoice.ccrz__ParentInvoice__c}" />
+                                <apex:inputField value="{!invoiceRecord.invoice.ccrz__Type__c}" />
+                                <apex:inputField value="{!invoiceRecord.invoice.ccrz__Terms__c}" />
+
+                                <apex:pageBlockSectionItem />
+                                <apex:pageBlockSectionItem />
+
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel value="{!$ObjectType.ccrz__E_Invoice__c.fields.ccrz__BillAddress__c.label}" />
+                                </apex:pageBlockSectionItem>
+                                <apex:pageBlockSectionItem />
+
+                                <apex:inputField value="{!invoiceRecord.billingAddress.ccrz__FirstName__c}" />
+                                <apex:inputField value="{!invoiceRecord.billingAddress.ccrz__MiddleName__c}" />
+                                <apex:inputField value="{!invoiceRecord.billingAddress.ccrz__LastName__c}" />
+                                <apex:inputField value="{!invoiceRecord.billingAddress.ccrz__Email__c}" />
+                                <apex:inputField value="{!invoiceRecord.billingAddress.ccrz__AddressFirstline__c}" />
+                                <apex:inputField value="{!invoiceRecord.billingAddress.ccrz__AddressSecondline__c}" />
+                                <apex:inputField value="{!invoiceRecord.billingAddress.ccrz__City__c}" />
+                                <apex:inputField value="{!invoiceRecord.billingAddress.ccrz__State__c}" />
+                                <apex:inputField value="{!invoiceRecord.billingAddress.ccrz__StateISOCode__c}" />
+                                <apex:inputField value="{!invoiceRecord.billingAddress.ccrz__Country__c}" />
+                                <apex:inputField value="{!invoiceRecord.billingAddress.ccrz__CountryISOCode__c}" />
+                                <apex:inputField value="{!invoiceRecord.billingAddress.ccrz__PostalCode__c}" />
+
+                                <apex:pageBlockSectionItem />
+                                <apex:pageBlockSectionItem />
+
+                                <apex:pageBlockSectionItem >
+                                    <apex:outputLabel >
+                                        {!$ObjectType.ccrz__E_Invoice__c.fields.ccrz__SoldAddress__c.label}
+                                    </apex:outputLabel>
+                                </apex:pageBlockSectionItem>
+                                <apex:pageBlockSectionItem labelTitle="{!$Label.ACAMSCCOrderCCInvoicePage_ShowShippingAddressButton}">
+                                    <apex:outputLabel >{!$Label.ACAMSCCOrderCCInvoicePage_ShowShippingAddressButton}</apex:outputLabel>
+                                    <apex:inputCheckbox value="{!invoiceRecord.showShippingAddress}">
+                                        <apex:actionSupport event="onchange" action="{!changeShowShippingAddress}" reRender="page-content" status="spinnerStatus"/>
+                                    </apex:inputCheckbox>
+                                </apex:pageBlockSectionItem>
+                                <apex:inputField value="{!invoiceRecord.shippingAddress.ccrz__FirstName__c}" rendered="{!invoiceRecord.showShippingAddress}"/>
+                                <apex:inputField value="{!invoiceRecord.shippingAddress.ccrz__MiddleName__c}" rendered="{!invoiceRecord.showShippingAddress}"/>
+                                <apex:inputField value="{!invoiceRecord.shippingAddress.ccrz__LastName__c}" rendered="{!invoiceRecord.showShippingAddress}"/>
+                                <apex:inputField value="{!invoiceRecord.shippingAddress.ccrz__Email__c}" rendered="{!invoiceRecord.showShippingAddress}"/>
+                                <apex:inputField value="{!invoiceRecord.shippingAddress.ccrz__AddressFirstline__c}" rendered="{!invoiceRecord.showShippingAddress}"/>
+                                <apex:inputField value="{!invoiceRecord.shippingAddress.ccrz__AddressSecondline__c}" rendered="{!invoiceRecord.showShippingAddress}"/>
+                                <apex:inputField value="{!invoiceRecord.shippingAddress.ccrz__City__c}" rendered="{!invoiceRecord.showShippingAddress}" />
+                                <apex:inputField value="{!invoiceRecord.shippingAddress.ccrz__State__c}" rendered="{!invoiceRecord.showShippingAddress}"/>
+                                <apex:inputField value="{!invoiceRecord.shippingAddress.ccrz__StateISOCode__c}" rendered="{!invoiceRecord.showShippingAddress}"/>
+                                <apex:inputField value="{!invoiceRecord.shippingAddress.ccrz__Country__c}" rendered="{!invoiceRecord.showShippingAddress}"/>
+                                <apex:inputField value="{!invoiceRecord.shippingAddress.ccrz__CountryISOCode__c}" rendered="{!invoiceRecord.showShippingAddress}"/>
+                                <apex:inputField value="{!invoiceRecord.shippingAddress.ccrz__PostalCode__c}" rendered="{!invoiceRecord.showShippingAddress}"/>
+                            </apex:pageBlockSection>
+                            <apex:pageBlockSection collapsible="true" columns="1" title="{!$Label.ACAMSCCOrderCCInvoicePage_InvoiceItemsSectionTitle} ({!invoiceRecord.itemsList.size})">
+                                <apex:pageBlockSectionItem >
+                                    <apex:pageBlockTable value="{!invoiceRecord.itemsList}" var="invoiceItem" rendered="{!NOT(invoiceRecord.itemsList.empty)}">
+                                        <apex:column headerValue="{!$ObjectType.ccrz__E_OrderItem__c.fields.ccrz__Product_Name__c.label}" value="{!invoiceItem.ccrz__CCOrderItem__r.ccrz__Product_Name__c}"/>
+                                        <apex:column headerValue="{!$ObjectType.ccrz__E_OrderItem__c.label}" value="{!invoiceItem.ccrz__CCOrderItem__r.Name}" />
+                                        <apex:column headerValue="{!$ObjectType.ccrz__E_InvoiceItem__c.fields.ccrz__Type__c.label}" value="{!invoiceItem.ccrz__Type__c}"/>
+                                        <apex:column headerValue="{!$ObjectType.ccrz__E_InvoiceItem__c.fields.ccrz__Status__c.label}" value="{!invoiceItem.ccrz__Status__c}"/>
+                                        <apex:column headerValue="{!$Label.ACAMSCCOrderCCInvoicePage_OriginalQuantityColumnHeader}" value="{!invoiceItem.ItemQuantity__c}"/>
+                                        <apex:column headerValue="{!$ObjectType.ccrz__E_InvoiceItem__c.fields.ccrz__OriginalAmount__c.label}" value="{!invoiceItem.ccrz__OriginalAmount__c}"/>
+                                        <apex:column headerValue="{!$ObjectType.ccrz__E_InvoiceItem__c.fields.Tax_Amount__c.label}" value="{!invoiceItem.Tax_Amount__c}"/>
+                                        <apex:column headerValue="{!$Label.ACAMSCCOrderCCInvoicePage_AddedQuantityColumnHeader}" value="{!invoiceItem.Quantity__c}"/>
+                                    </apex:pageBlockTable>
+                                </apex:pageBlockSectionItem>
+                                <apex:pageBlockSectionItem >
+                                    <apex:commandLink value="{!$Label.ACAMSCCOrderCCInvoicePage_EditInvoiceItemsListButton}" action="{!openItemsModal}" reRender="page-content" status="spinnerStatus">
+                                        <apex:param name="invoiceIndex" value="{!invoiceRecord.index}" assignTo="{!activeInvoiceIndex}" />
+                                    </apex:commandLink>
+                                </apex:pageBlockSectionItem>
+                            </apex:pageBlockSection>
+                        </apex:repeat>
+                        <apex:pageBlockButtons >
+                            <apex:commandButton value="{!$Label.ACAMSCCOrderCCInvoicePage_AddNewInvoiceButton}" action="{!addNewInvoice}" status="spinnerStatus" reRender="page-content" />
+                            <apex:commandButton value="{!$Label.ACAMSCCOrderCCInvoicePage_RemoveLastInvoiceButton}" action="{!removeLastInvoice}" status="spinnerStatus" reRender="page-content" />
+                            <apex:commandButton value="{!$Label.ACAMSCCOrderCCInvoicePage_SaveInvoicesButton}" action="{!saveInvoices}" status="spinnerStatus" reRender="page-content" />
+                        </apex:pageBlockButtons>
+                    </apex:pageBlock>
+                    <apex:actionStatus id="spinnerStatus">
+                        <apex:facet name="start">
+                            <div style="height:6rem">
+                                <div class="slds-spinner_container" style="position: fixed;">
+                                    <div role="status" class="slds-spinner slds-spinner_large slds-spinner_brand">
+                                        <span class="slds-assistive-text">{!$Label.ACAMSCCOrderCCInvoicePage_SpinnerStatus}</span>
+                                        <div class="slds-spinner__dot-a"></div>
+                                        <div class="slds-spinner__dot-b"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </apex:facet>
+                    </apex:actionStatus>
+
+                    <!-- Item Selection Page -->
+                    <apex:outputPanel layout="none" rendered="{!modalOpened}" id="items-modal">
+                        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                            <div class="slds-modal__container">
+                                <header class="slds-modal__header">
+                                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">
+                                        {!$Label.ACAMSCCOrderCCInvoicePage_InvoiceItemsModalHeader}
+                                    </h2>
+                                </header>
+                                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                                    <apex:pageBlock >
+                                        <apex:pageBlockSection columns="1" rendered="{!LEN(modalErrorMessage) > 0}">
+                                            <div class="slds-notify_container slds-is-relative">
+                                                <div class="slds-notify slds-notify_toast slds-theme_error" role="status">
+                                                    <span class="slds-assistive-text">error</span>
+                                                    <div class="slds-notify__content">
+                                                        <h2 class="slds-text-heading_small ">{!modalErrorMessage}</h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </apex:pageBlockSection>
+                                        <apex:pageBlockSection columns="1" collapsible="false" title="{!$Label.ACAMSCCOrderCCInvoicePage_AddedInvoiceItemsHeader}">
+                                            <apex:pageBlockTable value="{!activeInvoice.itemsList}" var="invoiceItem">
+                                                <apex:column headerValue="{!$Label.ACAMSCCOrderCCInvoicePage_ActionColumnHeader}">
+                                                    <apex:commandLink value="{!$Label.ACAMSCCOrderCCInvoicePage_RemoveInvoiceItemButton}" action="{!removeItem}" reRender="items-modal"
+                                                        status="spinnerStatus">
+                                                        <apex:param name="itemId" value="{!invoiceItem.Id}" assignTo="{!targetInvoiceItemId}" />
+                                                    </apex:commandLink>
+                                                </apex:column>
+                                                <apex:column headerValue="{!$ObjectType.ccrz__E_OrderItem__c.fields.ccrz__Product_Name__c.label}" value="{!invoiceItem.ccrz__CCOrderItem__r.ccrz__Product_Name__c}"/>
+                                                <apex:column headerValue="{!$ObjectType.ccrz__E_OrderItem__c.label}" value="{!invoiceItem.ccrz__CCOrderItem__r.Name}" />
+                                                <apex:column headerValue="{!$ObjectType.ccrz__E_InvoiceItem__c.fields.ccrz__Type__c.label}" value="{!invoiceItem.ccrz__Type__c}" />
+                                                <apex:column headerValue="{!$ObjectType.ccrz__E_InvoiceItem__c.fields.ccrz__Status__c.label}" value="{!invoiceItem.ccrz__Status__c}" />
+                                                <apex:column headerValue="{!$Label.ACAMSCCOrderCCInvoicePage_OriginalQuantityColumnHeader}" value="{!invoiceItem.ItemQuantity__c}" />
+                                                <apex:column headerValue="{!$ObjectType.ccrz__E_InvoiceItem__c.fields.ccrz__OriginalAmount__c.label}" value="{!invoiceItem.ccrz__OriginalAmount__c}" />
+                                                <apex:column headerValue="{!$ObjectType.ccrz__E_InvoiceItem__c.fields.Tax_Amount__c.label}" value="{!invoiceItem.Tax_Amount__c}" />
+                                                <apex:column headerValue="{!$Label.ACAMSCCOrderCCInvoicePage_AddedQuantityColumnHeader}">
+                                                    <apex:inputField value="{!invoiceItem.Quantity__c}" />
+                                                </apex:column>
+                                            </apex:pageBlockTable>
+                                        </apex:pageBlockSection>
+                                        <apex:pageBlockSection title="{!$Label.ACAMSCCOrderCCInvoicePage_AvailableInvoiceItemsHeader}" columns="1" collapsible="false">
+                                            <apex:pageBlockTable value="{!availableInvoiceItems}" var="invoiceItem">
+                                                <apex:column headerValue="{!$Label.ACAMSCCOrderCCInvoicePage_ActionColumnHeader}">
+                                                    <apex:commandLink value="{!$Label.ACAMSCCOrderCCInvoicePage_AddInvoiceItemButton}" action="{!addItem}" status="spinnerStatus" reRender="items-modal"
+                                                            rendered="{!AND(
+                                                                invoiceItem.Quantity__c > 0,
+                                                                OR(
+                                                                    LEN(addedOrderItemIds) == 0,
+                                                                    NOT(CONTAINS(addedOrderItemIds, invoiceItem.ccrz__CCOrderItem__c))
+                                                                )
+                                                            )}">
+                                                        <apex:param name="itemId" value="{!invoiceItem.Id}" assignTo="{!targetInvoiceItemId}" />
+                                                    </apex:commandLink>
+                                                </apex:column>
+                                                <apex:column headerValue="{!$ObjectType.ccrz__E_OrderItem__c.fields.ccrz__Product_Name__c.label}" value="{!invoiceItem.ccrz__CCOrderItem__r.ccrz__Product_Name__c}" />
+                                                <apex:column headerValue="{!$ObjectType.ccrz__E_OrderItem__c.label}" value="{!invoiceItem.ccrz__CCOrderItem__r.Name}" />
+                                                <apex:column headerValue="{!$ObjectType.ccrz__E_InvoiceItem__c.fields.ccrz__Type__c.label}" value="{!invoiceItem.ccrz__Type__c}" />
+                                                <apex:column headerValue="{!$ObjectType.ccrz__E_InvoiceItem__c.fields.ccrz__Status__c.label}" value="{!invoiceItem.ccrz__Status__c}" />
+                                                <apex:column headerValue="{!$Label.ACAMSCCOrderCCInvoicePage_OriginalQuantityColumnHeader}" value="{!invoiceItem.ItemQuantity__c}" />
+                                                <apex:column headerValue="{!$ObjectType.ccrz__E_InvoiceItem__c.fields.ccrz__OriginalAmount__c.label}" value="{!invoiceItem.ccrz__OriginalAmount__c}" />
+                                                <apex:column headerValue="{!$ObjectType.ccrz__E_InvoiceItem__c.fields.Tax_Amount__c.label}" value="{!invoiceItem.Tax_Amount__c}" />
+                                                <apex:column headerValue="{!$Label.ACAMSCCOrderCCInvoicePage_AvailableQuantityColumnHeader}" value="{!invoiceItem.Quantity__c}" />
+                                            </apex:pageBlockTable>
+                                        </apex:pageBlockSection>
+                                    </apex:pageBlock>
+                                </div>
+                                <footer class="slds-modal__footer">
+                                    <apex:commandButton value="{!$Label.ACAMSCCOrderCCInvoicePage_CloseInvoiceItemsModalButton}" action="{!closeItemsModal}"
+                                        reRender="page-content" status="spinnerStatus" />
+                                </footer>
+                            </div>
+                        </section>
+                        <div class="slds-backdrop slds-backdrop_open"></div>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+            </apex:form>
+        </div>
+    </body>
+
+    </html>
+</apex:page>

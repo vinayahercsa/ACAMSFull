@@ -1,0 +1,600 @@
+<apex:page id="sitelogin" showHeader="false" standardController="User" standardStylesheets="false" extensions="ACAMS_RegistrationPageController" title="Registration Page" language="{!langValue}" >
+    <apex:define name="body">
+        <apex:form styleClass="form"  id="loginForm" forceSSL="true">
+            <html>
+                <head>
+                    <!-- Google Tag Manager -->
+                    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                    })(window,document,'script','dataLayer','GTM-WF5RSGL');</script>
+                    <!-- End Google Tag Manager -->
+                    <meta charset="utf-8" />
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+                    <meta name="viewport" content="width=device-width, initial-scale=1" />
+                    <meta name="description" content=""/>
+                    <meta name="author" content=""/>
+                    
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+                    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+                  
+                            <apex:slds />
+                                <script type="text/javascript">
+                                    $('.searchSelect').select2();
+                    </script>
+                </head>
+                <body>
+                    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+                    <script>
+                        function handlerKeyPress(ev) {
+                        if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+                            $('.sbtn').click();   
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }
+                    </script>
+                            <apex:outputPanel id="focusError">
+                        <script>
+                        $(function(){
+                            
+                            $('html, body').animate({
+                                scrollTop: $('[id$=msg]').offset().top
+                            }, 1500);
+                        });
+                        </script>
+                    </apex:outputPanel>
+                    <!-- Google Tag Manager (noscript) -->
+                    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF5RSGL"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                        <script>
+                        function pushcompany() {
+                        var bla=$('[id$=companyname]').val();
+                        
+                        console.log(bla);
+                        dataLayer.push({
+                            'event': 'e_formFieldValue',
+                            'fieldName': 'companyname',
+                            'formName': 'Registration',
+                            'formStepNumber': '1',
+                            'fieldValue': bla
+                        });
+                    }
+                    function pushcountry() {
+                        var cnt=$('[id$=country]').val();
+                        
+                        dataLayer.push({
+                            'event': 'e_formFieldValue',
+                            'fieldName': 'country',
+                            'formName': 'Registration',
+                            'formStepNumber': '1',
+                            'fieldValue': cnt
+                        });
+                    }
+                    function pushstate() {
+                        var stt=$('[id$=state]').val();
+                        dataLayer.push({
+                            'event': 'e_formFieldValue',
+                            'fieldName': 'state',
+                            'formName': 'Registration',
+                            'formStepNumber': '1',
+                            'fieldValue': stt
+                        });
+                    }
+                    function pushindustry() {
+                        var ind=$('[id$=industry]').val();
+                        
+                        dataLayer.push({
+                            'event': 'e_formFieldValue',
+                            'fieldName': 'industry',
+                            'formName': 'Registration',
+                            'formStepNumber': '1',
+                            'fieldValue': ind
+                        });
+                    }
+                    function pushterms() {
+                        var trm=$('[id$=terms]').val();
+                        
+                        dataLayer.push({
+                            'event': 'e_formFieldValue',
+                            'fieldName': 'terms',
+                            'formName': 'Registration',
+                            'formStepNumber': '1',
+                            'fieldValue': trm
+                        });
+                    }
+                    function pushmrkt() {
+                        var mrkt=$('[id$=marketing]').val();
+                        
+                        dataLayer.push({
+                            'event': 'e_formFieldValue',
+                            'fieldName': 'marketing',
+                            'formName': 'Registration',
+                            'formStepNumber': '1',
+                            'fieldValue': mrkt
+                        });
+                    }
+                    
+                    </script>
+                    <!-- End Google Tag Manager (noscript) -->
+                </body>
+                
+                <style>
+                    
+                  
+                    body {
+                    margin: 0;
+                    padding: 0;
+                    font-family: Sharp, Arial, Helvetica, sans-serif;
+                    }
+                    
+                    .acams-logo{
+                    width: 150px;
+                    margin: 0 auto;
+                    }
+                    .logo-img {
+                    width: 150px;
+                    }
+                    .login-wrapper {
+                    
+                    text-align: center;
+                    margin: 0 auto;
+                    
+                    }
+                    .heading {
+                    color: #002368;
+                    font-weight: bold;
+                    font-size: 30px;
+                    }
+                    .subheading {
+                    width: 100%;
+                    font-size: 19px;
+                    margin-bottom: 20px;
+                    color: #5b5b5b;
+                    }
+                    .label {
+                    color: #929292;
+                    position: absolute;
+                    margin-left: 20px;
+                    }
+                    .input-wrapper {
+                    
+                    width: 350px;
+                    margin: 0 auto 30px auto;
+                    padding: 5px 10px;
+                    border: 3px solid #929292;
+                    
+                    }
+                    .message-wrapper {
+                    
+                    width: 350px;
+                    margin: 0 auto 0 auto;
+                    
+                    
+                    }
+                    .input {
+                    
+                    height: 40px;
+                    margin-left: 10px;
+                    margin-top: 15px;
+                    font-size: 25px;
+                    border: none;
+                    outline: none;
+                    color: #5b5b5b;
+                    
+                    }
+                    .sbtn {
+                    width: 373px;
+                    font-weight: bold;
+                    margin-bottom: 20px;
+                    padding: 30px;
+                    cursor: pointer;
+                    border: none;
+                    outline: none;
+                    color: white;
+                    background-color: #002368;
+                    }
+                    .symbol {
+                    width: 15px;
+                    margin-right: 5px;
+                    }
+                    .bottom {
+                    font-size: 15px;
+                    font-weight: 700;
+                    margin-bottom: 20px;
+                    color: #002368;
+                    }
+                    .browserscorrect{
+                    -webkit-appearance:  none; 
+                    }
+                    .warning {
+                    padding: 15px 35px;
+                    font-size: 15px;
+                    text-align: center;
+                    margin: 0 auto;
+                    -webkit-box-shadow: 0px 0px 10px 0px #b5b3ba;
+                    -moz-box-shadow: 0px 0px 10px 0px #b5b3ba;
+                    box-shadow: 0px 0px 10px 0px #b5b3ba;
+                    }
+                    
+                    a {
+                    text-decoration: none;
+                    color: #69b2af;
+                    }
+                    
+                    .official-blue {
+                    color: #002368;
+                    }
+                    .dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown::before {
+    position: absolute;
+    content: " \02C5";
+    top: 0px;
+    right: 5px;
+    height: 15px;
+    width: 30px;
+    padding-top:10px
+}
+                    
+                </style>
+                <apex:outputPanel rendered="{!notDrupal}">
+                    <div class="login-wrapper">
+                    <div class="slds-form-element__control">
+    
+            <apex:actionSupport event="onchange" action="{!refreshPage}" />
+                       
+                    <apex:inputField value="{!User.Interface_Language__c}"  style="width: 120px;padding: 5px 15px;border: 3px solid #929292;" />
+                        </div>
+                        </div>
+        
+
+                    <div class="acams-logo" style="padding-top:20px;">
+                        <a href="https://www.acams.org/en">  <apex:image style="logo-img" url="{!$Resource.ACAMSLoginLogo}" height="30" alt="Acams Logo" /></a>
+                    </div>
+                    <br/> <br/> 
+                </apex:outputPanel>
+                
+                <div class="login-wrapper">
+                    
+                    <h2 style="font-size:25px;font-weight:bold;font-family: Sharp, Arial, Helvetica, sans-serif;color:#002368">{!$Label.reg_Create_Account}</h2>
+                    
+                    
+                    <br>
+                </br>
+                
+                <div class="subheading" style="font-family: Sharp, Arial, Helvetica, sans-serif;color: black;">{!$Label.reg_Already_have_an_account} <a href="{!signinPage}" style="font-family: Sharp, Arial, Helvetica, sans-serif;color: #5b5b5b;" >{!$Label.reg_Sign_In}</a></div>
+                
+                <table><tr><td><apex:messages id="msg"  style="color:red;font-family: Sharp, Arial, Helvetica, sans-serif; font-weight: bold; width: 350px;
+                                                               margin: 0 auto 30px auto;
+                                                               padding: 5px 10px;
+                                                               "  /></td></tr></table>
+                <div class="slds-form-element__control"  >
+                    
+                    
+                    <apex:inputText styleClass="slds-input" id="firstname" value="{!firstname}"  onkeypress="return handlerKeyPress(event);" onchange="dataLayer.push({
+                                                                                                                                                       'event': 'e_formFieldValue',
+                                                                                                                                                       'fieldName': 'firstname',
+                                                                                                                                                       'formName': 'Registration',
+                                                                                                                                                       'formStepNumber': '1',
+                                                                                                                                                       'fieldValue': 'PII'
+                                                                                                                                                       });" style="width: 350px;padding: 10px 15px;border: 3px solid #929292;" html-placeholder="{!$Label.reg_First_Name}" />
+                    
+                </div>
+                <div class="slds-form-element__control" style="padding-top:20px;" >
+                    
+                    
+                    <apex:inputText styleClass="slds-input" id="lastname" value="{!lastname}" onkeypress="return handlerKeyPress(event);"  onchange="dataLayer.push({
+                                                                                                                                                     'event': 'e_formFieldValue',
+                                                                                                                                                     'fieldName': 'lastname',
+                                                                                                                                                     'formName': 'Registration',
+                                                                                                                                                     'formStepNumber': '1',
+                                                                                                                                                     'fieldValue': 'PII'
+                                                                                                                                                     });" style="width: 350px;padding: 10px 15px;border: 3px solid #929292;" html-placeholder="{!$Label.reg_Last_Name}" />
+                    
+                </div>
+                <div class="slds-form-element__control" style="padding-top:20px;" >
+                    
+                    
+                    <apex:inputText styleClass="slds-input" id="email" value="{!email}" onkeypress="return handlerKeyPress(event);"  onchange="dataLayer.push({
+                                                                                                                                               'event': 'e_formFieldValue',
+                                                                                                                                               'fieldName': 'email',
+                                                                                                                                               'formName': 'Registration',
+                                                                                                                                               'formStepNumber': '1',
+                                                                                                                                               'fieldValue': 'PII'
+                                                                                                                                               });" style="width: 350px;padding:10px 15px;border: 3px solid #929292;" html-placeholder="{!$Label.reg_Username_Primary_Email}" />
+                    
+                </div>
+                
+                <div class="slds-form-element__control"  style="padding-top:20px;">
+                    
+                    
+                    <apex:inputSecret styleClass="slds-input" id="password" value="{!password}" onkeypress="return handlerKeyPress(event);"  style="width: 350px;padding: 10px 15px;border: 3px solid #929292;" html-placeholder="{!$Label.reg_Password}" />
+                    
+                </div>
+                <div class="slds-form-element__control"  style="padding-top:20px;">
+                    
+                    
+                    <apex:inputSecret styleClass="slds-input" id="confirmpassword" value="{!confirmpassword}" onkeypress="return handlerKeyPress(event);" style="width: 350px;padding: 10px 15px;border: 3px solid #929292;" html-placeholder="{!$Label.reg_Confirm_Password}" />
+                    
+                </div>
+    
+                <h2 style="padding-top:20px;padding-left:20px;width: 350px;margin: 0 auto 30px auto;
+                           font-family: Sharp, Arial, Helvetica, sans-serif;" >{!$Label.reg_Your_password_must_be_at_least_8_characters_long_and_contain_one_uppercase_l}</h2>
+           <!--     <apex:outputPanel id="stateblock">                                                                       
+                    
+                    <div class="slds-form-element__control"  >
+                        
+                        <apex:actionSupport event="onchange" action="{!renderState}" reRender="stateblock">
+                            <apex:selectList id="country" value="{!country}" onkeypress="return handlerKeyPress(event);"  onchange="pushcountry();" size="1" style="width: 350px;padding: 15px 20px;border: 3px solid #929292;" styleClass="browserscorrect" html-placeholder="Country*"  >
+                                
+                                <apex:selectOptions value="{!countries}" />
+                                
+                            </apex:selectList>
+                        </apex:actionSupport>
+                        
+                    </div>
+                    <apex:outputText rendered="{!renderstatebox}">
+                        <div class="slds-form-element__control" style="padding-top:20px;" >
+                            
+                            
+                            
+                            <apex:selectList id="state" value="{!state}" size="1"  onkeypress="return handlerKeyPress(event);" onchange="pushstate();" style="width: 350px;padding: 15px 20px;border: 3px solid #929292;" styleClass="browserscorrect" html-placeholder="State*" >
+                                <apex:selectOptions value="{!stateLst}"/>
+                            </apex:selectList>
+                        </div>
+                    </apex:outputText>
+                </apex:outputPanel>
+-->
+        <apex:pageBlock id="xxxpb1">
+                <div class="slds-form-element__control" style="padding-right:250px" >
+                    <apex:outputLabel style="width: 350px:font-family: Sharp, Arial, Helvetica, sans-serif;">{!$Label.reg_Country}</apex:outputLabel>
+                    
+                </div> 
+                   
+                
+                <div class="slds-form-element__control"  >
+                    <div class="dropdown"> 
+                      
+                    <apex:actionRegion >  
+                        <apex:inputField value="{!User.countrycode}" html-placeholder="Country*"  styleClass="browserscorrect" style="width: 350px;padding: 15px 20px;border: 3px solid #929292;" >
+                         <apex:actionSupport event="onchange" rerender="xxxpbs1,xxxpbs2" />
+                        </apex:inputField>
+                            </apex:actionRegion>
+                
+                        </div>
+                </div>
+                
+                 <apex:outputPanel id="xxxpbs1" >
+                     <apex:outputPanel rendered="{!IF(User.countrycode == 'AD'
+||
+User.countrycode =='AE'
+||
+User.countrycode =='AM'
+||
+User.countrycode =='AR'
+||
+User.countrycode =='AU'
+||
+User.countrycode =='BR'
+||
+User.countrycode =='BS'
+||
+User.countrycode =='CA'
+||
+User.countrycode =='CL'
+||
+User.countrycode =='CN'
+||
+User.countrycode =='CO'
+||
+User.countrycode =='CU'
+||
+User.countrycode =='CV'
+||
+User.countrycode =='EG'
+||
+User.countrycode =='ES'
+||
+User.countrycode =='HK'
+||
+User.countrycode =='ID'
+||
+User.countrycode =='IE'
+||
+User.countrycode =='IN'
+||
+User.countrycode =='IR'
+||
+User.countrycode =='IT'
+||
+User.countrycode =='JM'
+||
+User.countrycode =='JP'
+||
+User.countrycode =='KN'
+||
+User.countrycode =='KP'
+||
+User.countrycode =='KR'
+||
+User.countrycode =='KY'
+||
+User.countrycode =='MX'
+||
+User.countrycode =='MY'
+||
+User.countrycode =='MZ'
+||
+User.countrycode =='NG'
+||
+User.countrycode =='NI'
+||
+User.countrycode =='NR'
+||
+User.countrycode =='PE'
+||
+User.countrycode =='PH'
+||
+User.countrycode =='RU'
+||
+User.countrycode =='SO'
+||
+User.countrycode =='SR'
+||
+User.countrycode =='SV'
+||
+User.countrycode =='TH'
+||
+User.countrycode =='TR'
+||
+User.countrycode =='TV'
+||
+User.countrycode =='TW'
+||
+User.countrycode =='UA'
+||
+User.countrycode =='US'
+||
+User.countrycode =='UY'
+||
+User.countrycode =='VE'
+||
+User.countrycode =='VN' ,true,false)}">
+                <div class="slds-form-element__control" style="padding-top:20px;padding-right:240px" >
+                    
+                    <apex:outputLabel style="width: 350px:font-family: Sharp, Arial, Helvetica, sans-serif;">{!$Label.reg_State}</apex:outputLabel>
+                    
+                </div> 
+                    
+                <div class="slds-form-element__control" >
+                   
+                    <div class="dropdown">
+                        
+                        <apex:inputField value="{!User.statecode}"  styleClass="browserscorrect" style="width: 350px;padding: 15px 20px;border: 3px solid #929292;" />
+                           
+                    </div>
+                         
+                </div>
+                         </apex:outputPanel>
+                 </apex:outputPanel>
+                             <apex:outputPanel id="xxxpbs2" >
+                     <apex:outputPanel rendered="{!IF(User.countrycode == 'CN',true,false)}">
+                                        <div class="slds-form-element__control" style="padding-top:20px;" >
+                    
+                    
+                    <apex:inputText styleClass="slds-input" id="nativefirstname" value="{!nativefirstname}" onkeypress="return handlerKeyPress(event);"  style="width: 350px;padding: 10px 15px;border: 3px solid #929292;" html-placeholder="{!$Label.reg_Native_FirstName}*" />
+                    
+                </div>
+                          <div class="slds-form-element__control" style="padding-top:20px;" >
+                    
+                    
+                    <apex:inputText styleClass="slds-input" id="nativelastname" value="{!nativelastname}" onkeypress="return handlerKeyPress(event);"  style="width: 350px;padding: 10px 15px;border: 3px solid #929292;" html-placeholder="{!$Label.reg_Native_LastName}*" />
+                    
+                </div>
+                                 </apex:outputPanel></apex:outputPanel>
+                    </apex:PageBlock>
+
+                <div class="slds-form-element__control" style="padding-top:20px;" >
+                    
+                    
+                    <apex:inputText styleClass="slds-input" id="companyname" value="{!companyname}" onkeypress="return handlerKeyPress(event);" onchange="pushcompany();" style="width: 350px;padding: 10px 15px;border: 3px solid #929292;" html-placeholder="{!$Label.reg_Company_Name}"   />
+                    
+                </div>
+                        <div class="slds-form-element__control" style="padding-top:20px;padding-right:295px" >
+            <apex:outputLabel style="width: 350px:font-family: Sharp, Arial, Helvetica, sans-serif;">{!$Label.reg_Industry}</apex:outputLabel>
+                
+                </div> 
+                <div class="slds-form-element__control" >
+                    
+                    <div class="dropdown">
+                    <apex:selectList id="industry" value="{!industry}" onkeypress="return handlerKeyPress(event);" onchange="pushindustry();" size="1" style="width: 350px;padding: 15px 20px;border: 3px solid #929292;" styleClass="browserscorrect"   >
+                        <apex:selectOptions value="{!Industries}" />
+                    </apex:selectList>
+                </div>
+                </div>
+                
+                        <div class="slds-form-element__control" style="padding-top:20px;padding-right:255px" >
+            <apex:outputLabel style="width: 350px:font-family: Sharp, Arial, Helvetica, sans-serif;">{!$Label.reg_Phone_Code}</apex:outputLabel>
+                
+                </div> 
+                <fieldset class="slds-form--compound" style="width: 350px;margin: 0 auto 30px auto">
+                    
+                    <div class="form-element__group">
+                        <div class="slds-form-element__row">
+                            <label class="slds-form-element__control slds-size--1-of-4" >
+                                
+                                <apex:selectList id="areacode" value="{!areacode}" onkeypress="return handlerKeyPress(event);" onchange="dataLayer.push({
+                                                                                                                                         'event': 'e_formFieldValue',
+                                                                                                                                         'fieldName': 'areacode',
+                                                                                                                                         'formName': 'Registration',
+                                                                                                                                         'formStepNumber': '1',
+                                                                                                                                         'fieldValue': 'PII'
+                                                                                                                                         });" size="1" style="width: 90px;padding: 15px 20px;border: 3px solid #929292;" styleClass="browserscorrect"  >
+                                    <apex:selectOptions value="{!areacodes}" / >
+                                    </apex:selectList>
+                                    
+                                </label>
+                                <label class="slds-form-element__control slds-size--4-of-6"  >
+                                    
+                                    <apex:inputText styleClass="slds-input" id="workphone" value="{!workphone}" onkeypress="return handlerKeyPress(event);" onchange="dataLayer.push({
+                                                                                                                                                                      'event': 'e_formFieldValue',
+                                                                                                                                                                      'fieldName': 'workphone',
+                                                                                                                                                                      'formName': 'Registration',
+                                                                                                                                                                      'formStepNumber': '1',
+                                                                                                                                                                      'fieldValue': 'PII'
+                                                                                                                                                                      });" style="width: 260px;padding:10px 15px;border: 3px solid #929292;" html-placeholder="{!$Label.reg_Work_Phone_Number}" />
+                                    
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="primary-col" style="font-family: Sharp, Arial, Helvetica, sans-serif;width: 350px;margin: 0 auto 20px auto">
+                        <label for="terms" style="float:left;font-family: Sharp, Arial, Helvetica, sans-serif;align:left;padding-top:20px;">
+                            
+                            <apex:inputCheckbox id="terms" value="{!terms}" onchange="pushterms();" onkeypress="return handlerKeyPress(event);" style="outline: 2px solid #929292;"/>&nbsp;   {!$Label.reg_I_agree_with_the} <a href="https://www.acams.org/en/terms-of-service" target="_blank" class="use-ajax" style="font-family: Sharp, Arial, Helvetica, sans-serif;color: #5b5b5b;font-weight:bold;" data-dialog-type="modal" data-dialog-options="{&quot;width&quot;:&quot;50%&quot;}">{!$Label.reg_Terms_and_Conditions}</a>{!$Label.reg_and_consent_to_the_collection_use_and_sharing_of_my_information_for_the}
+                        </label>
+                    </div>
+                    <div class="primary-col" style="font-family: Sharp, Arial, Helvetica, sans-serif;width: 350px;margin: 0 auto 30px auto;">
+                        
+                        <label for="marketing" style="float:left;padding-top:20px;padding-bottom:30px;font-family: Sharp, Arial, Helvetica, sans-serif;align:left;">
+                            <apex:inputCheckbox id="marketing" value="{!marketing}" onkeypress="return handlerKeyPress(event);" onchange="pushmrkt();" style="outline: 2px solid #929292;"/>
+                            &nbsp;{!$Label.reg_Marketing_Opt_In}</label>
+                    </div>
+                    
+                    
+                    <br/>
+                    <div class = "slds-text-color_inverse" style="font-family: Sharp, Arial, Helvetica, sans-serif;width: 350px;margin: 0 auto 30px auto">
+                        <apex:actionStatus id="mySaveStatus1">
+                            
+                            <apex:facet name="stop">
+                                
+                                <apex:commandButton style="font-family: Sharp, Arial, Helvetica, sans-serif; font-weight: bold;" action="{!registerUser}" status="mySaveStatus1" value="{!$Label.reg_Create_Account}" disabled="false" rerender="mySaveStatus,loginForm,focusError" styleClass="sbtn" />
+                                
+                            </apex:facet>
+                            
+                            <apex:facet name="start">
+                                
+                                <apex:commandButton style="font-family: Sharp, Arial, Helvetica, sans-serif; font-weight: bold;" action="{!registerUser}" status="mySaveStatus1" value="{!$Label.reg_PROCESSING}" disabled="true" styleClass="sbtn" rerender="loginForm"/> </apex:facet>
+                            
+                        </apex:actionStatus>
+                        
+                        
+                    </div>  
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>
+            </html>
+        </apex:form>
+    </apex:define>
+</apex:page>

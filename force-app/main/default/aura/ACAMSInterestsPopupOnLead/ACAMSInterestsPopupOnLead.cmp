@@ -1,0 +1,42 @@
+<aura:component controller="ACAMSInterestsPopupOnLeadController" implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader" access="global" >
+
+    <aura:attribute name="recordId" type="Id" default='' /> 
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="RecordsList" type="List" />
+    
+    <aura:attribute name="selectedRowsCount" type="Integer" default="0"/>
+    <aura:attribute name="selectedRecordsList" type="List" />
+    <aura:attribute name="maxRowSelection" type="Integer" default="30"/>
+    
+    <aura:attribute name="InterestRecords" type="String" default=""/>
+    <aura:attribute name="errormsg" type="String" default=""/>
+    
+    
+    <!-- handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.init }"/>
+    
+    <!-- the container element determine the height of the datatable -->
+    <div>
+        <h1>Selected Rows: {! v.selectedRowsCount }</h1>
+        <h1 style="color:red">{! v.errormsg }</h1>
+    </div>
+    <br/> <br/> 
+    <div>
+        
+        <lightning:datatable
+                             columns="{!v.columns }"
+                             data="{!v.data }"
+                             keyField ="Id" 
+                             selectedRows ="{!v.selectedRecordsList}"
+                             maxRowSelection="{! v.maxRowSelection }"
+                             onrowselection="{! c.updateSelectedText }"/> 
+    </div>
+    <br/> <br/> 
+    <div>
+        <center>
+            <button class="slds-button slds-button--brand slds-m-top--xx-small" id='Savebutton' onclick="{!c.saveSelectedRecords}">Save</button>
+            <button class="slds-button slds-button--brand slds-m-top--xx-small" id='Cancel' onclick="{!c.cancel}">Cancel</button>
+        </center>
+    </div>
+</aura:component>

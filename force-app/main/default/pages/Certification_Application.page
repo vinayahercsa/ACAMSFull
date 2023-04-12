@@ -1,0 +1,50 @@
+<apex:page StandardController="Certification_Application__c" showHeader="false" standardStylesheets="false" sidebar="false">
+
+    
+    <body style="background-color:red;">
+        <apex:outputPanel rendered="{!Certification_Application__c.CGSS_Check__c}">
+            <div align="center"><b>
+               <font color="#faf8f7">
+                CGSS
+                 </font>
+            </b>
+            </div>
+        </apex:outputPanel>    
+        <apex:outputPanel rendered="{!IF(Certification_Application__c.CGSS_Check__c=FALSE && Certification_Application__c.India_Regime__c=FALSE && Certification_Application__c.CAMSRM__c=FALSE && Certification_Application__c.Application_Type__c == null ,true,false)}">
+        
+            <div align="center"><b>
+             <font color="#faf8f7">
+               CAMS
+             </font>   
+            </b>
+            </div>
+        </apex:outputPanel>
+     <apex:outputPanel rendered="{!IF(Certification_Application__c.CGSS_Check__c=FALSE && Certification_Application__c.India_Regime__c=FALSE && Certification_Application__c.CAMSRM__c=FALSE && Certification_Application__c.Application_Type__c != null ,true,false)}">
+        
+            <div align="center"><b>
+             <font color="#faf8f7">
+                {!Certification_Application__c.Application_Type__c}
+             </font>   
+            </b>
+            </div>
+        </apex:outputPanel>
+           <apex:outputPanel rendered="{!Certification_Application__c.India_Regime__c}">
+            <div align="center"><b>
+               <font color="#faf8f7">
+                India AML Regime
+                 </font>
+            </b>
+            </div>
+        </apex:outputPanel> 
+        <apex:outputPanel rendered="{!Certification_Application__c.CAMSRM__c}">
+            <div align="center"><b>
+               <font color="#faf8f7">
+                CAMS-RM
+                 </font>
+            </b>
+            </div>
+        </apex:outputPanel> 
+      </body>  
+    
+        
+</apex:page>

@@ -1,0 +1,227 @@
+<apex:page id="sitelogin" showHeader="false"  standardStylesheets="false" standardController="User" extensions="ACAMSSSOController" title="{!$Label.site.login}" action="{!redirect}" docType="html-5.0" language="{!langValue}">
+    <apex:define name="body">
+        <apex:form styleClass="form"  id="loginForm" forceSSL="true">
+            <html>
+                <head>
+                    <!-- Google Tag Manager -->
+                    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                    })(window,document,'script','dataLayer','GTM-WF5RSGL');</script>
+                    <!-- End Google Tag Manager -->
+                    
+                    
+                    <meta charset="utf-8" />
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+                    <meta name="viewport" content="width=device-width, initial-scale=1" />
+                    <meta name="description" content=""/>
+                    <meta name="author" content=""/>
+                    
+             
+                    
+                    
+                    
+                    <apex:slds />
+                    
+                </head>
+                <body>
+                    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+                    <script>
+                        function handlerKeyPress(ev) {
+                        if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+                            $('.sbtn').click();   
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }
+                    </script>
+                    <!-- Google Tag Manager (noscript) -->
+                    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF5RSGL"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                        <!-- End Google Tag Manager (noscript) -->
+                            </body>
+                        
+                        <style>
+                         
+                    body {
+                        margin: 0;
+                        padding: 0;
+                        font-family: Sharp, Arial, Helvetica, sans-serif;
+                    }
+                    
+                    .acams-logo{
+                        width: 150px;
+                        margin: 0 auto;
+                    }
+                    .logo-img {
+                        width: 150px;
+                    }
+                    .login-wrapper {
+                        
+                        text-align: center;
+                        margin: 0 auto;
+                        
+                    }
+                    .heading {
+                        color: #002368;
+                        font-weight: bold;
+                        font-size: 50px;
+                    }
+                    .subheading {
+                        width: 100%;
+                        font-size: 19px;
+                        margin-bottom: 20px;
+                        color: #5b5b5b;
+                    }
+                    .label {
+                        color: #929292;
+                        position: absolute;
+                        margin-left: 20px;
+                    }
+                    .input-wrapper {
+                        
+                        width: 350px;
+                        margin: 0 auto 30px auto;
+                        padding: 5px 10px;
+                        border: 3px solid #929292;
+                    }
+                    .input {
+                        
+                        height: 40px;
+                        margin-left: 10px;
+                        margin-top: 15px;
+                        font-size: 25px;
+                        border: none;
+                        outline: none;
+                        color: #5b5b5b;
+                        
+                    }
+                    .sbtn {
+                        width: 373px;
+                        margin-bottom: 20px;
+                        padding: 30px;
+                        cursor: pointer;
+                        border: none;
+                        outline: none;
+                        color: white;
+                        background-color: #002368;
+                    }
+                    .btn {
+                        color: white;
+                        width: 83%;
+                        margin-bottom: 20px;
+                        padding: 7%;
+                        cursor: pointer;
+                        border: none;
+                        outline: none;
+                        color: white;
+                        background-color: #002368;
+                    }
+                    .symbol {
+                        width: 15px;
+                        margin-right: 5px;
+                    }
+                    .bottom {
+                        font-size: 15px;
+                        font-weight: 700;
+                        margin-bottom: 20px;
+                        color: #002368;
+                    }
+                    .warning {
+                        padding: 15px 35px;
+                        font-size: 12px;
+                        background-color: #fefea9;
+                        border: 2px black solid;
+                        margin-bottom: 25px;
+                    }
+                        .message {
+                        color:red;font-family: Sharp, Arial, Helvetica, sans-serif;padding-top:10px;width: 350px;margin: 0 auto 20px auto;font-weight:bold
+                    }
+                    a {
+                        text-decoration: none;
+                        color: #69b2af;
+                    }
+                    
+                    .official-blue {
+                        color: #002368;
+                    }
+                    .THIS .slds-text-heading--large {
+                        background: #FF0000; /* background color */
+                        color: #002368; /* text color */
+                    }
+                    
+                    </style>
+                    <br/><br/>
+                        <apex:outputPanel rendered="{!notDrupal}">
+                            <div class="login-wrapper">
+                                <div class="slds-form-element__control"  >	
+                                    <apex:actionSupport event="onchange" action="{!refreshPage}" />
+                                        <apex:inputField value="{!User.Interface_Language__c}" styleClass="browserscorrect" style="width: 120px;padding: 5px 15px;border: 3px solid #929292;"  />
+                                            </div>
+                                        </div>
+                                        <div class="acams-logo" style="padding-top:20px;">
+                                            <a href="https://www.acams.org/en">     <apex:image style="logo-img" url="{!$Resource.ACAMSLoginLogo}" height="30" alt="Acams Logo" /> </a>
+                                            </div>
+                                            <br/> <br/> 
+                                                </apex:outputPanel>
+                                            <div class="login-wrapper" >
+                                                
+                                                <h1 style="font-size:25px;font-weight:bold;font-family: Sharp, Arial, Helvetica, sans-serif;color:#002368">{!$Label.signin_sign_in}</h1>
+                                                
+                                                <br/>
+                                                    <apex:outputPanel rendered="{!$Label.signin_render}">
+                                                        <div class="warning" style="text-align:centre">
+                                                            <b> {!$Label.signin_message}</b>
+                                                        </div>
+                                                        </apex:outputPanel> 
+                                                        <div class="subheading" style="font-family: Sharp, Arial, Helvetica, sans-serif;color: black;">{!$Label.signin_New_to_ACAMS} <a href="{!registerPage}" style="font-family: Sharp, Arial, Helvetica, sans-serif;color: #5b5b5b;">{!$Label.signin_Create_account_for_free}</a></div>
+                                                            <table class="message"><tr><td> <apex:pageMessage severity="error" summary="{!$Label.signin_Email}/{!$Label.signin_Password} {!$Label.reg_field_is_required}"  rendered="{!errorHit}"/></td></tr>
+                                                            <tr><td> <apex:pageMessage severity="error" summary="{!$Label.signin_The_email_password_combination_is_incorrect}"  rendered="{!errorHitEP}"/></td></tr>
+                                                            <tr><td> <apex:pageMessage severity="error" summary="{!$Label.reg_Please_enter_a_valid_email}"  rendered="{!errorHitInv}"/></td></tr></table>
+                                                            <div class="slds-form-element__control" style="padding-top:10px;">
+                                                                
+                                                                <apex:inputText styleClass="slds-input" id="username" value="{!username}" html-placeholder="{!$Label.signin_Email}" onkeypress="return handlerKeyPress(event);" onchange="dataLayer.push({
+                                                                'event': 'e_formFieldValue',
+                                                                    'fieldName': 'username',
+                                                                        'formName': 'signin',
+                                                                            'formStepNumber': '1',
+                                                                                'fieldValue': 'PII'
+                    });" style="font-family: Sharp, Arial, Helvetica, sans-serif;width: 350px;padding: 10px 15px;border: 3px solid #929292;"/>
+                    </div>
+                    <div class="slds-form-element__control" style="padding-top:20px;">
+                        
+                        <apex:inputSecret styleClass="slds-input"  id="password" value="{!password}" html-placeholder="{!$Label.signin_Password}" onkeypress="return handlerKeyPress(event);" style="font-family: Sharp, Arial, Helvetica, sans-serif;width: 350px;padding: 10px 15px;border: 3px solid #929292;" />
+                            </div>
+                        <div class = "slds-text-color_inverse" style="padding-top:30px;">
+                            <apex:actionStatus id="mySaveStatus1">
+                                
+                                <apex:facet name="stop">
+                                    
+                                    <apex:commandButton id="btn" style="font-family: Sharp, Arial, Helvetica, sans-serif; font-weight: bold;" action="{!login}" status="mySaveStatus1" value="{!$Label.signin_sign_in}" disabled="false" rerender="mySaveStatus,loginForm" styleClass="sbtn" />
+                                        
+                                        </apex:facet>
+                                    
+                                    <apex:facet name="start">
+                                        
+                                        <apex:commandButton id="btn2" style="font-family: Sharp, Arial, Helvetica, sans-serif; font-weight: bold;" action="{!login}" status="mySaveStatus1" value="{!$Label.signin_processing}" disabled="true" styleClass="sbtn" rerender="loginForm" /> </apex:facet>
+                                        
+                                        </apex:actionStatus>
+                                        
+                                        </div>
+                                        
+                                        
+                                        
+                                        <div class="bottom">
+                                            <br></br>
+                                        <span>
+                                            <img class="symbol" src="{!$Resource.ACAMSLoginSymbol}" alt="Acams Symbol" />
+                                                </span>
+                                            <a class="official-blue" href="{!passwordresetPage}">{!$Label.signin_FORGOT_PASSWORD}</a>
+                                            </div>
+                                            </div>
+                                            </html>
+                                            </apex:form>
+                                            </apex:define>
+                                            </apex:page>

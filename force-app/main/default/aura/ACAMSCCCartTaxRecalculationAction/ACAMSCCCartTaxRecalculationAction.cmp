@@ -1,0 +1,5 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader"
+                controller="ACAMSCartTaxRecalculationController">
+    <aura:handler name='init' value='{!this}' action='{!c.doInit}' />
+    <lightning:spinner class="spinner" alternativeText="alternativeText" size="medium" variant="brand"/>
+</aura:component>

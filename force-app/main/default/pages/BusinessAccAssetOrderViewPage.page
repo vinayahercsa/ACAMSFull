@@ -1,0 +1,51 @@
+<apex:page controller="BusinessAccAssetOrderViewClass" showHeader="false" standardStylesheets="false" sidebar="true" docType="html-5.0" action="{!dataInit}" readOnly="true">
+    <apex:slds />
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+        </script>
+        <script>
+            function scrollDown() {
+                $('html, body').animate({
+                    scrollTop: $(document).height()
+                }, 'slow');
+            }
+        </script>
+        
+        <apex:form >    
+            <apex:outputpanel >
+                <apex:outputpanel id="table1">
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th class="" scope="col"><div class="slds-truncate" title="SKU Code">Name</div></th>
+                                <th class="" scope="col"><div class="slds-truncate" title="Opportunity">Opportunity</div></th>
+                                <th class="" scope="col"><div class="slds-truncate" title="Total Amount">Total Amount</div></th>
+                                <th class="" scope="col"><div class="slds-truncate" title="Order Date">Order Date</div></th>
+                                <th class="" scope="col"><div class="slds-truncate" title="Paid Off Date">Paid Off Date</div></th>
+                                <th class="" scope="col"><div class="slds-truncate" title="Assets Assigned">Assets Assigned</div></th>
+                                <th class="" scope="col"><div class="slds-truncate" title="Assets Unassigned">Assets Unassigned</div></th>
+                            </tr>
+                        </thead>    
+                        <tbody>
+                            <apex:repeat value="{!OrderAssetList}" var="ccOrder">
+                                <tr class="slds-hint-parent">                                       
+                                    <td data-label="Order Name"><div class="slds-truncate" title="Name">
+                                        <apex:outputLink target="_blank" value="/{!ccOrder.OrderID}" id="theLink">{!ccOrder.OrderName}</apex:outputLink></div>
+                                    </td>
+                                    <td data-label="OpportunityName"><div class="slds-truncate" title="OpportunityName">
+                                        <apex:outputLink target="_blank" value="/{!ccOrder.OrderID}">{!ccOrder.OpportunityName}</apex:outputLink></div>
+                                    </td>   
+                                    <td data-label="Total Amount"><div class="slds-truncate" title="Amount">{!ccOrder.TotalAmount}</div></td>   
+                                    <td data-label="OrderDate"><div class="slds-truncate" >{!ccOrder.OrderDate}</div></td>
+                                    <td data-label="PaidoffDate"><div class="slds-truncate" >{!ccOrder.PaidOffDate}</div></td>
+                                    <td data-label="assigned Asset"><div class="slds-truncate" >{!ccOrder.AssetAssigneedCount}</div></td>
+                                    <td data-label="unassigned Asset"><div class="slds-truncate" >{!ccOrder.AssetUnassignedCount}</div></td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </apex:outputpanel>
+            </apex:outputpanel>         
+        </apex:form>
+    </html>
+</apex:page>

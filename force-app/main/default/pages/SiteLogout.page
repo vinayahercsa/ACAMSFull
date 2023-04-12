@@ -1,0 +1,20 @@
+<apex:page controller="SiteLogoutController" showHeader="false">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+ 
+         <apex:define name="body">  
+            <form class="input-form clearfix" id="sign-in-form" action=''>
+                  <apex:outputPanel layout="block" style="font-size:20px;margin-top:20px;color:#198876;padding-top: 24px;border-bottom:1px solid #DFDFDF;font-weight: bold; padding-bottom:20px;margin-left:-30px;padding-left:30px;width:118%;">Logging Out</apex:outputPanel>
+                  <apex:outputPanel layout="block" style="font-size:14px;margin-top:20px;padding-bottom: 40px;">
+                    If you are not logged out in 5 seconds, &nbsp; <apex:outputLink id="logoutlink" value="{!redirecturl}">click here</apex:outputLink>.
+                  </apex:outputPanel>
+                <apex:iframe id="theIframe" src="/acams/secur/logout.jsp" height="0" width="0" rendered="true" />                                               
+            </form>
+            <apex:form >
+                 <apex:actionfunction name="doredirect"   action="{!redirect}"/>   
+            </apex:form>
+         </apex:define>
+ 
+  <script type="">window.setTimeout(doredirect,2000)</script>
+</apex:page>

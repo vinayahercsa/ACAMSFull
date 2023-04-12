@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>ACAMS_User_Profile_Update</fullName>
+        <description>ACAMS User Profile Update</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Person_Account_Email_Address__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Ecommerce_Custom/ACAMS_2_0_User_Profile_Update</template>
+    </alerts>
+    <alerts>
+        <fullName>ACAMS_Welcome_Registered_User_Account</fullName>
+        <description>ACAMS Welcome Registered User Account</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Person_Account_Email_Address__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Ecommerce_Custom/ACAMS_2_0_Welcome_Registered_User</template>
+    </alerts>
+    <alerts>
+        <fullName>Internal_Communication_Email</fullName>
+        <description>Internal Communication Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Person_Account_Email_Address__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>ops@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Internal_Announcement_Drupal_Access</template>
+    </alerts>
+    <alerts>
+        <fullName>Reset_Password_notification</fullName>
+        <description>Reset Password notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Person_Account_Email_Address__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Customer_Service/Reset_Password_notification</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Check_CAMS_flag</fullName>
+        <field>CAMS__c</field>
+        <literalValue>1</literalValue>
+        <name>Check CAMS flag</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Copy_Home_email_to_Secondary</fullName>
+        <field>Secondary_Email__c</field>
+        <formula>Home_E_Mail_Address__pc</formula>
+        <name>Copy Home email to Secondary</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Making_Work_Email_Primary_upon_Conversio</fullName>
+        <description>Making Work Email Primary upon Conversio
+
+This field update has been expired as of 10/19/20 as the field is being retired.</description>
+        <field>Work_Email__c</field>
+        <formula>PersonEmail</formula>
+        <name>EXPIRED Making Work Email Primary</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Making_work_primary_upon_conversion</fullName>
+        <description>Making work primary upon conversion
+
+This field update has been expired as of 10/19/20 as the field is being retired.</description>
+        <field>Is_Work_Email_Primary__c</field>
+        <literalValue>1</literalValue>
+        <name>EXPIRED Making work primary</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Membership_Tracking</fullName>
+        <description>This field update has been expired as of 10/19/20 as the field is being retired.</description>
+        <field>Membership_Number__c</field>
+        <formula>Member_Number__c</formula>
+        <name>EXPIRED Membership #  Tracking</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>UnCheck_CAMS_flag</fullName>
+        <field>CAMS__c</field>
+        <literalValue>0</literalValue>
+        <name>UnCheck CAMS flag</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Account_HL_Mod_Date</fullName>
+        <field>HL_Mod_Date__pc</field>
+        <formula>NOW()</formula>
+        <name>Update Account HL Mod Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_CAMS_Exp_Date</fullName>
+        <field>CAMS_Expiration_Date__c</field>
+        <formula>IF(AND(Member_Flag__c,ACAMS_Cert__c),Cert_Expiration_Date__c, NULL)</formula>
+        <name>Update CAMS Exp Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_CAMS_Exp_Date_c</fullName>
+        <field>CAMS_Expiration_Date__c</field>
+        <formula>IF(AND(Member_Flag__c,ACAMS_Cert__c),Cert_Expiration_Date__c, NULL)</formula>
+        <name>Update CAMS Exp Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Person_Account_Email</fullName>
+        <field>Person_Account_Email_Address__c</field>
+        <formula>PersonEmail</formula>
+        <name>Update Person Account Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_User_Email_Account</fullName>
+        <field>Email__c</field>
+        <formula>if(Is_Work_Email_Primary__c = TRUE, Work_Email__c, 
+if(Is_Home_Email_Primary__c = TRUE, Personal_Email__c, 
+if(Is_Other_Email_Primary__c = TRUE, Other_Email__c, Personal_Email__c 
+) 
+) 
+)</formula>
+        <name>Update User Email Account</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>User_Email_Update</fullName>
+        <field>Email__c</field>
+        <formula>if( Is_Home_Email_Primary__c  = TRUE,  Personal_Email__c , 
+if( Is_Work_Email_Primary__c  = TRUE,  Work_Email__c , 
+if( Is_Other_Email_Primary__c  = TRUE,  Other_Email__c ,  Email__c  
+) 
+) 
+)</formula>
+        <name>User Email Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Check CAMS flag</fullName>
+        <actions>
+            <name>Check_CAMS_flag</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_CAMS_Exp_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>AND($Profile.Name &lt;&gt; &apos;Data Migration&apos; , OR( ISCHANGED( ACAMS_Cert__c ) ,      ISCHANGED( Member_Flag__c )  ), ACAMS_Cert__c, Member_Flag__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Copy Home email to Secondary</fullName>
+        <actions>
+            <name>Copy_Home_email_to_Secondary</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This is needed for the duplicate management process</description>
+        <formula>ischanged( Home_E_Mail_Address__pc ) &amp;&amp; $Profile.Name &lt;&gt; &apos;Data Migration&apos;</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>EXPIRED Marking Work Email upon Conversion</fullName>
+        <actions>
+            <name>Making_Work_Email_Primary_upon_Conversio</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Making_work_primary_upon_conversion</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Marking Work Email upon Conversion
+
+This workflow rule has been expired as of 10/19/20 as this functionality is no longer needed.</description>
+        <formula>AND($Profile.Name &lt;&gt; &apos;Data Migration&apos; , PersonEmail &lt;&gt; &quot;&quot;,and( Work_Email__c = &quot;&quot;, Home_E_Mail_Address__pc =&quot;&quot;, Other_Email__c = &quot;&quot;))</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>EXPIRED Membership %23 for History Tracking</fullName>
+        <actions>
+            <name>Membership_Tracking</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Update membership for history tracking.  Can&apos;t use other member fields because they are formulas.
+
+This workflow rule has been expired as of 10/19/20 as this functionality is no longer needed.</description>
+        <formula>LastModifiedById  &lt;&gt; &quot;00570000002SHwV&quot; &amp;&amp; $Profile.Name &lt;&gt; &apos;Data Migration&apos;</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>EXPIRED User Email Update</fullName>
+        <actions>
+            <name>User_Email_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Account.CreatedDate</field>
+            <operation>greaterThan</operation>
+            <value>&quot;12/31/2000, 11:00 PM&quot;</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <description>Ensures the user email address is updated with the appropriate primary email address flag.</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>EXPIRED User Email Update Account</fullName>
+        <actions>
+            <name>Update_User_Email_Account</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Account.Name</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <description>Ensures the user email address is updated with the appropriate primary email address flag.</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Internal Login Communication</fullName>
+        <actions>
+            <name>Internal_Communication_Email</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Account.PersonEmail</field>
+            <operation>contains</operation>
+            <value>ACAMS</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Description</field>
+            <operation>contains</operation>
+            <value>email sent</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Reset password notification Email</fullName>
+        <actions>
+            <name>Reset_Password_notification</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Send_Reset_Password_Email__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>UnCheck CAMS flag</fullName>
+        <actions>
+            <name>UnCheck_CAMS_flag</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_CAMS_Exp_Date_c</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND($Profile.Name &lt;&gt; &apos;Data Migration&apos; , OR( ISCHANGED( ACAMS_Cert__c ) ,       ISCHANGED( Member_Flag__c ) ), OR( NOT(ACAMS_Cert__c),  NOT(Member_Flag__c )))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Account HL Mod Date</fullName>
+        <actions>
+            <name>Update_Account_HL_Mod_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>IsPersonAccount = true &amp;&amp;(ISNEW() &amp;&amp; $Profile.Name &lt;&gt; &apos;Data Migration&apos;|| ISCHANGED(Original_Membership_Join_Date__pc) || ISCHANGED(Is_Active__pc) || ISCHANGED(BillingCountry) || ISCHANGED(BillingPostalCode) || ISCHANGED(Fax) || ISCHANGED(BillingState) || ISCHANGED(Phone) || ISCHANGED(PersonEmail) || ISCHANGED(HL_Security_Groups__pc)  || ISCHANGED(HL_Communities__pc) || ISCHANGED(Suffix) || ISCHANGED(BillingStreet) || ISCHANGED(Phone) || ISCHANGED(ccrz__CompanyName__pc) || ISCHANGED(Salutation) || ISCHANGED(Member_Expire_Date__pc)  || ISCHANGED(CAMS_Audit__pc)|| ISCHANGED(CAMS_FCI__pc)|| ISCHANGED(MiddleName) || ISCHANGED(BillingCity) || ISCHANGED(FirstName) || ISCHANGED(LastName))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Person Account Email</fullName>
+        <actions>
+            <name>Update_Person_Account_Email</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.IsPersonAccount</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>User Profile Update</fullName>
+        <actions>
+            <name>ACAMS_User_Profile_Update</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( $Profile.Name &lt;&gt; &apos;Data Migration&apos;, LastModifiedBy.FirstName = &apos;Drupal&apos;, LastModifiedBy.LastName = &apos;Integration&apos;, OR( ISCHANGED(Salutation), ISCHANGED(Secondary_Email__pc), ISCHANGED(FirstName), ISCHANGED(LastName), ISCHANGED(Native_First_Name__pc), ISCHANGED(Native_Last_Name__pc), ISCHANGED(Phone), ISCHANGED(Job_Title__pc), ISCHANGED(Industry), ISCHANGED(ccrz__CompanyName__pc), ISCHANGED(Student_Id__pc) ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Welcome Registered User Account</fullName>
+        <actions>
+            <name>ACAMS_Welcome_Registered_User_Account</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( Person_Account_Email_Address__c  &lt;&gt; null, OR( CreatedBy.Alias  = &apos;dinte&apos;,CreatedBy.Alias  = &apos;guest&apos; ), $Profile.Name  &lt;&gt; &apos;Data Migration&apos; )</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,force:lightningQuickActionWithoutHeader,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" 
+                controller="ACAMSCartItemsDeleteAction">
+	<aura:attribute name="recordId" type="String" />
+    <aura:attribute name="recordError" type="String" />
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    
+    <aura:if isTrue="{!not(empty(v.recordError))}">
+        <div class="recordError">
+            {!v.recordError}</div>
+    </aura:if>
+     <lightning:button variant="brand" label="OK" title="OK action" onclick="{! c.handleClick }" /> 
+</aura:component>

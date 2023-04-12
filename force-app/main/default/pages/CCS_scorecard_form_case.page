@@ -1,0 +1,248 @@
+<apex:page standardController="Contact_Center_Scorecard__c" extensions="MyExtension">
+    <!-- Begin Default Content REMOVE THIS -->
+    <apex:sectionHeader title="Contact Center Scorecard" subtitle="New Case Review" />
+
+    <apex:form >
+        <apex:pageBlock mode="edit">
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Submit Review" action="{!saveAndredirectcase}"  />
+            </apex:pageBlockButtons>
+
+            <!--Case Details-->
+            <apex:pageBlockSection columns="2" showHeader="true" title="Case Details">
+                <apex:inputField value="{!Contact_Center_Scorecard__c.Case__c}" required="true" />
+                <apex:inputField value="{!Contact_Center_Scorecard__c.Colleague__c}" required="true" />
+            </apex:pageBlockSection>
+
+            <!--Greeting Section-->
+            <apex:pageBlockSection columns="2" showHeader="true" title="Greeting">
+                <apex:outputPanel styleClass="rules">
+                    Thanked the customer for emailing
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.GREET_Thanked_customer__c}" label="" >
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+            </apex:pageBlockSection>
+
+            <!--CARE Section-->
+            <apex:pageBlockSection columns="2" showHeader="true" title="Make the Customer feel that you CARE throughout the case">
+                <apex:outputPanel styleClass="rules">
+                    Acknowledged the Customer’s frustration or concerns and reassured that they would be able to assist
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.CARE_Acknowledged_customer_issue__c}" label="">
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+                <apex:outputPanel styleClass="rules">
+                    Used polite expressions such as: Please, Thank you, Excuse me?, and I'm sorry
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.CARE_Used_polite_expressions__c}" label="">
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+            </apex:pageBlockSection>
+
+            <!--OWN Section-->
+            <apex:pageBlockSection columns="2" showHeader="true" title="Taking Ownership throughout the case">
+                <apex:outputPanel styleClass="rules">
+                    Readily took responsibility for answering the Customer’s question
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.OWN_Took_responsibility_to_answer_inquir__c}" label="">
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+                <apex:outputPanel styleClass="rules">
+                    <i>Review Salesforce for information pertinent to the email. (Check customer notes/case history)</i>
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.OWN_Reviewed_SFDC_for_inquiry_info__c}" label="">
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+                <apex:outputPanel styleClass="rules">
+                    Review Salesforce for any outstanding issues. (Additional open cases)
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.OWN_Reviewed_SFDC_for_outstanding_issues__c}" label="">
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+                <apex:outputPanel styleClass="rules">
+                    <font color="brown"><strong>
+                        ⚠ Ownership items: did the CCS do everything THEY could for the Customer?<br></br><i>
+                        <ul>
+                            <li>Transfer to Sales Rep.--if needed</li>
+                            <li>Proceed with Invoice -- if needed</li>
+                            <li>Register Customer for event/seminar</li>
+                            <li>Resend Communications - Conf/seminar/webinar</li>
+                            <li>Convert leads into contacts - if applicable</li></ul></i>
+                    </strong></font>
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.OWN_CCS_Ownership_items__c}" label="">
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+            </apex:pageBlockSection>
+
+            <!--SKILLS Section-->
+            <apex:pageBlockSection columns="2" showHeader="true" title="General Communication skills throughout the case">
+                <apex:outputPanel styleClass="rules">
+                    Projected a pleasant and upbeat tone, conveying confidence, courtesy, and enthusiasm
+                </apex:outputPanel>
+
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.SKILLS_Projected_pleasant_upbeat_tone__c}" label="" >
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+                <apex:outputPanel styleClass="rules">
+                    Written communication was well-formed and worded appropriately
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.SKILLS_Well_formed_written_communication__c}" label="" >
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+                <apex:outputPanel styleClass="rules">
+                    Explained the Customer's situation and provided customer contact details to whom the case was being transferred to
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.SKILLS_Performed_a_warm_transfer__c}" label="" >
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+            </apex:pageBlockSection>
+
+            <!--SKILLS Section-->
+            <apex:pageBlockSection columns="2" showHeader="true" title="Provided Customer with Accurate Information throughout the case">
+                <apex:outputPanel styleClass="rules">
+                    <font color="brown"><strong>
+                        ⚠ Used all available and appropriate resources to provide the Customer with accurate information... And remained Compliant… (Emails, website, etc. )
+                    </strong></font>
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.ACCURATE_Used_available_resources__c}" label="" >
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+                <apex:outputPanel styleClass="rules">
+                    Followed proper procedure to assist Customer. (Emails, website,FAQ's, Knowledgebase, etc.)
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.ACCURATE_Followed_proper_procedure__c}" label="" >
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+                <apex:outputPanel styleClass="rules">
+                    1st Case Resolution: Explained steps to prevent the Customer from having to make a second call or request about the same issue
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.ACCURATE_1_call_case_resolution__c}" label="" >
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+            </apex:pageBlockSection>
+
+
+            <!--CLOSING Section-->
+            <apex:pageBlockSection columns="2" showHeader="true" title="Closing">
+                <apex:outputPanel styleClass="rules">
+                    Summarized actions taken for Customer
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.CLOSING_Summarized_actions_taken__c}" label="" >
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+                <apex:outputPanel styleClass="rules">
+                    Advised of next step or follow-up actions that would occur or need to be taken by the Customer
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.CLOSING_Advised_next_steps__c}" label="" >
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+                <apex:outputPanel styleClass="rules">
+                    Offered additional assistance... <i>Should you need further assistance, please advise</i>
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.CLOSING_Offered_additional_assistance__c}" label="" >
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+                <apex:outputPanel styleClass="rules">
+                    Categorized the case correctly
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.CLOSING_Categorized_the_case_correctly__c}" label="" >
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+            </apex:pageBlockSection>
+
+            <!--DOC Section-->
+            <apex:pageBlockSection columns="2" showHeader="true" title="Documentation">
+                <apex:outputPanel styleClass="rules">
+                    <font color="brown"><strong>
+                        ⚠ Included detailed and accurate notes explaining what the customers request was in regard to and what the Customer was told
+                    </strong></font>
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.DOC_Included_detailed_and_accurate_notes__c}" label="" >
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+                <apex:outputPanel styleClass="rules">
+                    Case completed correctly
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.DOC_Case_completed_correctly__c}" label="" >
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+                <apex:outputPanel styleClass="rules">
+                    Used proper grammar and spelling
+                </apex:outputPanel>
+                <apex:selectRadio value="{!Contact_Center_Scorecard__c.DOC_Used_proper_grammar_spelling__c}" label="" >
+                    <apex:selectOption itemLabel="Pass" itemValue="Pass"/>
+                    <apex:selectOption itemLabel="Fail" itemValue="Fail"/>
+                    <apex:selectOption itemLabel="N/A" itemValue="N/A"/>
+                </apex:selectRadio>
+
+            </apex:pageBlockSection>
+
+            <!--COMMENTS Section-->
+            <apex:pageBlockSection columns="1" showHeader="true" title="Comments">
+                <apex:inputField value="{!Contact_Center_Scorecard__c.Comments__c}" required="false" />
+            </apex:pageBlockSection>
+
+
+
+        </apex:pageBlock>
+    </apex:form>
+
+</apex:page>

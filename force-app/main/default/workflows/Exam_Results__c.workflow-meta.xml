@@ -1,0 +1,2325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Advanced_Certification_Congratulatory_Email</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Advanced Certification Congratulatory Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/Advanced_Certification_Congratulatory_Email</template>
+    </alerts>
+    <alerts>
+        <fullName>Asia_India_Regime_Exam_eCertificate</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Asia India Regime Exam eCertificate</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>apac@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/VF_India_Regime_Exam_eCertificate</template>
+    </alerts>
+    <alerts>
+        <fullName>Automated_PDF_CGSS_eCertificate_Email</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Automated PDF CGSS eCertificate Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/VF_CGSS_eCertificate_Template_Mdoug</template>
+    </alerts>
+    <alerts>
+        <fullName>Automated_Singapore_AML_Regime_eCertificate_Email</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Automated PDF Singapore AML Regime eCertificate Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>apac@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/VF_APAC_Singapore_Regime_eCertificate</template>
+    </alerts>
+    <alerts>
+        <fullName>Hong_Kong_Regime_Exam_eCertificate</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Hong Kong Regime Exam eCertificate</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>apac@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/VF_HKG_Regime_Exam_eCert_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_Authorization_ARA_Arabic</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV Authorization-ARA (Arabic)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_Authorization_ARA_Arabic</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_Authorization_CHS_Simplified_Chinese</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV Authorization-CHS (Simplified Chinese)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_Authorization_CHS_Simplified_Chinese</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_Authorization_CHT_Traditional_Chinese</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV Authorization-CHT (Traditional Chinese)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_Authorization_CHT_Traditional_Chinese</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_Authorization_DEU_German</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV Authorization-DEU (German)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_Authorization_DEU_German</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_Authorization_ENU_English</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV Authorization-ENU (English)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_Authorization_ENU_English_20201026</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_Authorization_ESN_Spanish</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV Authorization-ESN (Spanish)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_Authorization_ESN_Spanish</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_Authorization_FRA_French</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV Authorization-FRA (French)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_Authorization_FRA_French</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_Authorization_IND_Bahasa_Indonesia</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV Authorization-IND (Bahasa Indonesia)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_Authorization_IND_Bahasa_Indonesia</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_Authorization_JPN_Japanese</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV Authorization-JPN (Japanese)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_Authorization_JPN_Japanese</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_Authorization_KR</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV Authorization-KR</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_Authorization_KR</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_Authorization_POL_Polish</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV Authorization-POL (Polish)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_Authorization_POL_Polish</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_Authorization_PTB</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV Authorization-PTB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_Authorization_PTB_Portuguese</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_Authorization_PTBFEB</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV Authorization-PTBFEB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_Authorization_PTBFEB_Ferbreban</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_Authorization_RUS</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV Authorization-RUS</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_Authorization_RUS_Russian</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_Authorization_SG</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV Authorization-SG</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>certification@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_Authorization_SG_Singapore_Exam</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_ING_Authorisation_DEU</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV ING Authorisation-DEU</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_ING_Authorisation_DEU</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_ING_Authorisation_DUT</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV ING Authorisation-DUT</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_ING_Authorisation_DUT</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_ING_Authorisation_ESN</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV ING Authorisation-ESN</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_ING_Authorisation_ESN</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_ING_Authorisation_FRA</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV ING Authorisation-FRA</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_ING_Authorisation_FRA</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_ING_Authorisation_ITA</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV ING Authorisation-ITA</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_ING_Authorisation_ITA</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_ING_Authorisation_POL</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV ING Authorisation-POL</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_ING_Authorisation_POL</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_ING_Authorisation_ROM</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV ING Authorisation-ROM</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_ING_Authorisation_ROM</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_ING_Authorisation_TUK</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV ING Authorisation-TUK</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_ING_Authorisation_TUK</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_ING_Authorization_ENU</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV ING Authorization-ENU</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_ING_Authorisation_ENU</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_POC_Authorisation_DUT</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV POC Authorisation-DUT</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>emea@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_POC_Authorisation_DUT</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_PV_POC_Authorisation_ENU</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Send PV POC Authorisation-ENU</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>emea@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PV/Send_PV_POC_Authorisation_ENU</template>
+    </alerts>
+    <alerts>
+        <fullName>VF_CAFCA_eCertificate_Template</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>VF CAFCA eCertificate Template</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/VF_CAFCA_eCertificate_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>VF_CAMSRM_eCertificate_Template</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>VF CAMSRM eCertificate Template</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/VF_CAMSRM_eCertificate_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>VF_CAMS_AUDIT_eCertificate_Template</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>VF CAMS_AUDIT eCertificate Template</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/VF_CAMS_AUDIT_eCertificate_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>VF_CAMS_eCertificate_Template</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>VF CAMS eCertificate Template</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/VF_CAMS_eCertificate_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>VF_CCAS_eCertificate_Template</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>VF CCAS eCertificate Template</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/VF_CCAS_eCertificate_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>VF_CKYCA_eCertificate_Template</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>VF CKYCA eCertificate Template</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/VF_CKYCA_eCertificate_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>VF_CTMA_eCertificate_Template</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>VF CTMA eCertificate Template</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/VF_CTMA_eCertificate_Template</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Update_eCert_Sent</fullName>
+        <field>eCert_Sent__c</field>
+        <literalValue>1</literalValue>
+        <name>Update eCert Sent</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_eCert_Sent_Field</fullName>
+        <field>eCert_Sent__c</field>
+        <literalValue>1</literalValue>
+        <name>Update eCert Sent Field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>%5BDO NOT USE%5DAutomated PDF ING CKYCA eCertificate Email</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>equals</operation>
+            <value>Pass</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Opt_Out__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Exam_Type__c</field>
+            <operation>equals</operation>
+            <value>CKYCA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.examSeriesCode__c</field>
+            <operation>equals</operation>
+            <value>CKYCA_ING_ENU</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Automated Advanced CAMS eCertificate Email</fullName>
+        <actions>
+            <name>Advanced_Certification_Congratulatory_Email</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Update_eCert_Sent</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 and 5 and 6 and 7 and 8</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>contains</operation>
+            <value>P,p</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Opt_Out__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Exam_Type__c</field>
+            <operation>equals</operation>
+            <value>CAMS-Audit,CAMS-FCI</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Member_Expire_Date__c</field>
+            <operation>greaterThan</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.ACAMS_Member__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Sent__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Test_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>11/4/2020</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Automated PDF CAFCA eCertificate Email</fullName>
+        <actions>
+            <name>VF_CAFCA_eCertificate_Template</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Update_eCert_Sent</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 and 7</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Opt_Out__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>contains</operation>
+            <value>P,p</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.ACAMS_Member__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Exam_Type__c</field>
+            <operation>equals</operation>
+            <value>CAFCA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Member_Expire_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Sent__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <description>Automated PDF CAFCA eCertificate Email</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Automated PDF CAMS Audit eCertificate Email</fullName>
+        <actions>
+            <name>VF_CAMS_AUDIT_eCertificate_Template</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Update_eCert_Sent</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 and 7</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Opt_Out__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>contains</operation>
+            <value>P,p</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.ACAMS_Member__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Exam_Type__c</field>
+            <operation>equals</operation>
+            <value>CAMS-Audit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Member_Expire_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Sent__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <description>Automated PDF CAMS Audit eCertificate Email</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Automated PDF CAMS eCertificate Email</fullName>
+        <actions>
+            <name>VF_CAMS_eCertificate_Template</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Update_eCert_Sent</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND (4 OR 5) AND 6 AND 7 and 8 and 9</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Opt_Out__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>contains</operation>
+            <value>P,p</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.ACAMS_Member__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Exam_Type__c</field>
+            <operation>equals</operation>
+            <value>CAMS</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Exam_Type__c</field>
+            <operation>equals</operation>
+            <value>CAMSFebraban</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Member_Expire_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Sent__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Test_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>11/4/2020</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Automated PDF CAMSRM eCertificate Email</fullName>
+        <actions>
+            <name>VF_CAMSRM_eCertificate_Template</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Update_eCert_Sent</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 and 5 and 6 and 7 and 8</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>contains</operation>
+            <value>P,p</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Exam_Type__c</field>
+            <operation>equals</operation>
+            <value>CAMSRM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Opt_Out__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.ACAMS_Member__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Member_Expire_Date__c</field>
+            <operation>greaterThan</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Sent__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Test_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>11/4/2020</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Automated PDF CCAS eCertificate Email</fullName>
+        <actions>
+            <name>VF_CCAS_eCertificate_Template</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Update_eCert_Sent</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 and 7</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Opt_Out__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>contains</operation>
+            <value>P,p</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.ACAMS_Member__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Exam_Type__c</field>
+            <operation>equals</operation>
+            <value>CCAS</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Member_Expire_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Sent__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <description>Automated PDF CCAS eCertificate Email</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Automated PDF CGSS eCertificate Email</fullName>
+        <actions>
+            <name>Automated_PDF_CGSS_eCertificate_Email</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Update_eCert_Sent</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 and 7 and 8 and 9 and 10</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Opt_Out__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>contains</operation>
+            <value>P,p</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.ACAMS_Member__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Exam_Type__c</field>
+            <operation>equals</operation>
+            <value>CGSS</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Member_Expire_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.ACAMS_Member__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Member_Expire_Date__c</field>
+            <operation>greaterThan</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Sent__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Test_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>11/4/2020</value>
+        </criteriaItems>
+        <description>Automated PDF CGSS eCertificate Email</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Automated PDF CKYCA eCertificate Email</fullName>
+        <actions>
+            <name>VF_CKYCA_eCertificate_Template</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Update_eCert_Sent</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 and 6 and 7 and 8</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>contains</operation>
+            <value>P,p</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Opt_Out__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Exam_Type__c</field>
+            <operation>equals</operation>
+            <value>CKYCA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Test_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>11/4/2020</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.ACAMS_Member__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Member_Expire_Date__c</field>
+            <operation>greaterThan</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Sent__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Automated PDF CTMA eCertificate Email</fullName>
+        <actions>
+            <name>VF_CTMA_eCertificate_Template</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Update_eCert_Sent</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 and 7 and 8</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Opt_Out__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>contains</operation>
+            <value>P,p</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.ACAMS_Member__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Exam_Type__c</field>
+            <operation>equals</operation>
+            <value>CTMA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Member_Expire_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Sent__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Test_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>11/4/2020</value>
+        </criteriaItems>
+        <description>Automated PDF CTMA eCertificate Email</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Automated PDF Hong Kong AML Regime eCertificate Email</fullName>
+        <actions>
+            <name>Hong_Kong_Regime_Exam_eCertificate</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Update_eCert_Sent_Field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 and 5 and 6 and 7 and 8</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>contains</operation>
+            <value>P,p</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Exam_Type__c</field>
+            <operation>equals</operation>
+            <value>Regime Exam</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Opt_Out__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.ACAMS_Member__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Member_Expire_Date__c</field>
+            <operation>greaterThan</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Sent__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Test_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>11/4/2020</value>
+        </criteriaItems>
+        <description>FSA-2503</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Automated PDF India AML Regime eCertificate Email</fullName>
+        <actions>
+            <name>Asia_India_Regime_Exam_eCertificate</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Update_eCert_Sent</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 and 5 and 6 and 7 and 8</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>contains</operation>
+            <value>P,p</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Exam_Type__c</field>
+            <operation>equals</operation>
+            <value>India AML Regime Exam</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Opt_Out__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.ACAMS_Member__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Member_Expire_Date__c</field>
+            <operation>greaterThan</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Sent__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Test_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>11/4/2020</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Automated PDF Singapore AML Regime eCertificate Email</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 and 6 and 7 and 8</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>contains</operation>
+            <value>P,p</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Exam_Type__c</field>
+            <operation>equals</operation>
+            <value>Singapore AML Regime Exam</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Opt_Out__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.ACAMS_Member__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Member_Expire_Date__c</field>
+            <operation>greaterThan</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.eCert_Sent__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Test_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>11/4/2020</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Automated_Singapore_AML_Regime_eCertificate_Email</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>Update_eCert_Sent</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Exam_Results__c.CreatedDate</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Customizable Email Push CAMS eCertificate</fullName>
+        <actions>
+            <name>VF_CAMS_eCertificate_Template</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Exam_Results__c.Customizable_Email_Push__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>contains</operation>
+            <value>P,p</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Exam_Type__c</field>
+            <operation>equals</operation>
+            <value>CAMS,CAMSFebraban</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Customizable Email Push CAMSRM eCertificate</fullName>
+        <actions>
+            <name>VF_CAMSRM_eCertificate_Template</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Exam_Results__c.Customizable_Email_Push__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>contains</operation>
+            <value>P,p</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Exam_Type__c</field>
+            <operation>equals</operation>
+            <value>CAMSRM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Customizable Email Push CGSS eCertificate</fullName>
+        <actions>
+            <name>Automated_PDF_CGSS_eCertificate_Email</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Exam_Results__c.Customizable_Email_Push__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>contains</operation>
+            <value>P,p</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Exam_Type__c</field>
+            <operation>equals</operation>
+            <value>CGSS</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send PV Authorization-ARA</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 and 8</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.authorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.examSeriesCode__c</field>
+            <operation>equals</operation>
+            <value>CAMS6_ARA,CGSS_ARA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Do_not_send_communication__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Private_access_code__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientAuthorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientCandidateID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_Authorization_ARA_Arabic</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV Authorization-CHS</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 and 8</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.authorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.examSeriesCode__c</field>
+            <operation>equals</operation>
+            <value>CAMS6_CHS,CKYCA_CHS,CTMA_CHS,CGSS_CHS</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Do_not_send_communication__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Private_access_code__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientAuthorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientCandidateID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_Authorization_CHS_Simplified_Chinese</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV Authorization-CHT</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 and 8</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.authorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.examSeriesCode__c</field>
+            <operation>equals</operation>
+            <value>CAMS6_CHT,CKYCA_CHT,CTMA_CHT,CGSS_CHT</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Do_not_send_communication__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Private_access_code__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientAuthorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientCandidateID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_Authorization_CHT_Traditional_Chinese</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV Authorization-DEU</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 and 8 and 9</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.authorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.examSeriesCode__c</field>
+            <operation>equals</operation>
+            <value>CAMS6_DEU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Do_not_send_communication__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Private_access_code__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientAuthorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientCandidateID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.SKU__c</field>
+            <operation>notContain</operation>
+            <value>POC,ING</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_Authorization_DEU_German</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV Authorization-ENU</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 AND 8 AND 9</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.authorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.examSeriesCode__c</field>
+            <operation>equals</operation>
+            <value>CAMS6_ENU,CGSS_ENU,CAMSRM_ENU,IN_AML,CKYCA_ENU,CTMA_ENU,CAFCA_ENU,CAMSAudit_ENU,CAMS6X_ITA,HGK_AML,HKG_AML,CAMSFCI_ENU,CCAS_ENU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Do_not_send_communication__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Private_access_code__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientAuthorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientCandidateIDNew__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.SKU__c</field>
+            <operation>notContain</operation>
+            <value>POC,ING</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_Authorization_ENU_English</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV Authorization-ESN</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 and 8 and 9</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.authorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.examSeriesCode__c</field>
+            <operation>equals</operation>
+            <value>CAMS6_ESN,CKYCA_ESN,CTMA_ESN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Do_not_send_communication__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Private_access_code__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientAuthorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientCandidateID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.SKU__c</field>
+            <operation>notContain</operation>
+            <value>POC,ING</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_Authorization_ESN_Spanish</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV Authorization-FRA_2</fullName>
+        <active>true</active>
+        <formula>and($Profile.Name &lt;&gt; &apos;Data Migration&apos; ,
+not(ISBLANK(authorizationID__c)),
+or(contains(examSeriesCode__c , &quot;CKYCA&quot;),
+contains(examSeriesCode__c , &quot;CTMA&quot;),
+contains(examSeriesCode__c , &quot;CAMS6&quot;),
+contains(examSeriesCode__c , &quot;CGSS&quot;)
+),
+contains(examSeriesCode__c , &quot;FRA&quot;),
+isblank(Result__c ),
+Do_not_send_communication__c =false,
+isblank(Private_access_code__c),
+not(isblank(clientAuthorizationID__c)),
+not(isblank(clientCandidateID__c )),
+not(contains(SKU__c ,&quot;ING&quot;)))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_Authorization_FRA_French</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV Authorization-IND</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 and 8</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.authorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.examSeriesCode__c</field>
+            <operation>equals</operation>
+            <value>CAMS6_IND</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Do_not_send_communication__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Private_access_code__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientAuthorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientCandidateID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_Authorization_IND_Bahasa_Indonesia</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV Authorization-JPN</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 and 8</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.authorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.examSeriesCode__c</field>
+            <operation>equals</operation>
+            <value>CAMS6_JPN,CKYCA_JPN,CTMA_JPN,CGSS_JPN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Do_not_send_communication__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Private_access_code__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientAuthorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientCandidateID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_Authorization_JPN_Japanese</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV Authorization-KR</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 and 8</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.authorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.examSeriesCode__c</field>
+            <operation>equals</operation>
+            <value>CAMS6_KOR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Do_not_send_communication__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Private_access_code__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientAuthorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientCandidateID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_Authorization_KR</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV Authorization-POL</fullName>
+        <active>true</active>
+        <formula>and($Profile.Name &lt;&gt; &apos;Data Migration&apos; ,
+not(ISBLANK(authorizationID__c)),
+contains(examSeriesCode__c , &quot;CAMS6&quot;),
+contains(examSeriesCode__c , &quot;POL&quot;),
+isblank(Result__c ),
+Do_not_send_communication__c =false,
+isblank(Private_access_code__c),
+not(isblank(clientAuthorizationID__c)),
+not(isblank(clientCandidateID__c )),
+not(contains(SKU__c ,&quot;ING&quot;)))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_Authorization_POL_Polish</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV Authorization-PTB</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 and 8</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.authorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.examSeriesCode__c</field>
+            <operation>equals</operation>
+            <value>CAMS6_PTB</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Do_not_send_communication__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Private_access_code__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientAuthorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientCandidateID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_Authorization_PTB</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV Authorization-PTBFEB</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND  7 and 8</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.authorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.examSeriesCode__c</field>
+            <operation>equals</operation>
+            <value>CAMS6_PTBFEB</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Do_not_send_communication__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Private_access_code__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientAuthorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientCandidateID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_Authorization_PTBFEB</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV Authorization-RUS</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 and 8</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.authorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.examSeriesCode__c</field>
+            <operation>equals</operation>
+            <value>CAMS6_RUS</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Do_not_send_communication__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Private_access_code__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientAuthorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientCandidateID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_Authorization_RUS</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV Authorization-SG</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND  7 and 8</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.authorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.examSeriesCode__c</field>
+            <operation>equals</operation>
+            <value>SG_AML</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Do_not_send_communication__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Private_access_code__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientAuthorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientCandidateID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_Authorization_SG</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV ING Authorization-DEU</fullName>
+        <active>true</active>
+        <formula>and($Profile.Name &lt;&gt; &apos;Data Migration&apos; ,
+not(ISBLANK(authorizationID__c)),
+or(contains(examSeriesCode__c , &quot;CKYCA&quot;),
+contains(examSeriesCode__c , &quot;CTMA&quot;)),
+contains(examSeriesCode__c , &quot;DEU&quot;),
+isblank(Result__c ),
+Do_not_send_communication__c =false,
+isblank(Private_access_code__c),
+not(isblank(clientAuthorizationID__c)),
+not(isblank(clientCandidateID__c )),
+contains(SKU__c ,&quot;ING&quot;)
+)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_ING_Authorisation_DEU</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV ING Authorization-DUT</fullName>
+        <active>true</active>
+        <formula>and($Profile.Name &lt;&gt; &apos;Data Migration&apos; ,
+not(ISBLANK(authorizationID__c)),
+or(contains(examSeriesCode__c , &quot;CKYCA&quot;),
+contains(examSeriesCode__c , &quot;CTMA&quot;)),
+contains(examSeriesCode__c , &quot;DUT&quot;),
+isblank(Result__c ),
+Do_not_send_communication__c =false,
+isblank(Private_access_code__c),
+not(isblank(clientAuthorizationID__c)),
+not(isblank(clientCandidateID__c )),
+contains(SKU__c ,&quot;ING&quot;))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_ING_Authorisation_DUT</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV ING Authorization-ENU</fullName>
+        <active>true</active>
+        <formula>and($Profile.Name &lt;&gt; &apos;Data Migration&apos; ,
+not(ISBLANK(authorizationID__c)),
+or(contains(examSeriesCode__c , &quot;CKYCA&quot;),
+contains(examSeriesCode__c , &quot;CTMA&quot;)),
+contains(examSeriesCode__c , &quot;ENU&quot;),
+isblank(Result__c ),
+Do_not_send_communication__c =false,
+isblank(Private_access_code__c),
+not(isblank(clientAuthorizationID__c)),
+not(isblank(clientCandidateID__c )),
+contains(SKU__c ,&quot;ING&quot;)
+)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_ING_Authorization_ENU</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV ING Authorization-ESN</fullName>
+        <active>true</active>
+        <formula>and($Profile.Name &lt;&gt; &apos;Data Migration&apos; ,
+not(ISBLANK(authorizationID__c)),
+or(contains(examSeriesCode__c , &quot;CKYCA&quot;),
+contains(examSeriesCode__c , &quot;CTMA&quot;)),
+contains(examSeriesCode__c , &quot;ESN&quot;),
+isblank(Result__c ),
+Do_not_send_communication__c =false,
+isblank(Private_access_code__c),
+not(isblank(clientAuthorizationID__c)),
+not(isblank(clientCandidateID__c )),
+contains(SKU__c ,&quot;ING&quot;)
+)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_ING_Authorisation_ESN</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV ING Authorization-FRA</fullName>
+        <active>true</active>
+        <formula>and($Profile.Name &lt;&gt; &apos;Data Migration&apos; ,
+not(ISBLANK(authorizationID__c)),
+or(contains(examSeriesCode__c , &quot;CKYCA&quot;),
+contains(examSeriesCode__c , &quot;CTMA&quot;)),
+contains(examSeriesCode__c , &quot;FRA&quot;),
+isblank(Result__c ),
+Do_not_send_communication__c =false,
+isblank(Private_access_code__c),
+not(isblank(clientAuthorizationID__c)),
+not(isblank(clientCandidateID__c )),
+contains(SKU__c ,&quot;ING&quot;))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_ING_Authorisation_FRA</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV ING Authorization-ITA</fullName>
+        <active>true</active>
+        <formula>and($Profile.Name &lt;&gt; &apos;Data Migration&apos; ,
+not(ISBLANK(authorizationID__c)),
+or(contains(examSeriesCode__c , &quot;CKYCA&quot;),
+contains(examSeriesCode__c , &quot;CTMA&quot;)),
+contains(examSeriesCode__c , &quot;ITA&quot;),
+isblank(Result__c ),
+Do_not_send_communication__c =false,
+isblank(Private_access_code__c),
+not(isblank(clientAuthorizationID__c)),
+not(isblank(clientCandidateID__c )),
+contains(SKU__c ,&quot;ING&quot;)
+)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_ING_Authorisation_ITA</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV ING Authorization-POL</fullName>
+        <active>true</active>
+        <formula>and($Profile.Name &lt;&gt; &apos;Data Migration&apos; ,
+not(ISBLANK(authorizationID__c)),
+or(contains(examSeriesCode__c , &quot;CKYCA&quot;),
+contains(examSeriesCode__c , &quot;CTMA&quot;)),
+contains(examSeriesCode__c , &quot;POL&quot;),
+isblank(Result__c ),
+Do_not_send_communication__c =false,
+isblank(Private_access_code__c),
+not(isblank(clientAuthorizationID__c)),
+not(isblank(clientCandidateID__c )),
+contains(SKU__c ,&quot;ING&quot;))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_ING_Authorisation_POL</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV ING Authorization-RMN</fullName>
+        <active>true</active>
+        <description>ING - Romanian</description>
+        <formula>and($Profile.Name &lt;&gt; &apos;Data Migration&apos; ,
+not(ISBLANK(authorizationID__c)),
+or(contains(examSeriesCode__c , &quot;CKYCA&quot;),
+contains(examSeriesCode__c , &quot;CTMA&quot;)),
+contains(examSeriesCode__c , &quot;RMN&quot;),
+isblank(Result__c ),
+Do_not_send_communication__c =false,
+isblank(Private_access_code__c),
+not(isblank(clientAuthorizationID__c)),
+not(isblank(clientCandidateID__c )),
+contains(SKU__c ,&quot;ING&quot;))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_ING_Authorisation_ROM</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV ING Authorization-TUK</fullName>
+        <active>true</active>
+        <formula>and($Profile.Name &lt;&gt; &apos;Data Migration&apos; ,
+not(ISBLANK(authorizationID__c)),
+or(contains(examSeriesCode__c , &quot;CKYCA&quot;),
+contains(examSeriesCode__c , &quot;CTMA&quot;)),
+contains(examSeriesCode__c , &quot;TUK&quot;),
+isblank(Result__c ),
+Do_not_send_communication__c =false,
+isblank(Private_access_code__c),
+not(isblank(clientAuthorizationID__c)),
+not(isblank(clientCandidateID__c )),
+contains(SKU__c ,&quot;ING&quot;)
+)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_ING_Authorisation_TUK</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV POC Authorization-DUT</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND  7 and 8 and 9</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.authorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.examSeriesCode__c</field>
+            <operation>equals</operation>
+            <value>CKYCA_ING_DUT</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Do_not_send_communication__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Private_access_code__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientAuthorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientCandidateID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.SKU__c</field>
+            <operation>contains</operation>
+            <value>POC</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_POC_Authorisation_DUT</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send PV POC Authorization-ENU</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND  7 and 8 and 9</booleanFilter>
+        <criteriaItems>
+            <field>Exam_Results__c.authorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.examSeriesCode__c</field>
+            <operation>equals</operation>
+            <value>CKYCA_ENU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Result__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Do_not_send_communication__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.Private_access_code__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientAuthorizationID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.clientCandidateID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Exam_Results__c.SKU__c</field>
+            <operation>contains</operation>
+            <value>POC</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_PV_POC_Authorisation_ENU</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+</Workflow>

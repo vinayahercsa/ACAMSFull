@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Update_Contact_HL_Mod_Date</fullName>
+        <field>HL_Mod_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update Contact HL Mod Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Update Contact HL Mod Date</fullName>
+        <actions>
+            <name>Update_Contact_HL_Mod_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update the HL Mod Date so that Higher Logic picks up changes in the periodic refresh</description>
+        <formula>(
+Is_Active__c == True ||
+ISCHANGED(Is_Active__c)
+)
+&amp;&amp;
+(
+ISNEW()||
+ISCHANGED(Original_Membership_Join_Date__c) ||
+ISCHANGED(MailingCountry) ||
+ISCHANGED(MailingPostalCode) ||
+ISCHANGED(Fax) ||
+ISCHANGED(MailingState) ||
+ISCHANGED(MobilePhone) ||
+ISCHANGED(Email) ||
+ISCHANGED(HL_Security_Groups__c) ||
+ISCHANGED(Title) ||
+ISCHANGED(HL_Communities__c) ||
+ISCHANGED(Suffix) ||
+ISCHANGED(MailingStreet) ||
+ISCHANGED(Phone) ||
+ISCHANGED(ccrz__CompanyName__c) ||
+ISCHANGED(Salutation) ||
+ISCHANGED(Member_Expire_Date__c) ||
+ISCHANGED(HomePhone) ||
+ISCHANGED(Designation_Formula__c) ||
+ISCHANGED(CAMS_Audit__c)||
+ISCHANGED(CAMS_FCI__c)||
+ISCHANGED(MiddleName) ||
+ISCHANGED(MailingCity) ||
+ISCHANGED(FirstName) ||
+ISCHANGED(LastName) ||
+ISCHANGED(AccountId)
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

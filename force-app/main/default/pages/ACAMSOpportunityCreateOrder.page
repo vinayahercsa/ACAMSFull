@@ -1,0 +1,64 @@
+<apex:page lightningStylesheets="true"
+        standardController="Opportunity"
+        extensions="ACAMSOpportunityCreateOrderController"
+        applyHtmlTag="false" applyBodyTag="false" showHeader="false"
+        docType="html-5.0">
+    <html>
+
+    <head>
+
+        <title>
+            {!$Label.Opportunity_OrderCreationPageTitle}
+        </title>
+        <apex:slds />
+
+    </head>
+
+    <body>
+        <div class="slds-scope">
+            <apex:form >
+                <apex:pageBlock id="page-content">
+                    <apex:pageMessages />
+                    <apex:pageBlockButtons location="top" />
+                    <apex:sectionHeader title="Create order" subtitle="Opportunity {!Opportunity.Name}" />
+                    <apex:actionStatus id="spinner-status">
+                        <apex:facet name="start">
+                            <div class="demo-only" style="height:6rem">
+                                <div class="slds-spinner_container">
+                                    <div role="status" class="slds-spinner slds-spinner_large slds-spinner_brand">
+                                        <span class="slds-assistive-text">Loading</span>
+                                        <div class="slds-spinner__dot-a"></div>
+                                        <div class="slds-spinner__dot-b"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </apex:facet>
+                    </apex:actionStatus>
+                    <apex:outputPanel layout="none">
+                        <apex:commandButton action="{!goToOpportunityPage}"
+                                title="{!$Label.Opportunity_GoToOpportunity}"
+                                value="{!$Label.Opportunity_GoToOpportunity}"
+                                reRender="page-content" />
+                        <apex:outputPanel rendered="{!renderOrdBtn}">
+                        <apex:commandButton action="{!goToOrderPage}"
+                                rendered="{!successful}"
+                                title="{!$Label.Opportunity_GoToOrder}"
+                                value="{!$Label.Opportunity_GoToOrder}"
+                                reRender="page-content" />
+                            </apex:outputPanel>
+                    </apex:outputPanel>
+                </apex:pageBlock>
+                <apex:actionFunction action="{!createOrder}"
+                        name="createOrder"
+                        reRender="page-content"
+                        status="spinner-status"/>
+                <script>
+                    setTimeout(createOrder , 0);
+                </script>
+            </apex:form>
+        </div>
+    </body>
+
+    </html>
+
+</apex:page>

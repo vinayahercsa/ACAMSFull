@@ -1,0 +1,77 @@
+<apex:page StandardController="Asset" showHeader="false" standardStylesheets="false" sidebar="false">
+  
+<apex:outputPanel rendered="{!if(Asset.Latest_Integration_Response__c=='EAD information successfully sent to PV',true,false)}">
+    <body style="background-color:green;">
+        
+            <div align="center" ><b>
+                 <font color="white">
+                {!$Label.EAD_information_successfully_sent_to_PV} 
+                </font>
+            </b>
+            </div>
+        
+    </body>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!if(Asset.Latest_Integration_Response__c=='Error occured while sending EAD information to VUE',true,false)}">
+    <body style="background-color:red;">
+        
+            <div align="center" ><b>
+                 <font color="white">
+                {!$Label.Error_occured_while_sending_EAD_information_to_VUE}
+                </font>
+            </b>
+            </div>
+        
+    </body>
+        </apex:outputPanel>
+    <apex:outputPanel rendered="{!if(Asset.Latest_Integration_Response__c=='Extension information successfully sent to PV',true,false)}">
+    <body style="background-color:green;">
+        
+            <div align="center"><b>
+                 <font color="white">
+                 {!$Label.Extension_information_successfully_sent_to_PV}
+                </font>
+            </b>
+            </div>
+        
+    </body>
+        </apex:outputPanel>
+    <apex:outputPanel rendered="{!if(Asset.Latest_Integration_Response__c=='Error occured while sending Extesnion information to VUE',true,false)}">
+    <body style= "background-color:red;" >
+        
+            <div align="center"><b>
+                 <font color="white">
+               {!$Label.Error_occured_while_sending_Extesnion_information_to_VUE} 
+                </font>
+            </b>
+            </div>
+        
+    </body>
+        </apex:outputPanel>
+    <apex:outputPanel rendered="{!if(Asset.Latest_Integration_Response__c=='Retake information successfully sent to PV',true,false)}">
+    <body style="background-color:green;">
+        
+            <div align="center"><b>
+                 <font color="white">
+                 {!$Label.Retake_information_successfully_sent_to_PV} 
+                </font>
+            </b>
+            </div>
+      
+    </body>
+          </apex:outputPanel>
+     <apex:outputPanel rendered="{!if(Asset.Latest_Integration_Response__c=='Error occured while sending Retake information to VUE',true,false)}">
+    <body style="background-color:red;">
+       
+            <div align="center"><b>
+                    <font color="white">
+
+               {!$Label.Error_occured_while_sending_Retake_information_to_VUE} 
+                </font>
+            </b>
+            </div>
+      
+    </body>
+   </apex:outputPanel>
+        
+</apex:page>

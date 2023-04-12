@@ -1,0 +1,82 @@
+<apex:page controller="FSIT_AssetViewBusinessAccOrderview" action="{!dataInit}" showHeader="false" standardStylesheets="false"
+    sidebar="true" docType="html-5.0" readOnly="true">
+    <apex:slds />
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+        </script>
+        <script>
+            function scrollDown() {
+                $('html, body').animate({
+                    scrollTop: $(document).height()
+                }, 'slow');
+            }
+        </script>
+        
+        <apex:form >
+            <apex:outputpanel id="AssetListOrderSectionId">             
+                <section class="slds-media__body">
+                    <article class="slds-card">
+                    <div class="slds-card__body slds-card__body_inner">
+                        <b> Click This link to view Order Assets summary view: 
+                            <apex:outputlink value="/apex/BusinessAccAssetOrderViewPage?recordId={!sobjectId}&pdId={!productId}&searchText={!searchText}" target="_blank"> Order View</apex:outputlink>
+                        </b>
+                    </div>
+                    </article>
+                </section>
+                
+                <section class="slds-media__body">
+                    <article class="slds-card"><div class="slds-card__body slds-card__body_inner"><b>Search Asset by Asset Type:</b></div>
+                        <div class="slds-card__body slds-card__body_inner">                            
+                            <apex:selectList id="assetTypes" value="{!assetTypes}" size="1">
+                                <apex:actionSupport event="onchange" rerender="AssetListOrderSectionId" action="{!runSearch}"  status="status"/>
+                                <apex:selectOption itemValue="" itemLabel=" "/>
+                                <apex:selectOption itemValue="Assigned_Asset" itemLabel="Assigned Asset"/>
+                                <apex:selectOption itemValue="Unassigned_Asset" itemLabel="Unassigned Asset"/>
+                                <apex:selectOption itemValue="Authorized_Asset" itemLabel="Authorized"/>
+                                <apex:selectOption itemValue="Unpaid_Asset" itemLabel="Unpaid"/>
+                                <!-- <apex:selectOption itemValue="CC_Order" itemLabel="Order"/> -->
+                                <apex:selectOption itemValue="UnAssigned_Expired_Assets" itemLabel="Unassigned Expired Assets"/>
+                            </apex:selectList>
+                        </div>
+                        <apex:actionStatus id="status" startText="requesting..." />
+                    </article>
+                    
+                    <div>
+                         <div class="slds-card__body slds-card__body_inner"><b>Search Asset by Assignee:</b></div>
+                        <div class="slds-card__body slds-card__body_inner"><apex:inputText id="Assignee" value="{!Assignee}" />
+                         <apex:commandButton value="Go!" action="{!getAssigneeRecords}" rerender="AssetListOrderSectionId" status="status" /></div>
+                    </div>
+                    
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th class="" scope="col"><div class="slds-truncate" title="Asset Name">Asset Name</div></th>
+                                <th class="" scope="col"><div class="slds-truncate" title="Assignee">Assignee</div></th>
+                                <th class="" scope="col"><div class="slds-truncate" title="Asset Name">Product Name</div></th>                          
+                                <th class="" scope="col"><div class="slds-truncate" title="Asset Name">Install Date</div></th>
+                                <th class="" scope="col"><div class="slds-truncate" title="Effective Date">Effective Date</div></th>
+                                <th class="" scope="col"><div class="slds-truncate" title="Current Expiration Date">Current Expiration Date</div></th>
+                                <th class="" scope="col"><div class="slds-truncate" title="Payment Status">Payment Status</div></th>
+                                <th class="" scope="col"><div class="slds-truncate" title="Paid Check Box">Paid Check Box</div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!displayAssetList}" var="asset">
+                                <tr class="slds-hint-parent">
+                                    <td data-label="{!asset.Name}" scope="row"><div class="slds-truncate" title="Asset Type"><apex:outputLink target="_blank" value="/{!asset.Id}" id="theLink">{!asset.Name}</apex:outputLink></div></td>
+                                    <td data-label="Assignee"><div class="slds-truncate" title="Cloudhub">{!asset.Assignee__r.name}</div></td>
+                                    <td data-label="Product Name"><div class="slds-truncate" title="Cloudhub">{!asset.CC_Product__r.Name}</div></td>        
+                                    <td data-label="Install Date"><apex:outputText value="{0, date, d MMMM yyyy}"><apex:param value="{!asset.InstallDate}" /></apex:outputText></td>
+                                    <td data-label="Effective Date"><apex:outputText value="{0, date, d MMMM yyyy}"><apex:param value="{!asset.Effective_Date__c}" /></apex:outputText></td>
+                                    <td data-label="Current Expiration Date"><apex:outputText value="{0, date, d MMMM yyyy}"><apex:param value="{!asset.CurrentExpirationDate__c}" /></apex:outputText></td>
+                                    <td data-label="Payment Status"><div class="slds-truncate" title="Cloudhub">{!asset.Payment_Status__c}</div></td>
+                                    <td data-label="Paid Check box"><div class="slds-truncate" title="Cloudhub">{!asset.Paid_Cert__c}</div></td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </section>
+            </apex:outputpanel>     
+        </apex:form>
+    </html>
+</apex:page>

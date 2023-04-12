@@ -1,0 +1,357 @@
+<apex:page standardController="Contact_Center_Scorecard__c" extensions="MyExtension">
+    <!-- Begin Default Content REMOVE THIS -->
+    <apex:sectionHeader title="ACAMS Contact Center" subtitle="Final Result: {!Contact_Center_Scorecard__c.FINAL_result__c}" />
+
+
+    <apex:form >
+        <!--New page block Scorecard Details-->
+
+        <apex:pageBlock id="detail" mode="detail">
+
+            <apex:pageBlockButtons location="Top">
+                <apex:commandButton value="Recalculate" action="{!recalculatephone}"  />
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection columns="2" showHeader="true" title="Case Details">
+                <apex:outputField value="{!Contact_Center_Scorecard__c.Case__c}" />
+                <apex:outputField value="{!Contact_Center_Scorecard__c.Colleague__c}" />
+            </apex:pageBlockSection>
+
+        </apex:pageBlock>
+        <!--New page block Scorecard summary-->
+        <apex:pageBlock id="summary" mode="detail">
+            <apex:pageBlockSection columns="2" showHeader="true" title="SUMMARY" id="Summary" collapsible="true">
+                <apex:outputPanel styleClass="rules">
+                    Greeting
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.GREET_result__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Make the Customer feel that you CARE throughout the call
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.CARE_result__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Taking Ownership throughout the call
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.OWN_result__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Active Listening throughout the call
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.LISTEN_result__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    General Communication skills throughout the call
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.SKILLS_result__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Provided Customer with Accurate Information throughout the call
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.ACCURATE_result__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Closing
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.CLOSING_result__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Documentation
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.DOC_result__c}" label="" >
+                </apex:outputField>
+
+
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <!--New page block Scorecard Comments-->
+
+        <apex:pageBlock id="comment" mode="detail">
+
+            <apex:pageBlockSection columns="1" showHeader="true" title="Case Comments">
+                <apex:outputField value="{!Contact_Center_Scorecard__c.Comments__c}"/>
+            </apex:pageBlockSection>
+
+        </apex:pageBlock>
+        <!--New page block Scorecard details-->
+
+        <apex:pageBlock id="scorecard" mode="detail">
+
+            <!--Greeting Section-->
+            <apex:pageBlockSection columns="2" showHeader="true" title="Greeting" id="Greet" collapsible="true">
+                <apex:outputPanel styleClass="rules">
+                    Thanked the caller for calling
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.GREET_Thanked_customer__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Identified self by first name and offered assistance
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.GREET_Identified_self_offered_assistan__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    <font color="brown"><strong>
+                        ⚠ Verified required Customer information depending on Call-Type: ACAMS:
+                        <br></br>
+                        <ul>
+                            <li>Full Name</li>
+                            <li>Member Number</li>
+                            <li>Email Address</li>
+                            <li>Complete Mailing Address</li>
+                            <li>Phone number</li>
+                        </ul>
+                    </strong></font>
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.GREET_Verified_customer_information__c}" label="" >
+                </apex:outputField>
+
+            </apex:pageBlockSection>
+
+            <!--CARE Section-->
+            <apex:pageBlockSection columns="2" showHeader="true" title="Make the Customer feel that you CARE throughout the call" id="Care" collapsible="true">
+                <apex:outputPanel styleClass="rules">
+                    Acknowledged the Customer’s frustration or concerns and reassured that they would be able to assist
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.CARE_Acknowledged_customer_issue__c}" label="">
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Used polite expressions such as: Please, Thank you, Excuse me?, and I'm sorry
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.CARE_Used_polite_expressions__c}" label="">
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Followed proper Hold procedure:
+                    <br></br>
+                    <ul>
+                        <li>Asked permission</li>
+                        <li>Explained reason for hold</li>
+                        <li>Returned to call properly; acknowledged caller was there and thanked them for holding</li>
+                    </ul>
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.CARE_Followed_proper_hold_procedure__c}" label="">
+                </apex:outputField>
+
+            </apex:pageBlockSection>
+
+            <!--OWN Section-->
+            <apex:pageBlockSection columns="2" showHeader="true" title="Taking Ownership throughout the call" id="Own" collapsible="true">
+                <apex:outputPanel styleClass="rules">
+                    Readily took responsibility for answering the Customer’s question
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.OWN_Took_responsibility_to_answer_inquir__c}" label="">
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    <i>Review Salesforce for information pertinent to the call (Check customer notes/case history)</i>
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.OWN_Reviewed_SFDC_for_inquiry_info__c}" label="">
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Review Salesforce for any outstanding issues. (Additional open cases)
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.OWN_Reviewed_SFDC_for_outstanding_issues__c}" label="">
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Asked appropriate probing questions of the Customer
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.OWN_Asked_appropiate_probing_questions__c}" label="">
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    <font color="brown"><strong>
+                        ⚠ Ownership items: did the CCS do everything THEY could for the Customer?<br></br><i>
+                        <ul>
+                            <li>Offered to transfer to Sales Rep.--if needed</li>
+                            <li>Proceed with payment and send receipt -- if needed</li>
+                            <li>Register Customer for event/seminar</li>
+                            <li>Resend Communications - Conf/seminar/webinar</li>
+                            <li>Convert leads into contacts - if applicable</li>
+                        </ul></i>
+                    </strong></font>
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.OWN_CCS_Ownership_items__c}" label="">
+                </apex:outputField>
+
+            </apex:pageBlockSection>
+
+            <!--LISTEN Section-->
+            <apex:pageBlockSection columns="2" showHeader="true" title="Active Listening throughout the call" id="Listen" collapsible="true">
+                <apex:outputPanel styleClass="rules">
+                    Provided frequent indications of active listening.  Yes.  I understand. I see.
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.LISTEN_Actively_listened__c}" label="">
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Restated own understanding of the Customer’s problem
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.LISTEN_Restated_understanding_of_issue__c}" label="">
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Addressed all issues or concerns as indicated by the caller
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.LISTEN_Addressed_all_issues_and_concerns__c}" label="">
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Did not ask the Customer to repeat information. (Excludes connection and accent issues.)
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.LISTEN_Did_not_ask_customer_to_repeat_in__c}" label="">
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Did not interrupt the Customer
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.LISTEN_Did_not_interrupt_the_customer__c}" label="">
+                </apex:outputField>
+
+            </apex:pageBlockSection>
+
+
+            <!--SKILLS Section-->
+            <apex:pageBlockSection columns="2" showHeader="true" title="General Communication skills throughout the call"  id="Skills" collapsible="true">
+                <apex:outputPanel styleClass="rules">
+                    Projected a pleasant and upbeat tone, conveying confidence, courtesy, and enthusiasm
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.SKILLS_Projected_pleasant_upbeat_tone__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Kept a good pace. Did not speak too quickly or too slowly
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.SKILLS_Kept_a_good_pace_during_call__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Announced the call to the colleague to whom call was transferred and explained the Customer's situation
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.SKILLS_Performed_a_warm_transfer__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Spoke every word clearly and pronounced every word properly
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.SKILLS_Spoke_clearly__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Minimal dead air time
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.SKILLS_Minimal_dead_air_time__c}" label="" >
+                </apex:outputField>
+
+            </apex:pageBlockSection>
+
+            <!--ACCURATE Section-->
+            <apex:pageBlockSection columns="2" showHeader="true" title="Provided Customer with Accurate Information throughout the call" id="Accurate" collapsible="true">
+                <apex:outputPanel styleClass="rules">
+                    <font color="brown"><strong>
+                        ⚠ Used all available and appropriate resources to provide the Customer with accurate information... And remained Compliant… (Emails, website, etc. )
+                    </strong></font>        </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.ACCURATE_Used_available_resources__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Followed proper procedure to assist Customer. (Emails, website,FAQ's, Knowledgebase, etc.)
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.ACCURATE_Followed_proper_procedure__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    1st Case Resolution: Explained steps to prevent the Customer from having to make a second call or request about the same issue
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.ACCURATE_1_call_case_resolution__c}" label="" >
+                </apex:outputField>
+
+            </apex:pageBlockSection>
+
+
+            <!--CLOSING Section-->
+            <apex:pageBlockSection columns="2" showHeader="true" title="Closing" id="Closing" collapsible="true">
+                <apex:outputPanel styleClass="rules">
+                    Summarized actions taken for Customer
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.CLOSING_Summarized_actions_taken__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Advised of next step or follow-up actions that would occur or need to be taken by the Customer
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.CLOSING_Advised_next_steps__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Thanked the Customer for calling
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.CLOSING_Thanked_the_Customer__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Offered additional assistance... <i>Is there anything else I can help you with?</i>
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.CLOSING_Offered_additional_assistance__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Categorized the case correctly
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.CLOSING_Categorized_the_case_correctly__c}" label="" >
+                </apex:outputField>
+
+            </apex:pageBlockSection>
+
+            <!--DOC Section-->
+            <apex:pageBlockSection columns="2" showHeader="true" title="Documentation" id="Doc" collapsible="true">
+                <apex:outputPanel styleClass="rules">
+                    <font color="brown"><strong>
+                        ⚠ Included detailed and accurate notes explaining what the call was in regard to and what the Customer was told
+                    </strong></font>        </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.DOC_Included_detailed_and_accurate_notes__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Case completed correctly
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.DOC_Case_completed_correctly__c}" label="" >
+                </apex:outputField>
+
+                <apex:outputPanel styleClass="rules">
+                    Used proper grammar and spelling
+                </apex:outputPanel>
+                <apex:outputField value="{!Contact_Center_Scorecard__c.DOC_Used_proper_grammar_spelling__c}" label="" >
+                </apex:outputField>
+
+            </apex:pageBlockSection>
+
+
+
+
+            <script> twistSection(document.getElementById('{!$Component.scorecard.Greet}').getElementsByTagName('img')[0]) </script>
+            <script> twistSection(document.getElementById('{!$Component.scorecard.Care}').getElementsByTagName('img')[0]) </script>
+            <script> twistSection(document.getElementById('{!$Component.scorecard.Own}').getElementsByTagName('img')[0]) </script>
+            <script> twistSection(document.getElementById('{!$Component.scorecard.Listen}').getElementsByTagName('img')[0]) </script>
+            <script> twistSection(document.getElementById('{!$Component.scorecard.Skills}').getElementsByTagName('img')[0]) </script>
+            <script> twistSection(document.getElementById('{!$Component.scorecard.Accurate}').getElementsByTagName('img')[0]) </script>
+            <script> twistSection(document.getElementById('{!$Component.scorecard.Closing}').getElementsByTagName('img')[0]) </script>
+            <script> twistSection(document.getElementById('{!$Component.scorecard.Doc}').getElementsByTagName('img')[0]) </script>
+
+
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>ACAMS_Welcome_Registered_User</fullName>
+        <description>ACAMS Welcome Registered User</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Ecommerce_Custom/ACAMS_2_0_Welcome_Registered_User</template>
+    </alerts>
+    <alerts>
+        <fullName>Reset_User_Password_Notification</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Reset User Password Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Customer_Service/Reset_user_Password_notification</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Set_Password_Reset_Email_Sent_On_Date</fullName>
+        <field>Password_Reset_Email_Sent_On__c</field>
+        <formula>Now()</formula>
+        <name>Set Password Reset Email Sent On Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Send_Reset_Password_Email_to_False</fullName>
+        <field>Send_Reset_Password_Email__c</field>
+        <literalValue>0</literalValue>
+        <name>Set Send Reset Password Email to False</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Uncheck_Reset_Password_Flag</fullName>
+        <field>Reset_Password__c</field>
+        <literalValue>0</literalValue>
+        <name>Uncheck Reset Password Flag</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Reset Password Flag</fullName>
+        <actions>
+            <name>Uncheck_Reset_Password_Flag</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>User.Reset_Password__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Reset User Password Notification Email</fullName>
+        <actions>
+            <name>Reset_User_Password_Notification</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Set_Password_Reset_Email_Sent_On_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Send_Reset_Password_Email_to_False</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>FSA-401/FSA-417</description>
+        <formula>Send_Reset_Password_Email__c =TRUE &amp;&amp; $User.ProfileId &lt;&gt; &apos;00e3k000000HHFL&apos;</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Welcome Registered User</fullName>
+        <actions>
+            <name>ACAMS_Welcome_Registered_User</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <description>Rule to trigger email to welcome a newly registered user to ACAMS</description>
+        <formula>and(Profile.Name = &quot;B2B Storefront Registered Login Users acams&quot; ,
+CreatedBy.FirstName =&quot;Drupal&quot;,
+CreatedBy.LastName=&quot;Integration&quot;)</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

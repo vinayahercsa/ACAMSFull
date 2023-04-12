@@ -1,0 +1,77 @@
+@IsTest
+public with sharing class ACAMSOrderAssetRecalculationBatchTest {
+    @TestSetup
+    static void initData() {
+        CCACAMSTestUtil testUtil = new CCACAMSTestUtil();
+        Account testAccount = new Account(
+                Name = 'test',
+                Assets_Assigned__c = 2
+        );
+        insert testAccount;
+        ccrz__E_Order__c testOrder = new ccrz__E_Order__c(
+                Assets_Assigned__c = 2
+        );
+        insert testOrder;
+        Contact testContact = new Contact(
+                LastName = 'Test',
+                AccountId = testAccount.Id
+        );
+        insert testContact;
+        List<ccrz__E_Product__c> products = new List<ccrz__E_Product__c>{
+                testUtil.createProduct('Test 1', 'TEST1', 'Membership'),
+                testUtil.createProduct('Test 2', 'TEST2', 'Membership')
+        };
+        insert products;
+        List<Asset> testAssets = new List<Asset>{
+                new Asset(
+                        Name = 'test1',
+                        AccountId = testAccount.Id,
+                        Assignee__c = testContact.Id,
+                        CC_Product__c = products[0].Id,
+                        CC_Order__c = testOrder.Id
+                ),
+                new Asset(
+                        Name = 'test2',
+                        AccountId = testAccount.Id,
+                        Assignee__c = testContact.Id,
+                        CC_Product__c = products[1].Id,
+                        CC_Order__c = testOrder.Id
+                ),
+                new Asset(
+                        Name = 'test3',
+                        AccountId = testAccount.Id,
+                        CC_Product__c = products[0].Id,
+                        CC_Order__c = testOrder.Id
+                )
+        };
+        insert testAssets;
+    }
+
+    @IsTest
+    static void recalculateOrderSummary() {
+        Test.startTest();
+        Database.executeBatch(new ACAMSOrderAssetRecalculationBatch(Datetime.now().addHours(-1)));
+        Test.stopTest();
+        ccrz__E_Order__c testOrder = [
+                SELECT Assets_Assigned__c, Assets_Unassigned__c
+                FROM ccrz__E_Order__c
+                LIMIT 1
+        ];
+        System.assertEquals(2, testOrder.Assets_Assigned__c);
+        System.assertEquals(1, testOrder.Assets_Unassigned__c);
+    }
+
+    @IsTest
+    static void recalculateScheduledAccountSummary() {
+        Test.startTest();
+        Id jobId = System.schedule('test order asset', '0 0 23 * * ?', new ACAMSOrderAssetRecalculationBatch());
+        Test.stopTest();
+        CronTrigger job = [
+                SELECT TimesTriggered
+                FROM CronTrigger
+                WHERE Id = :jobId
+        ];
+        System.assertNotEquals(null, job);
+    }
+
+}

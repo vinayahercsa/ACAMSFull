@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>ADB_ACAMS_Certificate_Course</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>ADB ACAMS Certificate Course</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>australasianchapter@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Cert_Course/VF_ADB_Cert_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>Customizable_Email_push_for_Becker_LMS</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Customizable Email push for Becker LMS</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>info@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Event/Custom_Reminder_Dec_18_Registration_Confirmation_Eng</template>
+    </alerts>
+    <alerts>
+        <fullName>VF_Generic_Certificate_English_LMS</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>VF Generic Certificate - English (LMS)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>info@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Certification/VF_Generic_Certificate_English_LMS</template>
+    </alerts>
+    <alerts>
+        <fullName>Webinar_Registration_Confirmation_Eng</fullName>
+        <ccEmails>relay@acams.org</ccEmails>
+        <description>Webinar Registration Confirmation - Eng</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>donotreply@acams.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Webinar/Webinar_Registration_Confirmation_Eng</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>UncheckCreatedLMSBox</fullName>
+        <field>Created_LMS__c</field>
+        <literalValue>0</literalValue>
+        <name>UncheckCreatedLMSBox</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>UncheckUpdatedLMSBox</fullName>
+        <field>Updated_LMS__c</field>
+        <literalValue>0</literalValue>
+        <name>UncheckUpdatedLMSBox</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Completed_on_field</fullName>
+        <field>Completed_On__c</field>
+        <formula>today()</formula>
+        <name>Update Completed on field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Response_Status_to_OK</fullName>
+        <field>Response_status__c</field>
+        <formula>&apos;OK&apos;</formula>
+        <name>Update Response Status to OK</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Status_Code_to_200</fullName>
+        <field>Status_code__c</field>
+        <formula>&apos;200&apos;</formula>
+        <name>Update Status Code to 200</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>ADB ACAMS Certificate Course</fullName>
+        <actions>
+            <name>ADB_ACAMS_Certificate_Course</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <formula>AND( Asset__r.Account.Member_Number__c =&quot;1000503334&quot;, ISPICKVAL(Status__c,&quot;Completed&quot;))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Customizable Email for Becker LMS</fullName>
+        <actions>
+            <name>Customizable_Email_push_for_Becker_LMS</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>BeckerLMS_Enrollment__c.From_BrightTALK__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>LMS Generic Certificate-English</fullName>
+        <actions>
+            <name>VF_Generic_Certificate_English_LMS</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>BeckerLMS_Enrollment__c.Sent_eCert__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BeckerLMS_Enrollment__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Completed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BeckerLMS_Enrollment__c.LMS_Course_Credits__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <description>FSA-2017</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>UncheckCreatedLMSBox</fullName>
+        <active>false</active>
+        <formula>Asset__c &lt;&gt;&quot;&quot; &amp;&amp;  Created_LMS__c = TRUE</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>UncheckCreatedLMSBox</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>UncheckCreatedLMSBoxSubscriptions</fullName>
+        <actions>
+            <name>UncheckCreatedLMSBox</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 2) and 3</booleanFilter>
+        <criteriaItems>
+            <field>BeckerLMS_Enrollment__c.Created_LMS__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BeckerLMS_Enrollment__c.Updated_LMS__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BeckerLMS_Enrollment__c.LMS_Course_ID__c</field>
+            <operation>equals</operation>
+            <value>S3</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>UncheckUpdatedLMSBox</fullName>
+        <active>true</active>
+        <formula>Updated_LMS__c = TRUE</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>UncheckCreatedLMSBox</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>UncheckUpdatedLMSBox</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Update Completed on field</fullName>
+        <actions>
+            <name>Update_Completed_on_field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>BeckerLMS_Enrollment__c.Completed_On__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BeckerLMS_Enrollment__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Completed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>Data Migration</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Response Code for Batch Enrollments</fullName>
+        <actions>
+            <name>Update_Response_Status_to_OK</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Status_Code_to_200</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>CreatedBy.LastName  = &apos;Gopathi&apos;</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Webinar Registration Confirmation NEW LMS</fullName>
+        <actions>
+            <name>Webinar_Registration_Confirmation_Eng</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <formula>and(
+CONTAINS(Product_Taxonomy__c,&quot;Webinar&quot;),
+Webinar_Date__c &gt; today(),
+$Profile.Name &lt;&gt; &apos;Data Migration&apos; ,
+not(ISBLANK(Contact__c ))
+)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

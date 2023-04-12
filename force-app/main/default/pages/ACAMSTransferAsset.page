@@ -1,0 +1,8 @@
+<apex:page lightningStylesheets="true"
+           standardController="Asset"
+           extensions="ACAMSTransferAssetController" action="{!redirect}"
+           applyHtmlTag="false" applyBodyTag="false" showHeader="false"
+           docType="html-5.0">
+    <html>
+    </html>
+</apex:page>

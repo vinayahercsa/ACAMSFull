@@ -1,0 +1,7 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader"
+                controller="ACAMSTransferObjectControllerLightning">
+    <aura:handler name='init' value='{!this}' action='{!c.doInit}' />
+    <ui:message aura:id="errorMsg" severity="error" class="slds-hide">
+        {!v.errorMsg}
+    </ui:message>
+</aura:component>

@@ -1,0 +1,102 @@
+<apex:page standardController="Account" extensions="FSIT_AssetViewPersonalAccountController" showHeader="false" standardStylesheets="false" sidebar="true"
+    docType="html-5.0" action="{!dataInit}">
+    <apex:slds />
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        function scrollDown() {
+            $('html, body').animate({
+                scrollTop: $(document).height()
+            }, 'slow');
+        }
+
+    </script>
+    <apex:form >
+        <script type="text/javascript">
+            function doSearch(){
+                searchServer(document.getElementById("name").value);
+            }
+            </script>
+
+        <apex:actionFunction name="searchServer" action="{!runSearch}" rerender="AssetListSectionId">
+          <apex:param name="name" value="" />
+      </apex:actionFunction>
+        <div class="slds-card">
+            <article class="slds-card">
+                
+                <div class="slds-card__header slds-grid">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-account" title="account">
+                                <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                                    <use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/standard-sprite/svg/symbols.svg#account')}"></use>
+                                </svg>
+                                <span class="slds-assistive-text">account</span>
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-title">
+                                <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Accounts">
+                                    <span>Asset</span>
+                                </a>
+                            </h2>
+                        </div>
+                    </header>
+                </div>
+            </article>
+
+            <section class="slds-media__body">
+                <apex:outputpanel id="table">
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Asset Grouping Name">Asset Grouping Name</div>
+                                </th>
+
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Asset Amount">Asset Amount</div>
+                                </th>
+                            </tr>
+                        </thead>
+
+                  
+
+                        <tbody>
+                            <apex:repeat value="{!keyValues}" var="key">
+                                <tr class="slds-hint-parent">
+                                    <td data-label="{!key}" scope="row">
+                                        <div class="slds-truncate" title="Asset Type">
+                                            <apex:actionRegion >
+                                                <apex:commandLink action="{!displayAssetsByGroupName}" value="{!key}" id="theCommandLink" rerender="AssetListSectionId" onclick="window.open('/apex/FSIT_AssetViewPersonalAccountDetailPage?recordId={!sobjectId}&pdId={!key}&searchText={!key}','height=500, width=500');">
+                                                    <apex:param name="assetGroupingValue" value="{!key}" assignTo="{!assetGroupingValue}" />
+                                                </apex:commandLink>
+                                            </apex:actionRegion>
+                                        </div>
+                                    </td>
+
+                                    <td data-label="Contact Email">
+                                        <div class="slds-truncate" title="Cloudhub">
+                                            {!groupNameSizeMap[key]}
+                                        </div>
+                                    </td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </apex:outputpanel>
+            </section>
+
+        </div>
+
+        
+
+    </apex:form>
+
+    </html>
+</apex:page>
