@@ -1,17 +1,61 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    
-   
     <types>
+        <members>ACAMS_MergeHelper</members>
+		<members>ACAMSAccountTriggerHandler</members>
+		<members>ACAMSAssetTriggerHandler</members>
+		<members>ACAMSBeckerLMSTriggerHandler</members>
+		<members>ACAMSCertAppHelper</members>
+		<members>ACAMSInvoiceTriggerHandler</members>
+		<members>ACAMSLogicCartPlace</members>
+		<members>ACAMSOpportunityTriggerHandler</members>
+		<members>ACAMSOrderTriggerHandler</members>
+		<members>ACAMSTransactionPaymentTriggerHandler</members>
+		<members>ACAMSUtil</members>
+	    <members>ACAMSZeroDollarTransaction</members>
+		<members>CalloutUtility</members>
+        <members>ExamResultHelper</members>
+		<members>EnrollmentMergeIntEventTriggerTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+	    <members>ACAMSAssetMethodEventsTrigger</members>
+		<members>ACAMSAccountMethodEventsTrigger</members>
+		<members>EnrollmentMergeIntEventTrigger</members>
+		<members>VertexRequestEventsTrigger</members>
+		<members>AssetEMEnrollmentEventsTrigger</members>
+		<name>ApexTrigger</name>
+    </types>
+    <types>
+            <members>Create_Exception_Logger_Records_via_PE</members>
+    		<members>Inherit_invoice_owner_from_order</members>
+    		<members>Inherit_order_owner_from_opportunity</members>
+    		<members>LMS_ECU_Creation_upon_Completion</members>
+		<members>Update_Opprtunity_when_Order_Completed</members>		
+		<members>Calculate_Tax_on_CC_Order_creation</members>
+		<name>Flow</name>
+	</types>
+	<types>
+            <members>Create_Exception_Logger_Records_via_PE</members>
+    		<members>Inherit_invoice_owner_from_order</members>
+    		<members>Inherit_order_owner_from_opportunity</members>
+    		<members>LMS_ECU_Creation_upon_Completion</members>
+		<members>Update_Opprtunity_when_Order_Completed</members>		
+		<members>Calculate_Tax_on_CC_Order_creation</members>
+		<name>FlowDefinition</name>
+	</types>
+	 <types>
     		<members>ACAMS_Platform_Event_Setting.ACAMSAssetEventMethod</members>
 			<members>ACAMS_Platform_Event_Setting.Asset_EM_Enrollment_Event</members>
 			<members>ACAMS_Platform_Event_Setting.Enrollment_Merge_Integration</members>
 			<members>ACAMS_Platform_Event_Setting.Vertex_Request_Platform_Event</members>
 		<name>CustomMetadata</name>
 	</types>
-<types>
-    		<members>ACAMS_Platform_Event_Setting__mdt</members>
+
+	<types>
+	<members>ACAMS_Platform_Event_Setting__mdt</members>
+      <members>Enrollment_Merge_Integration__e</members>
+      <members>Exception_Logger__e</members>
 		<name>CustomObject</name>
 	</types>
     <version>56.0</version>
 </Package>
-
