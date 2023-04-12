@@ -32,9 +32,9 @@ def sf_username=env.sf_username_Acamsfull
 			if (isUnix()) {
                 sh 'ls -la'
 
-				rmsg = sh returnStdout: true, script: "${toolbelt}/sfdx force:source:deploy --checkonly -u ${sf_username} -p force-app/main/default/classes/DeploymentTest.cls"
+				rmsg = sh returnStdout: true, script: "${toolbelt}/sfdx force:source:deploy --checkonly -u ${sf_username} -x manifest/package.xml"
 sh "${toolbelt}/sfdx plugins:install @salesforce/sfdx-scanner"
-          sh "export SFDX_SCANNER_NO_PROMPT=true && ${toolbelt}/sfdx scanner:run --target force-app/main/default/classes/DeploymentTest.cls --json "
+          sh "export SFDX_SCANNER_NO_PROMPT=true && ${toolbelt}/sfdx scanner:run --target force-app/main/default/classes/ACAMSAccountTriggerHandler.cls --json "
 				//rmsg = sh returnStdout: true, script: "${toolbelt}/sfdx force:source:deploy --checkonly -u vinay.aher@cloudsynapps.com.rkonqa -p force-app/main/default"
 
 
