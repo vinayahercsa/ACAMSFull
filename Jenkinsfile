@@ -6,6 +6,7 @@ node {
 
     
          def toolbelt = tool 'sfdx'
+	def Node=tool 'node'
 
 
         def JWT_KEY_CRED_ID=env.JWT_KEY_CRED_ID_Acamfull
@@ -32,7 +33,7 @@ def sf_username=env.sf_username_Acamsfull
 			// need to pull out assigned username  force:source:deploy -x path/to/package.xml
 			if (isUnix()) {
                 sh 'ls -la'
-
+				sh "${Node}/npm install fast-xml-parser"
 				rmsg = sh returnStdout: true, script: "${toolbelt}/sfdx force:source:deploy --checkonly -u ${sf_username} -x manifest/package.xml"
 //sh "${toolbelt}/sfdx plugins:install @salesforce/sfdx-scanner"
          // sh "export SFDX_SCANNER_NO_PROMPT=true && ${toolbelt}/sfdx scanner:run --target force-app/main/default/classes/ACAMSAccountTriggerHandler.cls --json "
