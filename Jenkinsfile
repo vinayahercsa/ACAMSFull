@@ -2,7 +2,6 @@
 import groovy.json.JsonSlurperClassic
 node {
 
-    def parser = new fast_xml_parser_1.XMLParser();
 
     
          def toolbelt = tool 'sfdx'
