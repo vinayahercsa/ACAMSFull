@@ -33,11 +33,11 @@ def sf_username=env.sf_username_Acamsfull
 
 
 
-			   rmsg = sh returnStdout: true, script: "${toolbelt}/sfdx  force:source:deploy -x manifest/package.xml  -u ${sf_username}"
+			  // rmsg = sh returnStdout: true, script: "${toolbelt}/sfdx  force:source:deploy -x manifest/package.xml  -u ${sf_username}"
 
 
 			}else{
-			   rmsg = bat returnStdout: true, script: "${toolbelt}/sfdx  force:source:deploy -checkonly manifest/package.xml  -u ${sf_username}"
+			  // rmsg = bat returnStdout: true, script: "${toolbelt}/sfdx  force:source:deploy -checkonly manifest/package.xml  -u ${sf_username}"
 			}
 			   
     
