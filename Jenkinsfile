@@ -32,7 +32,6 @@ def sf_username=env.sf_username_Acamsfull
 			// need to pull out assigned username  force:source:deploy -x path/to/package.xml
 			if (isUnix()) {
                 sh 'ls -la'
-				 sh 'curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -'
                          sh 'sudo apt-get install -y nodejs'
 				sh 'npm install fast-xml-parser'
 
