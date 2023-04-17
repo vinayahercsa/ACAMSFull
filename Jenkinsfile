@@ -1,10 +1,10 @@
 #!groovy
 import groovy.json.JsonSlurperClassic
-import groovy.xml.StreamingMarkupBuilder
-import groovy.xml.XmlUtil
+import { XMLParser } from 'fast-xml-parser';
 node {
 
-    
+    def parser = new fast_xml_parser_1.XMLParser();
+
     
          def toolbelt = tool 'sfdx'
 
