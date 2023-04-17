@@ -6,8 +6,7 @@ node {
 
     
          def toolbelt = tool 'sfdx'
-	def Node=tool 'Node'
-	def xml=tool 'FastXml'
+	
 	
 
 
