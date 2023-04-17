@@ -421,7 +421,7 @@ public without sharing class ACAMSAccountTriggerHandler extends CCAviTriggerHand
 
     //csa fix: Removed inner for loop and made use of old map.
     public override void afterUpdate() {
-    
+    system.debug('testing deployement using new command');
             list<Account> accList = new list<Account>();
             if (!System.isBatch() && !System.isFuture()) {
                 if (!ExamResultHelper.isVUERecursiveCheckContact) {
