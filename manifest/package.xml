@@ -57,5 +57,5 @@
       <members>Exception_Logger__e</members>
 		<name>CustomObject</name>
 	</types>
-    <version>56.0</version>
+    <version>50.0</version>
 </Package>
