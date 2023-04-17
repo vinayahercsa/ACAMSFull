@@ -34,8 +34,8 @@ def sf_username=env.sf_username_Acamsfull
                 sh 'ls -la'
 
 				//rmsg = sh returnStdout: true, script: "${toolbelt}/sfdx force:source:deploy --checkonly -u ${sf_username} -x manifest/package.xml"
-sh "${toolbelt}/sfdx plugins:install @salesforce/sfdx-scanner"
-          sh "export SFDX_SCANNER_NO_PROMPT=true && ${toolbelt}/sfdx scanner:run --target force-app/main/default/classes/ACAMSAccountTriggerHandler.cls --json "
+//sh "${toolbelt}/sfdx plugins:install @salesforce/sfdx-scanner"
+         // sh "export SFDX_SCANNER_NO_PROMPT=true && ${toolbelt}/sfdx scanner:run --target force-app/main/default/classes/ACAMSAccountTriggerHandler.cls --json "
 				rmsg = sh returnStdout: true, script: "${toolbelt}/sfdx force:source:deploy --checkonly -x manifest/package.xml -u vinay.aher@cloudsynapps.com.rkonqa"
 
 
