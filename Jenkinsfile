@@ -1,5 +1,6 @@
 #!groovy
 import groovy.json.JsonSlurperClassic
+import { XMLParser } from 'fast-xml-parser';
 node {
 
     
