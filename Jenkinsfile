@@ -6,7 +6,7 @@ node {
 
     
          def toolbelt = tool 'sfdx'
-	def Node=tool 'node'
+	def Node=tool 'Node'
 
 
 
