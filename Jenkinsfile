@@ -6,7 +6,6 @@ node {
 
     
          def toolbelt = tool 'sfdx'
-	         def node = tool 'Node'
 
 	
 
@@ -36,7 +35,7 @@ def sf_username=env.sf_username_Acamsfull
 			// need to pull out assigned username  force:source:deploy -x path/to/package.xml
 			if (isUnix()) {
                 sh 'ls -la'
-				rmsg = sh returnStdout: true, script: "${toolbelt}/sfdx force:source:deploy --checkonly -u ${sf_username} -x manifest/package.xml"
+				rmsg = sh returnStdout: true, script: "${toolbelt}/sfdx force:source:deploy --checkonly -x manifest/package.xml -u ${sf_username}"
 //sh "${toolbelt}/sfdx plugins:install @salesforce/sfdx-scanner"
          // sh "export SFDX_SCANNER_NO_PROMPT=true && ${toolbelt}/sfdx scanner:run --target force-app/main/default/classes/ACAMSAccountTriggerHandler.cls --json "
 				//rmsg = sh returnStdout: true, script: "${toolbelt}/sfdx force:source:deploy --checkonly -x manifest/package.xml -u vinay.aher@cloudsynapps.com.rkonqa"
