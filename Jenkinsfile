@@ -6,6 +6,7 @@ node {
 
     
         def toolbelt = tool 'sfdx'
+	def node=tool 'NodeJS'
 
 
 
