@@ -5,8 +5,7 @@ node {
 
 
     
-//         def toolbelt = tool 'sfdx'
-         def toolbelt = tool 'Node'
+        def toolbelt = tool 'sfdx'
 
 
 
