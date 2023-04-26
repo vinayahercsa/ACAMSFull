@@ -20,7 +20,6 @@ def sf_username=env.sf_username_Acamsfull
   stage('checkout source') {
         // when running in multi-branch job, one must issue this command
         checkout scm
-	  sh 'npm install fast-xml-parser -g'
     }
 
     withCredentials([file(credentialsId: JWT_KEY_CRED_ID, variable: 'jwt_key_file')]) {
