@@ -37,14 +37,14 @@ def sf_username=env.sf_username_Acamsfull
 			// need to pull out assigned username  force:source:deploy -x path/to/package.xml
 			if (isUnix()) {
                 sh 'ls -la'
-				rmsg = sh returnStdout: true, script: "${toolbelt}/sf project deploy validate -x manifest/package.xml -o ${sf_username}"
+				rmsg = sh returnStdout: true, script: "${toolbelt}/sf project deploy validate --verbose -x manifest/package.xml  -o ${sf_username}"
 //sh "${toolbelt}/sfdx plugins:install @salesforce/sfdx-scanner"
          // sh "export SFDX_SCANNER_NO_PROMPT=true && ${toolbelt}/sfdx scanner:run --target force-app/main/default/classes/ACAMSAccountTriggerHandler.cls --json "
 				//rmsg = sh returnStdout: true, script: "${toolbelt}/sfdx force:source:deploy --checkonly -x manifest/package.xml -u vinay.aher@cloudsynapps.com.rkonqa"
 
 
 			}else{
-			   rmsg = bat returnStdout: true, script: "${toolbelt}/sf project deploy validate -x manifest/package.xml  -o ${sf_username}"
+			   rmsg = bat returnStdout: true, script: "${toolbelt}/sf project deploy validate --verbose -x manifest/package.xml  -o ${sf_username}"
 			}
        
     }
